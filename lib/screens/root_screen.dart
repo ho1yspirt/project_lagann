@@ -39,13 +39,13 @@ class _RootScreenState extends State<RootScreen> {
           items: [
             BottomNavigationBarItem(
                 activeIcon: const GradientIcon(
-                    icon: Ionicons.home, size: 28, gradient: kPrimaryGradient),
+                    icon: Ionicons.home, size: 27, gradient: kPrimaryGradient),
                 icon: const Icon(Ionicons.home_outline, size: 28),
                 label: S.of(context).bottom_navbar_home),
             BottomNavigationBarItem(
                 activeIcon: const GradientIcon(
                     icon: Ionicons.play_circle,
-                    size: 28,
+                    size: 27,
                     gradient: kPrimaryGradient),
                 icon: const Icon(Ionicons.play_circle_outline, size: 28),
                 label: S.of(context).bottom_navbar_pro_video),
@@ -57,14 +57,14 @@ class _RootScreenState extends State<RootScreen> {
             BottomNavigationBarItem(
                 activeIcon: const GradientIcon(
                     icon: Ionicons.trophy,
-                    size: 28,
+                    size: 27,
                     gradient: kPrimaryGradient),
                 icon: const Icon(Ionicons.trophy_outline, size: 28),
                 label: S.of(context).bottom_navbar_marathons),
             BottomNavigationBarItem(
                 activeIcon: const GradientIcon(
                     icon: Ionicons.person_circle,
-                    size: 28,
+                    size: 27,
                     gradient: kPrimaryGradient),
                 icon: const Icon(Ionicons.person_circle_outline, size: 28),
                 label: S.of(context).bottom_navbar_profile),
