@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   //   transitionDuration: Duration(milliseconds: 2000),
                   // ),
                   MaterialPageRoute(
-                    builder: (context) => MarathonsScreen(),
+                    builder: (context) => const MarathonsScreen(),
                   ),
                 );
               },
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FollowedScreen(),
+                    builder: (context) => const FollowedScreen(),
                   ),
                 );
               },
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => NotificationsScreen(),
+                    builder: (context) => const NotificationsScreen(),
                   ),
                 );
               },
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SearchScreen(),
+                      builder: (context) => const SearchScreen(),
                     ),
                   );
                 },
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NotificationsScreen(),
+                      builder: (context) => const NotificationsScreen(),
                     ),
                   );
                 },
@@ -193,30 +193,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                               IconButton(
                                                   iconSize: 32,
                                                   onPressed: () {},
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                       Ionicons.heart_outline)),
-                                              Text('500k'),
-                                              SizedBox(height: 8),
+                                              const Text('500k'),
+                                              const SizedBox(height: 8),
                                               IconButton(
                                                   iconSize: 32,
                                                   onPressed: () {},
-                                                  icon: Icon(Ionicons
+                                                  icon: const Icon(Ionicons
                                                       .chatbubble_outline)),
-                                              Text('12k'),
-                                              SizedBox(height: 8),
+                                              const Text('12k'),
+                                              const SizedBox(height: 8),
                                               IconButton(
                                                   iconSize: 32,
                                                   onPressed: () {},
-                                                  icon: Icon(Ionicons
+                                                  icon: const Icon(Ionicons
                                                       .bookmark_outline)),
-                                              SizedBox(height: 8),
-                                              Text('Save'),
+                                              const SizedBox(height: 8),
+                                              const Text('Save'),
                                               IconButton(
                                                   iconSize: 32,
                                                   onPressed: () {},
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                       Ionicons.share_outline)),
-                                              Text('Share'),
+                                              const Text('Share'),
                                             ],
                                           ),
                                         ],

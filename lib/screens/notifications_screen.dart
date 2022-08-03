@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/utils/constants.dart';
 
-// TODO: create localize
-// TODO: assign adaptive theme
-
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
 
@@ -18,13 +15,15 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).maybePop();
-            },
-            icon: Icon(Ionicons.arrow_back_outline)),
-        title: Text('Notifications'),
+          onPressed: () {
+            Navigator.of(context).maybePop();
+          },
+          icon: const Icon(Ionicons.arrow_back_outline),
+        ),
+        title: const Text('Notifications'),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Ionicons.create_outline))
+          IconButton(
+              onPressed: () {}, icon: const Icon(Ionicons.create_outline))
         ],
       ),
       body: ListView.builder(
@@ -34,19 +33,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: ListTile(
-                leading: CircleAvatar(
+                leading: const CircleAvatar(
                   backgroundImage: NetworkImage(
                       'https://cdn.discordapp.com/avatars/548904505471926292/ca366fbb3dcd6c81f9c1fc547679df3d.webp?size=100'),
                 ),
-                title: Text('title text'),
+                title: const Text('title text'),
                 subtitle: SizedBox(
                   width: 250,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('some subtitle action'),
+                      const Text('some subtitle action'),
                       kSeporatorDot,
-                      Text('5 hours ago'),
+                      const Text('5 hours ago'),
                     ],
                   ),
                 ),
