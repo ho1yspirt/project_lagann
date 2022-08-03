@@ -49,6 +49,27 @@ const TextStyle kChapterActiveTS = TextStyle(
   color: Color(0xFF1C202B),
 );
 
+const TextStyle kVideoInfoTS = TextStyle(
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+  letterSpacing: 0.25,
+  color: Color(0xFFD2D2D2),
+);
+
+const TextStyle kVideoTitleTS = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 16,
+  letterSpacing: 0.5,
+  color: Color(0xFFF2F2F2),
+);
+
+const TextStyle kSliverAppBarTS = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 20,
+  letterSpacing: 0.15,
+  color: Color.fromARGB(255, 255, 255, 255),
+);
+
 // pro video constants
 const EdgeInsetsGeometry kChapterPadding =
     EdgeInsets.only(left: 10, top: 10, right: 10);
@@ -56,7 +77,6 @@ Container kSeporatorLinePro = Container(
   alignment: Alignment.topCenter,
   height: 27,
   width: 2,
-  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
   decoration:
       BoxDecoration(color: kGreyColor, borderRadius: BorderRadius.circular(10)),
 );

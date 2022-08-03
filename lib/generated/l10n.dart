@@ -109,6 +109,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Share`
+  String get settings_message_share {
+    return Intl.message(
+      'Share',
+      name: 'settings_message_share',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
