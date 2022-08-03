@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      home: SafeArea(child: RootScreen()),
+      home: const RootScreen(),
     );
   }
 }

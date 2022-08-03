@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:project_lagann/controllers/search_controller.dart';
 
 // TODO: create localize
 // TODO: assign adaptive theme
@@ -21,11 +20,17 @@ class _SearchScreenState extends State<SearchScreen> {
             // TODO: implement method of searchcpntroller
             // onFieldSubmitted: (value) => searchController.(value),
             ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).maybePop();
+          },
+          icon: const Icon(Ionicons.arrow_back_outline),
+        ),
         actions: [
           TextButton(
             // TODO: implement method of searchcpntroller
             onPressed: () {},
-            child: Text('Search'),
+            child: const Text('Search'),
           ),
         ],
       ),
@@ -39,10 +44,10 @@ class _SearchScreenState extends State<SearchScreen> {
             onTap: (() {}),
             child: ListTile(
               onTap: () {},
-              leading: Icon(Ionicons.timer_outline),
-              title: Text('Searched items'),
+              leading: const Icon(Ionicons.timer_outline),
+              title: const Text('Searched items'),
               trailing: IconButton(
-                  onPressed: () {}, icon: Icon(Ionicons.close_outline)),
+                  onPressed: () {}, icon: const Icon(Ionicons.close_outline)),
             ),
           );
         },

@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("PRO Video"),
         "bottom_navbar_profile":
             MessageLookupByLibrary.simpleMessage("Profile"),
-        "example": MessageLookupByLibrary.simpleMessage("example text")
+        "example": MessageLookupByLibrary.simpleMessage("example text"),
+        "settings_message_share": MessageLookupByLibrary.simpleMessage("Share")
       };
 }
