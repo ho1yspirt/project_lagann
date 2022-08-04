@@ -119,6 +119,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Not interested`
+  String get settings_message_notinterested {
+    return Intl.message(
+      'Not interested',
+      name: 'settings_message_notinterested',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don’t recommend this user's video`
+  String get setteings_message_dont_recom {
+    return Intl.message(
+      'Don’t recommend this user\'s video',
+      name: 'setteings_message_dont_recom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report`
+  String get setteings_message_report {
+    return Intl.message(
+      'Report',
+      name: 'setteings_message_report',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get setteings_message_save {
+    return Intl.message(
+      'Save',
+      name: 'setteings_message_save',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

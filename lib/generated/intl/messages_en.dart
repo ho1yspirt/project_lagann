@@ -32,6 +32,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottom_navbar_profile":
             MessageLookupByLibrary.simpleMessage("Profile"),
         "example": MessageLookupByLibrary.simpleMessage("example text"),
+        "setteings_message_dont_recom": MessageLookupByLibrary.simpleMessage(
+            "Don’t recommend this user\'s video"),
+        "setteings_message_report":
+            MessageLookupByLibrary.simpleMessage("Report"),
+        "setteings_message_save": MessageLookupByLibrary.simpleMessage("Save"),
+        "settings_message_notinterested":
+            MessageLookupByLibrary.simpleMessage("Not interested"),
         "settings_message_share": MessageLookupByLibrary.simpleMessage("Share")
       };
 }

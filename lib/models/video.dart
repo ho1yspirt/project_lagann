@@ -5,6 +5,7 @@ class VideoModel {
   final UserModel author;
   final String title;
   final String thumbnailUrl;
+  final String videoUrl;
   final String duration;
   final DateTime timestamp;
   final String viewCount;
@@ -16,6 +17,7 @@ class VideoModel {
     required this.author,
     required this.title,
     required this.thumbnailUrl,
+    required this.videoUrl,
     required this.duration,
     required this.timestamp,
     required this.viewCount,
@@ -35,6 +37,7 @@ class VideoModel {
       author: data['author'],
       title: data['title'],
       thumbnailUrl: data['thumbnaiUrl'],
+      videoUrl: data['videoUrl'],
       duration: data['duration'],
       timestamp: data['timestamp'],
       viewCount: data['viewCount'],

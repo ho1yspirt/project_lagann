@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Container(
                                   margin: const EdgeInsets.only(
-                                      left: 16, bottom: 16),
+                                      left: 8, bottom: 16),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Container(
                                       margin: const EdgeInsets.only(
-                                          right: 16, bottom: 16),
+                                          right: 8, bottom: 16),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
