@@ -1,9 +1,8 @@
 {
-    "example": "example text",
-    "bottom_navbar_home": "Home",
-    "bottom_navbar_pro_video": "PRO Video",
-    "bottom_navbar_courses": "Courses",
-    "bottom_navbar_marathons": "Marathons",
-    "bottom_navbar_profile": "Profile",
+    "navbar_home": "Home",
+    "navbar_pro_video": "PROVideo",
+    "navbar_courses": "Courses",
+    "navbar_marathons": "Marathons",
+    "navbar_profile": "Profile",
     "settings_message_share": "Share"
 }

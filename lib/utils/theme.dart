@@ -11,7 +11,7 @@ ThemeData kBasicTheme() => ThemeData(
       // backgroundColor: kBackgroundColor,
       scaffoldBackgroundColor: kBackgroundColor,
 
-      colorScheme: ColorScheme(
+      colorScheme: const ColorScheme(
           brightness: Brightness.dark,
           primary: kPrimaryColor,
           onPrimary: kWhiteColor,
@@ -56,10 +56,7 @@ ThemeData kBasicTheme() => ThemeData(
       // snackbar
       // tab
       // text field
-      inputDecorationTheme: InputDecorationTheme(
-        labelStyle: TextStyle(color: kWhiteColor),
-        // enabledBorder: InputBorder(borderSide: BorderSide.none),
-      ),
+      inputDecorationTheme: InputDecorationTheme(),
       // tooltip
     );
 

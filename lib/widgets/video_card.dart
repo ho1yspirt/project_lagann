@@ -44,7 +44,7 @@ class _VideoCardState extends State<VideoCard> {
                     padding: const EdgeInsets.only(top: 24),
                     child: Text(
                       S.of(context).settings_message_share,
-                      style: kChapterDefaultTS,
+                      style: kBody1TS,
                     ),
                   ),
                 ],
@@ -69,7 +69,7 @@ class _VideoCardState extends State<VideoCard> {
                     padding: const EdgeInsets.only(top: 24),
                     child: Text(
                       S.of(context).settings_message_share,
-                      style: kChapterDefaultTS,
+                      style: kBody1TS,
                     ),
                   ),
                 ],
@@ -94,7 +94,7 @@ class _VideoCardState extends State<VideoCard> {
                     padding: const EdgeInsets.only(top: 24),
                     child: Text(
                       S.of(context).settings_message_share,
-                      style: kChapterDefaultTS,
+                      style: kBody1TS,
                     ),
                   ),
                 ],
@@ -119,7 +119,7 @@ class _VideoCardState extends State<VideoCard> {
                     padding: const EdgeInsets.only(top: 24),
                     child: Text(
                       S.of(context).settings_message_share,
-                      style: kChapterDefaultTS,
+                      style: kBody1TS,
                     ),
                   ),
                 ],
@@ -144,7 +144,7 @@ class _VideoCardState extends State<VideoCard> {
                     padding: const EdgeInsets.only(top: 24),
                     child: Text(
                       S.of(context).settings_message_share,
-                      style: kChapterDefaultTS,
+                      style: kBody1TS,
                     ),
                   ),
                 ],
@@ -196,7 +196,7 @@ class _VideoCardState extends State<VideoCard> {
                       padding: const EdgeInsets.symmetric(vertical: 9),
                       child: Text(
                         widget.videoModel.title,
-                        style: kVideoTitleTS,
+                        style: kSubtitle1,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -207,7 +207,7 @@ class _VideoCardState extends State<VideoCard> {
                       padding: const EdgeInsets.only(bottom: 12),
                       child: Text(
                         "${widget.videoModel.author.username} • ${widget.videoModel.viewCount} • ${timeago.format(widget.videoModel.timestamp)}",
-                        style: kVideoInfoTS,
+                        style: kBody2TS,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

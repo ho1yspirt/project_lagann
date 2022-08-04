@@ -4,6 +4,7 @@ import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/utils/constants.dart';
 import 'package:project_lagann/widgets/video_card.dart';
 
+import '../generated/l10n.dart';
 import '../widgets/widgets.dart';
 
 class ProVideoHomeScreen extends StatefulWidget {
@@ -87,7 +88,9 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          const SlivAppBar(),
+          SlivAppBar(
+            title: S.of(context).navbar_pro_video,
+          ),
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
@@ -102,8 +105,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[0]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -113,8 +116,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                         child: Text(
                           "Trending",
                           style: isCurrChapter[0]
-                              ? kChapterActiveTS
-                              : kChapterDefaultTS,
+                              ? kSubtitle1.copyWith(color: kSurfaceColor)
+                              : kBody1TS.copyWith(color: kWhiteColor),
                         ),
                       ),
                     ),
@@ -125,7 +128,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       padding:
                           const EdgeInsets.only(bottom: 3, right: 12, left: 12),
                       alignment: Alignment.bottomCenter,
-                      child: kSeporatorLinePro,
+                      child: kSeporatorLine,
                     ),
 
                     GestureDetector(
@@ -133,8 +136,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[1]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -144,8 +147,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                         child: Text(
                           "All",
                           style: isCurrChapter[1]
-                              ? kChapterActiveTS
-                              : kChapterDefaultTS,
+                              ? kSubtitle1.copyWith(color: kSurfaceColor)
+                              : kBody1TS.copyWith(color: kWhiteColor),
                         ),
                       ),
                     ),
@@ -154,8 +157,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[2]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -165,8 +168,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                         child: Text(
                           "Subscription",
                           style: isCurrChapter[2]
-                              ? kChapterActiveTS
-                              : kChapterDefaultTS,
+                              ? kSubtitle1.copyWith(color: kSurfaceColor)
+                              : kBody1TS.copyWith(color: kWhiteColor),
                         ),
                       ),
                     ),
@@ -175,8 +178,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[3]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -186,8 +189,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                         child: Text(
                           "Watched",
                           style: isCurrChapter[3]
-                              ? kChapterActiveTS
-                              : kChapterDefaultTS,
+                              ? kSubtitle1.copyWith(color: kSurfaceColor)
+                              : kBody1TS.copyWith(color: kWhiteColor),
                         ),
                       ),
                     ),

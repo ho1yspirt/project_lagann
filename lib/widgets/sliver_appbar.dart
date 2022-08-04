@@ -6,7 +6,12 @@ import '../screens/search_screen.dart';
 import '../utils/constants.dart';
 
 class SlivAppBar extends StatelessWidget {
-  const SlivAppBar({Key? key}) : super(key: key);
+  const SlivAppBar({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +19,11 @@ class SlivAppBar extends StatelessWidget {
       floating: true,
       leadingWidth: 120,
       backgroundColor: kBackgroundColor,
-      leading: const Padding(
+      leading: Padding(
         padding: EdgeInsets.only(left: 16, top: 18),
         child: Text(
-          "PROvideo",
-          style: kSliverAppBarTS,
+          title,
+          style: kHeadline4,
         ),
       ),
       actions: <Widget>[

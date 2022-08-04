@@ -50,61 +50,51 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `example text`
-  String get example {
-    return Intl.message(
-      'example text',
-      name: 'example',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Home`
-  String get bottom_navbar_home {
+  String get navbar_home {
     return Intl.message(
       'Home',
-      name: 'bottom_navbar_home',
+      name: 'navbar_home',
       desc: '',
       args: [],
     );
   }
 
-  /// `PRO Video`
-  String get bottom_navbar_pro_video {
+  /// `PROVideo`
+  String get navbar_pro_video {
     return Intl.message(
-      'PRO Video',
-      name: 'bottom_navbar_pro_video',
+      'PROVideo',
+      name: 'navbar_pro_video',
       desc: '',
       args: [],
     );
   }
 
   /// `Courses`
-  String get bottom_navbar_courses {
+  String get navbar_courses {
     return Intl.message(
       'Courses',
-      name: 'bottom_navbar_courses',
+      name: 'navbar_courses',
       desc: '',
       args: [],
     );
   }
 
   /// `Marathons`
-  String get bottom_navbar_marathons {
+  String get navbar_marathons {
     return Intl.message(
       'Marathons',
-      name: 'bottom_navbar_marathons',
+      name: 'navbar_marathons',
       desc: '',
       args: [],
     );
   }
 
   /// `Profile`
-  String get bottom_navbar_profile {
+  String get navbar_profile {
     return Intl.message(
       'Profile',
-      name: 'bottom_navbar_profile',
+      name: 'navbar_profile',
       desc: '',
       args: [],
     );
