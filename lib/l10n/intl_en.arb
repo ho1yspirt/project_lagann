@@ -5,5 +5,9 @@
     "bottom_navbar_courses": "Courses",
     "bottom_navbar_marathons": "Marathons",
     "bottom_navbar_profile": "Profile",
-    "settings_message_share": "Share"
+    "settings_message_share": "Share",
+    "settings_message_notinterested": "Not interested",
+    "setteings_message_dont_recom": "Don’t recommend this user's video",
+    "setteings_message_report": "Report",
+    "setteings_message_save": "Save"
 }

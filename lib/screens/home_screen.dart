@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Container(
                                   margin: const EdgeInsets.only(
-                                      left: 16, bottom: 16),
+                                      left: 8, bottom: 16),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -170,11 +170,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ],
                                   ),
                                 ),
-                                Column(
+                                Row(
                                   children: [
                                     Container(
-                                      margin: const EdgeInsets.only(
-                                          right: 16, bottom: 16),
+                                      margin: const EdgeInsets.only(bottom: 16),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
@@ -222,6 +221,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ],
                                       ),
                                     ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          380,
+                                    )
                                   ],
                                 )
                               ],
