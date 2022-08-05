@@ -222,7 +222,7 @@ class _VideoCardState extends State<VideoCard> {
               },
               icon: const Icon(
                 Icons.more_vert,
-                size: 26,
+                size: kIconSize6,
               ),
             ),
           ],

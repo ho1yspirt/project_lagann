@@ -19,8 +19,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentAppBarIndex = 2;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

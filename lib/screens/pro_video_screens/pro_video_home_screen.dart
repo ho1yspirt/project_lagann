@@ -4,8 +4,8 @@ import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/utils/constants.dart';
 import 'package:project_lagann/widgets/video_card.dart';
 
-import '../generated/l10n.dart';
-import '../widgets/widgets.dart';
+import '../../generated/l10n.dart';
+import '../../widgets/sliver_appbar.dart';
 
 class ProVideoHomeScreen extends StatefulWidget {
   const ProVideoHomeScreen({Key? key}) : super(key: key);

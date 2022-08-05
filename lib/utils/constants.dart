@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_lagann/proVideoScreens/proVideo_home_screen.dart';
-import 'package:project_lagann/screens/followed_screens.dart';
+import 'package:project_lagann/screens/pro_video_screens/pro_video_home_screen.dart';
 import 'package:project_lagann/screens/home_screen.dart';
-import 'package:project_lagann/screens/marathons_screen.dart';
 
 // pages
 const pages = [
@@ -80,14 +78,14 @@ const TextStyle kHeadline4 = TextStyle(
   letterSpacing: 0.15,
 );
 // project global icons size
-const int iconSize8 = 20;
-const int iconSize7 = 24;
-const int iconSize6 = 28;
-const int iconSize5 = 32;
-const int iconSize4 = 36;
-const int iconSize3 = 44;
-const int iconSize2 = 60;
-const int iconSize1 = 80;
+const double kIconSize8 = 20;
+const double kIconSize7 = 24;
+const double kIconSize6 = 28;
+const double kIconSize5 = 32;
+const double kIconSize4 = 36;
+const double kIconSize3 = 44;
+const double kIconSize2 = 60;
+const double kIconSize1 = 80;
 
 // pro video constants
 //pro video padding

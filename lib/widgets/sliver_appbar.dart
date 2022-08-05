@@ -38,7 +38,7 @@ class SlivAppBar extends StatelessWidget {
           },
           icon: const Icon(
             Ionicons.search,
-            size: 20,
+            size: kIconSize7,
           ),
         ),
         IconButton(
@@ -52,7 +52,7 @@ class SlivAppBar extends StatelessWidget {
           },
           icon: const Icon(
             Ionicons.notifications,
-            size: 20,
+            size: kIconSize7,
           ),
         ),
       ],
