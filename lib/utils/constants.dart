@@ -72,7 +72,7 @@ const TextStyle kSliverAppBarTS = TextStyle(
 
 // pro video constants
 const EdgeInsetsGeometry kChapterPadding =
-    EdgeInsets.only(left: 10, top: 10, right: 10);
+    EdgeInsets.only(left: 6, top: 10, right: 6);
 Container kSeporatorLinePro = Container(
   alignment: Alignment.topCenter,
   height: 27,
@@ -99,8 +99,8 @@ Container kSeporatorLine = Container(
 );
 
 Container kSeporatorDot = Container(
-  height: 4,
-  width: 4,
+  height: 6,
+  width: 6,
   margin: const EdgeInsets.only(left: 8, right: 8),
   decoration: const BoxDecoration(color: kGreyColor, shape: BoxShape.circle),
 );

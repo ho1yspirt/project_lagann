@@ -79,7 +79,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       thumbnailUrl: 'https://i.ytimg.com/vi/ilX5hnH8XoI/0.jpg',
       videoUrl: "https://youtu.be/2XOciSjxocI",
       duration: '10:53',
-      timestamp: DateTime(2020, 7, 12),
+      timestamp: DateTime(2022, 8, 7),
       viewCount: '18K',
       likes: '1k',
       dislikes: '4',
