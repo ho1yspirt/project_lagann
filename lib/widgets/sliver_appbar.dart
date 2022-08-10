@@ -14,11 +14,14 @@ class SlivAppBar extends StatelessWidget {
       floating: true,
       leadingWidth: 120,
       backgroundColor: kBackgroundColor,
-      leading: const Padding(
-        padding: EdgeInsets.only(left: 16, top: 18),
-        child: Text(
-          "PROvideo",
-          style: kSliverAppBarTS,
+      leading: SizedBox(
+        width: MediaQuery.of(context).size.width / 2,
+        child: const Padding(
+          padding: EdgeInsets.only(left: 10, top: 18),
+          child: Text(
+            "PROvideo",
+            style: kSliverAppBarTS,
+          ),
         ),
       ),
       actions: <Widget>[
