@@ -70,6 +70,13 @@ const TextStyle kSliverAppBarTS = TextStyle(
   color: Color.fromARGB(255, 255, 255, 255),
 );
 
+const TextStyle kTenSecondsTS = TextStyle(
+  fontWeight: FontWeight.w400,
+  fontSize: 12,
+  letterSpacing: 0.4,
+  color: kWhiteColor,
+);
+
 // pro video constants
 const EdgeInsetsGeometry kChapterPadding =
     EdgeInsets.only(left: 6, top: 10, right: 6);
