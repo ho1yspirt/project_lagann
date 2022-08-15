@@ -46,6 +46,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       viewCount: "8K",
       likes: "4775",
       dislikes: "177",
+      commentsCount: "250",
     ),
     VideoModel(
       id: 'x606y4QWrxo',
@@ -58,6 +59,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       viewCount: '10K',
       likes: '958',
       dislikes: '4',
+      commentsCount: "250",
     ),
     VideoModel(
       id: 'vrPk6LB9bjo',
@@ -71,6 +73,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       viewCount: '8K',
       likes: '485',
       dislikes: '8',
+      commentsCount: "250",
     ),
     VideoModel(
       id: 'ilX5hnH8XoI',
@@ -83,6 +86,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       viewCount: '18K',
       likes: '1k',
       dislikes: '4',
+      commentsCount: "250",
     ),
   ];
 

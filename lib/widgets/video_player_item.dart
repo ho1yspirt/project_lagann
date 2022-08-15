@@ -20,6 +20,13 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     initVideoPlayer();
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    _videoPlayerController.dispose();
+    _chewieController!.dispose();
+  }
+
   void enterFullScr() {
     _chewieController!.enterFullScreen();
   }
@@ -46,17 +53,14 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
-        child: _chewieController != null
-            ? Chewie(controller: _chewieController!)
-            : const Center(
-                child: CircularProgressIndicator(),
-              ),
-      ),
+    return SizedBox(
+      height: double.infinity,
+      width: double.infinity,
+      child: _chewieController != null
+          ? Chewie(controller: _chewieController!)
+          : const Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }

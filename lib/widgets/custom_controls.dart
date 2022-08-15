@@ -1,4 +1,3 @@
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
@@ -22,13 +21,15 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isPlay = true;
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
+  bool _isVisibleAll = true;
+
   final Duration _skipDuration = const Duration(milliseconds: 400);
 
   late AnimationController _animationController;
   @override
   void initState() {
     super.initState();
-
+    // setVisibleAfter();
     _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
   }
@@ -92,6 +93,21 @@ class _CustomConstrolsState extends State<CustomConstrols>
     });
   }
 
+  // void setVisibleAfter() async {
+  //   if (_isVisibleAll && !_isDispose) {
+  //     await Future.delayed(const Duration(seconds: 5));
+  //     setState(() {
+  //       _isVisibleAll = false;
+  //     });
+  //   }
+  // }
+
+  void setVisible() {
+    setState(() {
+      _isVisibleAll = !_isVisibleAll;
+    });
+  }
+
   Future<void> goToPossition(
       Duration Function(Duration currentPosition) builder) async {
     final currentPosition = await widget.videoPlayerController!.position;
@@ -102,140 +118,147 @@ class _CustomConstrolsState extends State<CustomConstrols>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: double.infinity,
-      child: Center(
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    onDoubleTap: () {
-                      rewind10Seconds();
-                    },
-                  ),
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        AnimatedOpacity(
+          opacity: _isVisibleAll ? 1.0 : 0.0,
+          duration: const Duration(milliseconds: 500),
+          child: Stack(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => setVisible(),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 15),
-                  child: _isVisibleLeft
-                      ? IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Ionicons.play_skip_back,
-                            size: 34,
-                          ),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.only(top: 15),
-                                  child: Icon(
-                                    Ionicons.play_back,
-                                    size: 34,
-                                  ),
-                                ),
-                                Text(
-                                  "10 sec",
-                                  style: kTenSecondsTS,
-                                ),
-                              ]),
-                        ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: GestureDetector(
-                    onTap: () => onTapPause(),
-                    child: AnimatedIcon(
-                      icon: AnimatedIcons.pause_play,
-                      progress: _animationController,
-                      size: 50,
-                      color: kWhiteColor,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      onDoubleTap: () {
+                        rewind10Seconds();
+                      },
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: _isVisibleRight
-                      ? IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Ionicons.play_skip_forward,
-                            size: 34,
-                          ),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.only(top: 15),
-                                  child: Icon(
-                                    Ionicons.play_forward,
-                                    size: 34,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: _isVisibleLeft
+                        ? IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Ionicons.play_skip_back,
+                              size: 34,
+                            ),
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 15),
+                                    child: Icon(
+                                      Ionicons.play_back,
+                                      size: 34,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  "10 sec",
-                                  style: kTenSecondsTS,
-                                ),
-                              ]),
-                        ),
+                                  Text(
+                                    "10 sec",
+                                    style: kTenSecondsTS,
+                                  ),
+                                ]),
+                          ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: GestureDetector(
+                      onTap: () => onTapPause(),
+                      child: AnimatedIcon(
+                        icon: AnimatedIcons.pause_play,
+                        progress: _animationController,
+                        size: 50,
+                        color: kWhiteColor,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: _isVisibleRight
+                        ? IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Ionicons.play_skip_forward,
+                              size: 34,
+                            ),
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 15),
+                                    child: Icon(
+                                      Ionicons.play_forward,
+                                      size: 34,
+                                    ),
+                                  ),
+                                  Text(
+                                    "10 sec",
+                                    style: kTenSecondsTS,
+                                  ),
+                                ]),
+                          ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: GestureDetector(
+                      onDoubleTap: forward10Seconds,
+                    ),
+                  ),
+                ],
+              ),
+              Positioned(
+                left: 10,
+                bottom: 10,
+                child: ValueListenableBuilder(
+                  valueListenable: widget.videoPlayerController!,
+                  builder: (context, VideoPlayerValue value, child) {
+                    var currentTimeFormat = formatTime(value.position);
+                    var totalTimeFormat = formatTime(value.duration);
+                    return Text("$currentTimeFormat / $totalTimeFormat");
+                  },
                 ),
-                Expanded(
-                  flex: 1,
-                  child: GestureDetector(
-                    onDoubleTap: forward10Seconds,
+              ),
+              Positioned(
+                right: 12.5,
+                bottom: 15,
+                child: GestureDetector(
+                  onTap: () {
+                    widget.enterFullScreen();
+                  },
+                  child: const Icon(
+                    Ionicons.expand,
+                    size: 20,
                   ),
                 ),
-              ],
-            ),
-            Positioned(
-              left: 10,
-              bottom: 20,
-              child: ValueListenableBuilder(
-                valueListenable: widget.videoPlayerController!,
-                builder: (context, VideoPlayerValue value, child) {
-                  var currentTimeFormat = formatTime(value.position);
-                  var totalTimeFormat = formatTime(value.duration);
-                  return Text("$currentTimeFormat / $totalTimeFormat");
-                },
               ),
-            ),
-            Positioned(
-              right: 10,
-              bottom: 25,
-              child: GestureDetector(
-                onTap: () {
-                  widget.enterFullScreen();
-                },
-                child: const Icon(
-                  Ionicons.expand,
-                  size: 16,
-                ),
-              ),
-            ),
-            VideoProgressIndicator(
-              widget.videoPlayerController!,
-              allowScrubbing: true,
-              padding: const EdgeInsets.symmetric(vertical: 13),
-              colors: VideoProgressColors(
-                backgroundColor: const Color(0xFFF2F2F2).withOpacity(0.8),
-                bufferedColor: kChapterActiveColor,
-                playedColor: kPrimaryColor,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+        VideoProgressIndicator(
+          widget.videoPlayerController!,
+          allowScrubbing: true,
+          // padding: EdgeInsets.only(bottom: 14),
+          colors: VideoProgressColors(
+            backgroundColor: const Color(0xFFF2F2F2).withOpacity(0.8),
+            bufferedColor: kChapterActiveColor,
+            playedColor: kPrimaryColor,
+          ),
+        ),
+      ],
     );
   }
 }
