@@ -22,6 +22,18 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
+  String currentSpeed = "1.0";
+
+  List<DropdownMenuItem<String>> settingItems = [
+    const DropdownMenuItem(value: "1.0", child: Text("Normal")),
+    const DropdownMenuItem(value: "2.0", child: Text("2.0x")),
+    const DropdownMenuItem(value: "1.75", child: Text("1.75x")),
+    const DropdownMenuItem(value: "1.5", child: Text("1.5x")),
+    const DropdownMenuItem(value: "1.25", child: Text("1.25x")),
+    const DropdownMenuItem(value: "0.75", child: Text("0.75x")),
+    const DropdownMenuItem(value: "0.5", child: Text("0.5x")),
+    const DropdownMenuItem(value: "0.25", child: Text("0.25x")),
+  ];
 
   final Duration _skipDuration = const Duration(milliseconds: 400);
 
@@ -38,6 +50,86 @@ class _CustomConstrolsState extends State<CustomConstrols>
   void dispose() {
     super.dispose();
     _animationController.dispose();
+  }
+
+  void onTapSettings(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => Dialog(
+        backgroundColor: kBackgroundColor,
+        child: Container(
+          height: 120,
+          child: Stack(alignment: Alignment.topCenter, children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, right: 5),
+                    child: Icon(
+                      Ionicons.timer_outline,
+                      size: 30,
+                    ),
+                  ),
+                  const Text(
+                    "Video speed",
+                    style: kVideoTitleTS,
+                  ),
+                  //const Padding(
+                  //   padding: EdgeInsets.only(left: 50),
+                  //   child: Text(
+                  //     "Normal",
+                  //     style: kVideoTitleTS,
+                  //   ),
+                  // ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 50),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        dropdownColor: kBackgroundColor,
+                        icon: const Icon(
+                          Ionicons.chevron_down,
+                          color: kWhiteColor,
+                        ),
+                        style: kVideoTitleTS,
+                        items: settingItems,
+                        value: currentSpeed,
+                        onChanged: (String? newSpeed) {
+                          widget.videoPlayerController!
+                              .setPlaybackSpeed(double.parse(newSpeed!));
+                          setState(() {
+                            currentSpeed = newSpeed;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              bottom: 15,
+              left: 0,
+              child: Row(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(left: 10, right: 5),
+                    child: Icon(
+                      Ionicons.help,
+                      size: 30,
+                    ),
+                  ),
+                  Text(
+                    "Help and feedback",
+                    style: kVideoTitleTS,
+                  ),
+                ],
+              ),
+            ),
+          ]),
+        ),
+      ),
+    );
   }
 
   String formatTime(Duration value) {
@@ -219,6 +311,14 @@ class _CustomConstrolsState extends State<CustomConstrols>
                     ),
                   ),
                 ],
+              ),
+              Positioned(
+                top: 5,
+                right: 8.5,
+                child: IconButton(
+                  onPressed: () => onTapSettings(context),
+                  icon: const Icon(Ionicons.settings_outline),
+                ),
               ),
               Positioned(
                 left: 10,

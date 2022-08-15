@@ -187,7 +187,7 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.only(bottom: 20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
