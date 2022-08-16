@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_lagann/models/video.dart';
+import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
-import 'package:project_lagann/widgets/settings_elements.dart';
 import 'package:timeago/timeago.dart' as timeago;
+
+import '../widgets/widgets.dart';
 
 class VideoCard extends StatefulWidget {
   final VideoModel videoModel;
@@ -27,15 +29,26 @@ class _VideoCardState extends State<VideoCard> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(5),
-            child: Image.network(
-              widget.videoModel.thumbnailUrl,
-              height: 206,
-              width: double.infinity,
-              fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => VideoScreen(
+                  videoModel: widget.videoModel,
+                ),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: Image.network(
+                widget.videoModel.thumbnailUrl,
+                height: 206,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -75,7 +88,10 @@ class _VideoCardState extends State<VideoCard> {
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 12),
                       child: Text(
-                        "${widget.videoModel.author.username} • ${widget.videoModel.viewCount} • ${timeago.format(widget.videoModel.timestamp)}",
+                        "${widget.videoModel.author.username} • ${widget.videoModel.viewCount} • ${timeago.format(
+                          widget.videoModel.timestamp,
+                          allowFromNow: true,
+                        )}",
                         style: kVideoInfoTS,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,

@@ -1,40 +1,67 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../widgets/widgets.dart';
+
 class VideoPlayerItem extends StatefulWidget {
-  final String videoUrl;
-  const VideoPlayerItem({Key? key, required this.videoUrl}) : super(key: key);
+  const VideoPlayerItem({Key? key}) : super(key: key);
 
   @override
   State<VideoPlayerItem> createState() => _VideoPlayerItemState();
 }
 
 class _VideoPlayerItemState extends State<VideoPlayerItem> {
-  late VideoPlayerController videoPlayerController;
+  late VideoPlayerController _videoPlayerController;
+  ChewieController? _chewieController;
+
   @override
   void initState() {
     super.initState();
-    videoPlayerController = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then(
-        (value) =>
-            {videoPlayerController.play(), videoPlayerController.setVolume(1)},
-      );
+    initVideoPlayer();
   }
 
   @override
   void dispose() {
     super.dispose();
-    videoPlayerController.dispose();
+    _videoPlayerController.dispose();
+    _chewieController!.dispose();
+  }
+
+  void enterFullScr() {
+    _chewieController!.enterFullScreen();
+  }
+
+  void initVideoPlayer() async {
+    _videoPlayerController = VideoPlayerController.network(
+        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
+    await _videoPlayerController.initialize();
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      autoPlay: true,
+      autoInitialize: true,
+      allowedScreenSleep: true,
+      allowFullScreen: true,
+      allowMuting: false,
+      showControls: true,
+      customControls: CustomConstrols(
+        enterFullScr,
+        videoPlayerController: _videoPlayerController,
+      ),
+    );
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width,
-      height: size.height,
-      decoration: const BoxDecoration(color: Colors.black),
-      child: VideoPlayer(videoPlayerController),
+    return SizedBox(
+      height: double.infinity,
+      width: double.infinity,
+      child: _chewieController != null
+          ? Chewie(controller: _chewieController!)
+          : const Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }

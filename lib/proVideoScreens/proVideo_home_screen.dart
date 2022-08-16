@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/utils/constants.dart';
-import 'package:project_lagann/widgets/video_card.dart';
 
 import '../widgets/widgets.dart';
 
@@ -46,6 +45,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       viewCount: "8K",
       likes: "4775",
       dislikes: "177",
+      commentsCount: "250",
     ),
     VideoModel(
       id: 'x606y4QWrxo',
@@ -58,6 +58,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       viewCount: '10K',
       likes: '958',
       dislikes: '4',
+      commentsCount: "250",
     ),
     VideoModel(
       id: 'vrPk6LB9bjo',
@@ -71,6 +72,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       viewCount: '8K',
       likes: '485',
       dislikes: '8',
+      commentsCount: "250",
     ),
     VideoModel(
       id: 'ilX5hnH8XoI',
@@ -79,10 +81,11 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       thumbnailUrl: 'https://i.ytimg.com/vi/ilX5hnH8XoI/0.jpg',
       videoUrl: "https://youtu.be/2XOciSjxocI",
       duration: '10:53',
-      timestamp: DateTime(2020, 7, 12),
+      timestamp: DateTime(2022, 8, 7),
       viewCount: '18K',
       likes: '1k',
       dislikes: '4',
+      commentsCount: "250",
     ),
   ];
 
