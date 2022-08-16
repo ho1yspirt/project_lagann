@@ -1,7 +1,8 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-import 'package:project_lagann/widgets/custom_controls.dart';
 import 'package:video_player/video_player.dart';
+
+import '../widgets/widgets.dart';
 
 class VideoPlayerItem extends StatefulWidget {
   const VideoPlayerItem({Key? key}) : super(key: key);

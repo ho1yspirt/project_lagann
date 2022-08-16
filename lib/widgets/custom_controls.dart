@@ -62,8 +62,9 @@ class _CustomConstrolsState extends State<CustomConstrols>
       context: context,
       builder: (BuildContext context) => Dialog(
         backgroundColor: kBackgroundColor,
-        child: Container(
+        child: SizedBox(
           height: 120,
+          width: 412,
           child: Stack(alignment: Alignment.topCenter, children: [
             Padding(
               padding: const EdgeInsets.only(top: 15),
