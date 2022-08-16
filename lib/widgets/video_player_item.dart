@@ -35,7 +35,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
   void initVideoPlayer() async {
     _videoPlayerController = VideoPlayerController.network(
         "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
-    await _videoPlayerController.initialize();
+    await _videoPlayerController.initialize().then((value) => setState(() {}));
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       autoPlay: true,
@@ -57,7 +57,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     return SizedBox(
       height: double.infinity,
       width: double.infinity,
-      child: _chewieController != null
+      child: _videoPlayerController.value.isInitialized
           ? Chewie(controller: _chewieController!)
           : const Center(
               child: CircularProgressIndicator(),
