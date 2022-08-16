@@ -1,7 +1,10 @@
+import 'package:auto_orientation/auto_orientation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:video_player/video_player.dart';
+import 'package:wakelock/wakelock.dart';
 
 import '../utils/constants.dart';
 
@@ -22,6 +25,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
+  bool _isFullScreen = true;
   String currentSpeed = "1.0";
 
   List<DropdownMenuItem<String>> settingItems = [
@@ -47,9 +51,10 @@ class _CustomConstrolsState extends State<CustomConstrols>
   }
 
   @override
-  void dispose() {
+  void dispose() async {
     super.dispose();
     _animationController.dispose();
+    await Wakelock.disable();
   }
 
   void onTapSettings(BuildContext context) {
@@ -336,8 +341,18 @@ class _CustomConstrolsState extends State<CustomConstrols>
                 right: 12.5,
                 bottom: 15,
                 child: GestureDetector(
-                  onTap: () {
-                    widget.enterFullScreen();
+                  onTap: () async {
+                    if (MediaQuery.of(context).orientation ==
+                        Orientation.portrait) {
+                      AutoOrientation.landscapeRightMode();
+                      widget.enterFullScreen();
+                    } else if (MediaQuery.of(context).orientation !=
+                        Orientation.portrait) {
+                      widget.enterFullScreen();
+                      AutoOrientation.portraitUpMode();
+                    }
+
+                    await Wakelock.enable();
                   },
                   child: const Icon(
                     Ionicons.expand,
