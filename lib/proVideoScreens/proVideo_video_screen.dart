@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_lagann/widgets/under_video_widgets.dart';
-import 'package:project_lagann/widgets/video_card.dart';
-import 'package:project_lagann/widgets/video_player_item.dart';
+import '../widgets/widgets.dart';
 
 import '../models/video.dart';
 

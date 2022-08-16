@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/utils/constants.dart';
-import 'package:project_lagann/widgets/video_card.dart';
 
 import '../widgets/widgets.dart';
 
