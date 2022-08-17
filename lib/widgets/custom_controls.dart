@@ -370,7 +370,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
           // padding: EdgeInsets.only(bottom: 14),
           colors: VideoProgressColors(
             backgroundColor: const Color(0xFFF2F2F2).withOpacity(0.8),
-            bufferedColor: kChapterActiveColor,
+            bufferedColor: kWhiteColor,
             playedColor: kPrimaryColor,
           ),
         ),
