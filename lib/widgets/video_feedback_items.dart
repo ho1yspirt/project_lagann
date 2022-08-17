@@ -83,7 +83,7 @@ class _VideoFeedbackState extends State<VideoFeedback> {
                   Ionicons.share_outline,
                 )),
             Text(
-              S.of(context).settings_message_share,
+              S.of(context).action_share,
               style: kTenSecondsTS,
             ),
           ],
@@ -108,7 +108,7 @@ class _VideoFeedbackState extends State<VideoFeedback> {
                     ),
             ),
             Text(
-              S.of(context).setteings_message_save,
+              S.of(context).action_save,
               style: kTenSecondsTS,
             ),
           ],
@@ -124,7 +124,7 @@ class _VideoFeedbackState extends State<VideoFeedback> {
               ),
             ),
             Text(
-              S.of(context).setteings_message_report,
+              S.of(context).action_report,
               style: kTenSecondsTS,
             ),
           ],
