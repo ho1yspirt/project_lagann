@@ -40,31 +40,31 @@ class _RootScreenState extends State<RootScreen> {
               activeIcon: const GradientIcon(
                   icon: Ionicons.home, size: 27, gradient: kPrimaryGradient),
               icon: const Icon(Ionicons.home_outline, size: 28),
-              label: S.of(context).bottom_navbar_home),
+              label: S.of(context).navbar_home),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
                   icon: Ionicons.play_circle,
                   size: 27,
                   gradient: kPrimaryGradient),
               icon: const Icon(Ionicons.play_circle_outline, size: 28),
-              label: S.of(context).bottom_navbar_pro_video),
+              label: S.of(context).navbar_pro_video),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
                   icon: Ionicons.book, size: 27, gradient: kPrimaryGradient),
               icon: const Icon(Ionicons.book_outline, size: 28),
-              label: S.of(context).bottom_navbar_courses),
+              label: S.of(context).navbar_courses),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
                   icon: Ionicons.trophy, size: 27, gradient: kPrimaryGradient),
               icon: const Icon(Ionicons.trophy_outline, size: 28),
-              label: S.of(context).bottom_navbar_marathons),
+              label: S.of(context).navbar_marathons),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
                   icon: Ionicons.person_circle,
                   size: 27,
                   gradient: kPrimaryGradient),
               icon: const Icon(Ionicons.person_circle_outline, size: 28),
-              label: S.of(context).bottom_navbar_profile),
+              label: S.of(context).navbar_profile),
         ],
       ),
     );
