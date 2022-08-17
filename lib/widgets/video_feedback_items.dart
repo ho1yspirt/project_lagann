@@ -29,9 +29,17 @@ class _VideoFeedbackState extends State<VideoFeedback> {
             IconButton(
               padding: const EdgeInsets.all(0),
               onPressed: () {
-                setState(() {
-                  _isLiked = !_isLiked;
-                });
+                if (_isDisLiked) {
+                  setState(() {
+                    _isLiked = !_isLiked;
+                    _isDisLiked = false;
+                    print(_isLiked);
+                  });
+                } else {
+                  setState(() {
+                    _isLiked = !_isLiked;
+                  });
+                }
               },
               icon: _isLiked
                   ? const Icon(
@@ -54,9 +62,16 @@ class _VideoFeedbackState extends State<VideoFeedback> {
             IconButton(
               padding: const EdgeInsets.all(0),
               onPressed: () {
-                setState(() {
-                  _isDisLiked = !_isDisLiked;
-                });
+                if (_isLiked) {
+                  setState(() {
+                    _isDisLiked = true;
+                    _isLiked = false;
+                  });
+                } else {
+                  setState(() {
+                    _isDisLiked = !_isDisLiked;
+                  });
+                }
               },
               icon: _isDisLiked
                   ? const Icon(
