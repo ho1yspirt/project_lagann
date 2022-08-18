@@ -1,8 +1,9 @@
-import 'package:auto_orientation/auto_orientation.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/widgets/video_progress_indicator.dart';
 import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';
 
@@ -25,6 +26,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
+
   String currentSpeed = "1.0";
 
   List<DropdownMenuItem<String>> settingItems = [
@@ -150,7 +152,6 @@ class _CustomConstrolsState extends State<CustomConstrols>
     } else {
       elementString = "${split[0]}:${split[2]}:${split[2]}";
     }
-
     return elementString;
   }
 
@@ -342,17 +343,17 @@ class _CustomConstrolsState extends State<CustomConstrols>
               ),
               Positioned(
                 right: 12.5,
-                bottom: 15,
+                bottom: 14,
                 child: GestureDetector(
                   onTap: () async {
                     if (MediaQuery.of(context).orientation ==
                         Orientation.portrait) {
-                      AutoOrientation.landscapeRightMode();
+                      // AutoOrientation.landscapeAutoMode();
                       widget.enterFullScreen();
-                    } else if (MediaQuery.of(context).orientation !=
-                        Orientation.portrait) {
+                    } else if (MediaQuery.of(context).orientation ==
+                        Orientation.landscape) {
+                      // AutoOrientation.portraitUpMode();
                       widget.enterFullScreen();
-                      AutoOrientation.portraitUpMode();
                     }
 
                     await Wakelock.enable();
@@ -366,14 +367,19 @@ class _CustomConstrolsState extends State<CustomConstrols>
             ],
           ),
         ),
-        VideoProgressIndicator(
-          widget.videoPlayerController!,
-          allowScrubbing: true,
-          // padding: EdgeInsets.only(bottom: 14),
-          colors: VideoProgressColors(
-            backgroundColor: const Color(0xFFF2F2F2).withOpacity(0.8),
-            bufferedColor: kWhiteColor,
-            playedColor: kPrimaryColor,
+        Positioned(
+          bottom: -2.4,
+          child: VideoProgressBar(
+            widget.videoPlayerController!,
+            barHeight: 5,
+            handleHeight: 6,
+            drawShadow: true,
+            colors: ChewieProgressColors(
+              playedColor: kPrimaryColor,
+              bufferedColor: kWhiteColor,
+              backgroundColor: const Color(0xFFF2F2F2).withOpacity(0.8),
+              handleColor: kPrimaryColor,
+            ),
           ),
         ),
       ],

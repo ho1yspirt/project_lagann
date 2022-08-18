@@ -14,6 +14,7 @@ class VideoPlayerItem extends StatefulWidget {
 class _VideoPlayerItemState extends State<VideoPlayerItem> {
   late VideoPlayerController _videoPlayerController;
   ChewieController? _chewieController;
+  bool _isFullScreen = false;
 
   @override
   void initState() {
@@ -35,7 +36,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
   void initVideoPlayer() async {
     _videoPlayerController = VideoPlayerController.network(
         "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
-    await _videoPlayerController.initialize().then((value) => setState(() {}));
+    await _videoPlayerController.initialize();
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       autoPlay: true,

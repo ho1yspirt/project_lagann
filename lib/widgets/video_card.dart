@@ -65,7 +65,7 @@ class _VideoCardState extends State<VideoCard> {
               child: CircleAvatar(
                 foregroundImage:
                     NetworkImage(widget.videoModel.author.profileImageUrl),
-                radius: 25,
+                radius: 22,
               ),
             ),
             Expanded(
