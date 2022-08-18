@@ -25,15 +25,14 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
-  bool _isFullScreen = true;
   String currentSpeed = "1.0";
 
   List<DropdownMenuItem<String>> settingItems = [
-    const DropdownMenuItem(value: "1.0", child: Text("Normal")),
     const DropdownMenuItem(value: "2.0", child: Text("2.0x")),
     const DropdownMenuItem(value: "1.75", child: Text("1.75x")),
     const DropdownMenuItem(value: "1.5", child: Text("1.5x")),
     const DropdownMenuItem(value: "1.25", child: Text("1.25x")),
+    const DropdownMenuItem(value: "1.0", child: Text("Normal")),
     const DropdownMenuItem(value: "0.75", child: Text("0.75x")),
     const DropdownMenuItem(value: "0.5", child: Text("0.5x")),
     const DropdownMenuItem(value: "0.25", child: Text("0.25x")),
@@ -93,6 +92,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
                         dropdownColor: kBackgroundColor,
+                        enableFeedback: true,
                         icon: const Icon(
                           Ionicons.chevron_down,
                           color: kWhiteColor,
@@ -224,7 +224,9 @@ class _CustomConstrolsState extends State<CustomConstrols>
           duration: const Duration(milliseconds: 500),
           child: Stack(
             children: [
-              Expanded(
+              SizedBox(
+                width: double.infinity,
+                height: double.infinity,
                 child: GestureDetector(
                   onTap: () => setVisible(),
                 ),
