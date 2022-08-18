@@ -22,23 +22,21 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "bottom_navbar_courses":
-            MessageLookupByLibrary.simpleMessage("Courses"),
-        "bottom_navbar_home": MessageLookupByLibrary.simpleMessage("Home"),
-        "bottom_navbar_marathons":
-            MessageLookupByLibrary.simpleMessage("Marathons"),
-        "bottom_navbar_pro_video":
-            MessageLookupByLibrary.simpleMessage("PRO Video"),
-        "bottom_navbar_profile":
-            MessageLookupByLibrary.simpleMessage("Profile"),
-        "example": MessageLookupByLibrary.simpleMessage("example text"),
-        "setteings_message_dont_recom": MessageLookupByLibrary.simpleMessage(
-            "Don’t recommend this user\'s video"),
-        "setteings_message_report":
-            MessageLookupByLibrary.simpleMessage("Report"),
-        "setteings_message_save": MessageLookupByLibrary.simpleMessage("Save"),
-        "settings_message_notinterested":
+        "action_notinterested":
             MessageLookupByLibrary.simpleMessage("Not interested"),
-        "settings_message_share": MessageLookupByLibrary.simpleMessage("Share")
+        "action_report": MessageLookupByLibrary.simpleMessage("Report"),
+        "action_save": MessageLookupByLibrary.simpleMessage("Save"),
+        "action_share": MessageLookupByLibrary.simpleMessage("Share"),
+        "example": MessageLookupByLibrary.simpleMessage("example text"),
+        "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),
+        "home_screen_followed":
+            MessageLookupByLibrary.simpleMessage("Followed"),
+        "navbar_courses": MessageLookupByLibrary.simpleMessage("Courses"),
+        "navbar_home": MessageLookupByLibrary.simpleMessage("Home"),
+        "navbar_marathons": MessageLookupByLibrary.simpleMessage("Marathons"),
+        "navbar_pro_video": MessageLookupByLibrary.simpleMessage("PRO Video"),
+        "navbar_profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "setteings_message_dont_recom": MessageLookupByLibrary.simpleMessage(
+            "Don’t recommend this user\'s video")
       };
 }

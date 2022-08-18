@@ -1,13 +1,15 @@
 {
     "example": "example text",
-    "bottom_navbar_home": "Home",
-    "bottom_navbar_pro_video": "PRO Video",
-    "bottom_navbar_courses": "Courses",
-    "bottom_navbar_marathons": "Marathons",
-    "bottom_navbar_profile": "Profile",
-    "settings_message_share": "Share",
-    "settings_message_notinterested": "Not interested",
+    "navbar_home": "Home",
+    "navbar_pro_video": "PRO Video",
+    "navbar_courses": "Courses",
+    "navbar_marathons": "Marathons",
+    "navbar_profile": "Profile",
+    "action_share": "Share",
+    "action_notinterested": "Not interested",
     "setteings_message_dont_recom": "Don’t recommend this user's video",
-    "setteings_message_report": "Report",
-    "setteings_message_save": "Save"
+    "action_report": "Report",
+    "action_save": "Save",
+    "home_screen_followed":"Followed",
+    "home_screen_all":"All"
 }

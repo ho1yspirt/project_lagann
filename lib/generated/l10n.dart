@@ -61,70 +61,70 @@ class S {
   }
 
   /// `Home`
-  String get bottom_navbar_home {
+  String get navbar_home {
     return Intl.message(
       'Home',
-      name: 'bottom_navbar_home',
+      name: 'navbar_home',
       desc: '',
       args: [],
     );
   }
 
   /// `PRO Video`
-  String get bottom_navbar_pro_video {
+  String get navbar_pro_video {
     return Intl.message(
       'PRO Video',
-      name: 'bottom_navbar_pro_video',
+      name: 'navbar_pro_video',
       desc: '',
       args: [],
     );
   }
 
   /// `Courses`
-  String get bottom_navbar_courses {
+  String get navbar_courses {
     return Intl.message(
       'Courses',
-      name: 'bottom_navbar_courses',
+      name: 'navbar_courses',
       desc: '',
       args: [],
     );
   }
 
   /// `Marathons`
-  String get bottom_navbar_marathons {
+  String get navbar_marathons {
     return Intl.message(
       'Marathons',
-      name: 'bottom_navbar_marathons',
+      name: 'navbar_marathons',
       desc: '',
       args: [],
     );
   }
 
   /// `Profile`
-  String get bottom_navbar_profile {
+  String get navbar_profile {
     return Intl.message(
       'Profile',
-      name: 'bottom_navbar_profile',
+      name: 'navbar_profile',
       desc: '',
       args: [],
     );
   }
 
   /// `Share`
-  String get settings_message_share {
+  String get action_share {
     return Intl.message(
       'Share',
-      name: 'settings_message_share',
+      name: 'action_share',
       desc: '',
       args: [],
     );
   }
 
   /// `Not interested`
-  String get settings_message_notinterested {
+  String get action_notinterested {
     return Intl.message(
       'Not interested',
-      name: 'settings_message_notinterested',
+      name: 'action_notinterested',
       desc: '',
       args: [],
     );
@@ -141,20 +141,40 @@ class S {
   }
 
   /// `Report`
-  String get setteings_message_report {
+  String get action_report {
     return Intl.message(
       'Report',
-      name: 'setteings_message_report',
+      name: 'action_report',
       desc: '',
       args: [],
     );
   }
 
   /// `Save`
-  String get setteings_message_save {
+  String get action_save {
     return Intl.message(
       'Save',
-      name: 'setteings_message_save',
+      name: 'action_save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Followed`
+  String get home_screen_followed {
+    return Intl.message(
+      'Followed',
+      name: 'home_screen_followed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get home_screen_all {
+    return Intl.message(
+      'All',
+      name: 'home_screen_all',
       desc: '',
       args: [],
     );
