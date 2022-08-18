@@ -109,8 +109,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[0]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -132,7 +132,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       padding:
                           const EdgeInsets.only(bottom: 3, right: 12, left: 12),
                       alignment: Alignment.bottomCenter,
-                      child: kSeporatorLinePro,
+                      child: kSeporatorLine,
                     ),
 
                     GestureDetector(
@@ -140,8 +140,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[1]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -161,8 +161,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[2]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -182,8 +182,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[3]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
