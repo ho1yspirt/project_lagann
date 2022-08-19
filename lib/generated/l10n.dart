@@ -160,11 +160,11 @@ class S {
     );
   }
 
-  /// `Followed`
-  String get home_screen_followed {
+  /// `Signed`
+  String get home_screen_signed {
     return Intl.message(
-      'Followed',
-      name: 'home_screen_followed',
+      'Signed',
+      name: 'home_screen_signed',
       desc: '',
       args: [],
     );

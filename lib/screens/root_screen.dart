@@ -38,7 +38,7 @@ class _RootScreenState extends State<RootScreen> {
         items: [
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
-                  icon: Ionicons.home, size: 27, gradient: kPrimaryGradient),
+                  icon: Ionicons.home, size: 28, gradient: kPrimaryGradient),
               icon: const Icon(Ionicons.home_outline, size: 28),
               label: S.of(context).navbar_home),
           BottomNavigationBarItem(
