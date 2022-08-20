@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import '../widgets/home_widgets/home_post_item.dart';
+import '../../widgets/home_widgets/home_post_item.dart';
 
-class HomeFollowedScreen extends StatefulWidget {
-  HomeFollowedScreen({Key? key}) : super(key: key);
+class HomeAllScreen extends StatefulWidget {
+  const HomeAllScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeFollowedScreen> createState() => _HomeFollowedScreenState();
+  State<HomeAllScreen> createState() => _HomeAllScreenState();
 }
 
-class _HomeFollowedScreenState extends State<HomeFollowedScreen> {
+class _HomeAllScreenState extends State<HomeAllScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
