@@ -27,75 +27,114 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: Colors.white.withOpacity(0.0),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                child: Text(
-                  S.of(context).home_screen_followed,
-                  style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
-                ),
-                onTap: () {
-                  setIndex(0);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeFollowedScreen(),
-                    ),
-                  );
-                },
+      appBar: CustomHomeAppBar(
+        appBar: AppBar(
+            centerTitle: true,
+            elevation: 0.0,
+            backgroundColor: Colors.white.withOpacity(0.0),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SearchScreen(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Ionicons.search)),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NotificationsScreen(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Ionicons.notifications)),
+                ],
               ),
-              kSeporatorLine,
-              GestureDetector(
-                child: Text(
-                  S.of(context).home_screen_all,
-                  style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
-                ),
-                onTap: () {
-                  setIndex(1);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomeAllScreen(),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-          actions: [
+            ]),
+        otherWidget: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SearchScreen(),
+                SizedBox(
+                  width: 200,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    alignment: Alignment.center,
+                    children: [
+                      kSeporatorLine,
+                      Positioned(
+                        left: 28,
+                        child: GestureDetector(
+                          child: Text(
+                            S.of(context).home_screen_signed,
+                            style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
+                          ),
+                          onTap: () {
+                            _onFollowedPress();
+                            setIndex(0);
+                          },
                         ),
-                      );
-                    },
-                    icon: const Icon(Ionicons.search)),
-                IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NotificationsScreen(),
+                      ),
+                      Positioned(
+                        right: 64,
+                        child: GestureDetector(
+                          child: Text(
+                            S.of(context).home_screen_all,
+                            style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
+                          ),
+                          onTap: () {
+                            _onALlPress();
+                            setIndex(1);
+                          },
                         ),
-                      );
-                    },
-                    icon: const Icon(Ionicons.notifications)),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
-          ]),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     GestureDetector(
+            //       child: Text(
+            //         S.of(context).home_screen_followed,
+            //         style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
+            //       ),
+            //       onTap: () {
+            //         _onFollowedPress();
+            //         setIndex(0);
+            //       },
+            //     ),
+            //     kSeporatorLine,
+            //     GestureDetector(
+            //       child: Text(
+            //         S.of(context).home_screen_all,
+            //         style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
+            //       ),
+            //       onTap: () {
+            //         _onALlPress();
+            //         setIndex(1);
+            //       },
+            //     ),
+            //   ],
+            // ),
+          ],
+        ),
+        height: AppBar().preferredSize.height,
+      ),
       body: PageView(
-        scrollDirection: Axis.horizontal,
+        physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
         controller: _pageController,
         onPageChanged: (newIndex) {
           setState(() {
@@ -109,4 +148,36 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  void _onFollowedPress() {
+    _pageController.animateToPage(0,
+        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);
+  }
+
+  void _onALlPress() {
+    _pageController.animateToPage(1,
+        duration: const Duration(milliseconds: 500), curve: Curves.decelerate);
+  }
+}
+
+class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final double height;
+  final AppBar appBar;
+  final Widget otherWidget;
+  const CustomHomeAppBar(
+      {Key? key,
+      required this.appBar,
+      required this.otherWidget,
+      required this.height})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [appBar, otherWidget],
+    );
+  }
+
+  @override
+  Size get preferredSize => Size.fromHeight(height);
 }

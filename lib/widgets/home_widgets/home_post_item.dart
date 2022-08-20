@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../generated/l10n.dart';
-import '../utils/constants.dart';
+import '../../generated/l10n.dart';
+import '../../utils/constants.dart';
 import 'custom_home_button.dart';
 
 class HomePostItem extends StatefulWidget {
