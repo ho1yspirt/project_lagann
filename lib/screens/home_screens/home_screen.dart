@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:project_lagann/screens/home_all_screen.dart';
+import 'package:project_lagann/screens/home_screens/home_all_screen.dart';
 import 'package:project_lagann/screens/notifications_screen.dart';
 import 'package:project_lagann/screens/search_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
-import '../generated/l10n.dart';
+import '../../generated/l10n.dart';
 import 'home_followed_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -103,32 +103,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     GestureDetector(
-            //       child: Text(
-            //         S.of(context).home_screen_followed,
-            //         style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
-            //       ),
-            //       onTap: () {
-            //         _onFollowedPress();
-            //         setIndex(0);
-            //       },
-            //     ),
-            //     kSeporatorLine,
-            //     GestureDetector(
-            //       child: Text(
-            //         S.of(context).home_screen_all,
-            //         style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
-            //       ),
-            //       onTap: () {
-            //         _onALlPress();
-            //         setIndex(1);
-            //       },
-            //     ),
-            //   ],
-            // ),
           ],
         ),
         height: AppBar().preferredSize.height,
@@ -141,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _currentIndex = newIndex;
           });
         },
-        children: [
+        children: const [
           HomeFollowedScreen(),
           HomeAllScreen(),
         ],

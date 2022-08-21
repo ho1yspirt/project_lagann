@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/home_widgets/home_post_item.dart';
+import '../../widgets/home_widgets/home_post_item.dart';
 
 class HomeAllScreen extends StatefulWidget {
   const HomeAllScreen({Key? key}) : super(key: key);
