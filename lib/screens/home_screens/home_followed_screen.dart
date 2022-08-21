@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/home_widgets/home_post_item.dart';
 
 class HomeFollowedScreen extends StatefulWidget {
-  HomeFollowedScreen({Key? key}) : super(key: key);
+  const HomeFollowedScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeFollowedScreen> createState() => _HomeFollowedScreenState();
