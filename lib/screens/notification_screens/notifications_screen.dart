@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:project_lagann/utils/constants.dart';
+import 'package:project_lagann/models/comment.dart';
+import 'package:project_lagann/models/video.dart';
+import 'package:project_lagann/widgets/notification_widgets/notification_comment_item.dart';
+import '../../generated/l10n.dart';
+import '../../models/user.dart';
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
@@ -10,6 +14,52 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
+  bool _isSelected = false;
+
+  static const UserModel _testUser = UserModel(
+    id: 1,
+    username: "Andrew Pech",
+    profileImageUrl:
+        'https://cdn.discordapp.com/avatars/548904505471926292/ca366fbb3dcd6c81f9c1fc547679df3d.webp?size=100',
+    subscribers: "69",
+  );
+  static final VideoModel _testVideo = VideoModel(
+    id: '1',
+    author: _testUser,
+    title: 'Flutter Clubhouse Clone UI Tutorial | Apps From Scratch',
+    thumbnailUrl:
+        'https://thumbs.dreamstime.com/b/d-mural-wallpaper-beautiful-view-landscape-background-old-arches-tree-sun-water-birds-flowers-transparent-curtains-166191190.jpg',
+    videoUrl: "https://youtu.be/2XOciSjxocI",
+    duration: '8:20',
+    timestamp: DateTime(2021, 3, 20),
+    viewCount: '10K',
+    likes: '958',
+    dislikes: '4',
+    commentsCount: "250",
+  );
+
+  final List<CommentModel> _testCommnetList = [
+    CommentModel(
+        id: '1',
+        author: _testUser,
+        video: _testVideo,
+        description:
+            'В жизни больше твои видео не посмотрю, чмо пузатое. Даже фулла нет. Еще и курсы платные, 12/10',
+        timestamp: DateTime(2021, 3, 20),
+        likes: '69',
+        repliesCount: '2',
+        commentType: 'Commented'),
+    CommentModel(
+        id: '2',
+        author: _testUser,
+        video: _testVideo,
+        description: 'ШЕДЕВР!!!',
+        timestamp: DateTime(2022, 3, 20),
+        likes: '-1',
+        repliesCount: '0',
+        commentType: 'Replied'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,49 +70,60 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           },
           icon: const Icon(Ionicons.arrow_back_outline),
         ),
-        title: const Text('Notifications'),
-        actions: [
-          IconButton(
-              onPressed: () {}, icon: const Icon(Ionicons.create_outline))
-        ],
+        title: Text(S.of(context).navbar_notifications),
       ),
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            onTap: (() {}),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://cdn.discordapp.com/avatars/548904505471926292/ca366fbb3dcd6c81f9c1fc547679df3d.webp?size=100'),
-                ),
-                title: const Text('title text'),
-                subtitle: SizedBox(
-                  width: 250,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('some subtitle action'),
-                      kSeporatorDot,
-                      const Text('5 hours ago'),
-                    ],
-                  ),
-                ),
-                trailing: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: AspectRatio(
-                    aspectRatio: 4 / 3,
-                    child: Image.network(
-                      'https://cdn.discordapp.com/avatars/548904505471926292/ca366fbb3dcd6c81f9c1fc547679df3d.webp?size=100',
-                      fit: BoxFit.cover,
+      body: CustomScrollView(
+        slivers: [
+          SliverList(
+              delegate: SliverChildListDelegate([
+            Padding(
+              padding: const EdgeInsets.only(right: 16, left: 16),
+              child: SizedBox(
+                height: 42,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Wrap(
+                      spacing: 12,
+                      children: [
+                        ChoiceChip(
+                          selected: _isSelected,
+                          label: Text(S.of(context).home_screen_all),
+                          onSelected: (bool selected) {
+                            _isSelected = !_isSelected;
+                          },
+                        ),
+                        ChoiceChip(
+                          selected: _isSelected,
+                          label: Text(S.of(context).action_comments),
+                        ),
+                        ChoiceChip(
+                          selected: _isSelected,
+                          label: Text(S.of(context).action_likes),
+                        ),
+                        ChoiceChip(
+                          selected: _isSelected,
+                          label: Text(S.of(context).navbar_courses),
+                        ),
+                      ],
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
-          );
-        },
+          ])),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final comment = _testCommnetList[index];
+                return NotificationCommentItem(
+                  commentModel: comment,
+                );
+              },
+              childCount: _testCommnetList.length,
+            ),
+          ),
+        ],
       ),
     );
   }

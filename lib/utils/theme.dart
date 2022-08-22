@@ -45,6 +45,18 @@ ThemeData kBasicTheme() => ThemeData(
       // fab
       // card
       // chips
+      chipTheme: ChipThemeData(
+        backgroundColor: kSurfaceColorWithOpacity,
+        selectedColor: kWhiteColor,
+        disabledColor: kGreyColor,
+        secondarySelectedColor: kWhiteColor,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5))),
+        elevation: 0.0,
+        showCheckmark: false,
+        labelStyle: kBody1TS,
+        secondaryLabelStyle: kBody1TS.copyWith(color: kSurfaceColor),
+      ),
       // dialog
       // divider
       // menu
