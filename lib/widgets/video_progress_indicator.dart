@@ -110,7 +110,7 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
       },
       child: Center(
         child: Container(
-          height: 10,
+          height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           color: Colors.transparent,
           child: CustomPaint(

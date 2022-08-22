@@ -1,9 +1,12 @@
+import 'package:auto_orientation/auto_orientation.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/widgets/video_progress_indicator.dart';
+import 'package:project_lagann/widgets/video_settings.dart';
 import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';
 
@@ -12,7 +15,11 @@ import '../utils/constants.dart';
 class CustomConstrols extends StatefulWidget {
   final VideoPlayerController? videoPlayerController;
   final Function enterFullScreen;
-  const CustomConstrols(this.enterFullScreen,
+  final Function exitFullScreen;
+  VideoModel videoModel;
+  bool isPlay;
+  CustomConstrols(
+      this.enterFullScreen, this.exitFullScreen, this.videoModel, this.isPlay,
       {Key? key, this.videoPlayerController})
       : super(key: key);
 
@@ -22,121 +29,57 @@ class CustomConstrols extends StatefulWidget {
 
 class _CustomConstrolsState extends State<CustomConstrols>
     with TickerProviderStateMixin {
-  bool _isPlay = true;
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
 
-  String currentSpeed = "1.0";
-
-  List<DropdownMenuItem<String>> settingItems = [
-    const DropdownMenuItem(value: "2.0", child: Text("2.0x")),
-    const DropdownMenuItem(value: "1.75", child: Text("1.75x")),
-    const DropdownMenuItem(value: "1.5", child: Text("1.5x")),
-    const DropdownMenuItem(value: "1.25", child: Text("1.25x")),
-    const DropdownMenuItem(value: "1.0", child: Text("Normal")),
-    const DropdownMenuItem(value: "0.75", child: Text("0.75x")),
-    const DropdownMenuItem(value: "0.5", child: Text("0.5x")),
-    const DropdownMenuItem(value: "0.25", child: Text("0.25x")),
-  ];
-
   final Duration _skipDuration = const Duration(milliseconds: 400);
-
-  late AnimationController _animationController;
+  late AnimationController animationController;
+  late Animation<double> animation;
   @override
   void initState() {
     super.initState();
-    // setVisibleAfter();
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1))
+          ..forward(from: 1);
+    animation =
+        CurvedAnimation(parent: animationController, curve: Curves.easeIn);
   }
 
   @override
   void dispose() async {
     super.dispose();
-    _animationController.dispose();
+    animationController.dispose();
     await Wakelock.disable();
   }
 
-  void onTapSettings(BuildContext context) {
+  void onTapSettingsInPortraitMode() {
+    showModalBottomSheet(
+        isScrollControlled: true,
+        context: context,
+        backgroundColor: kBackgroundColor,
+        builder: (BuildContext context) {
+          return SizedBox(
+            height: 134,
+            child: VideoSettings(widget.videoPlayerController!),
+          );
+        });
+  }
+
+  void onTapSettingsInFullScreen(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) => Dialog(
-        backgroundColor: kBackgroundColor,
-        child: SizedBox(
-          height: 120,
-          width: 412,
-          child: Stack(alignment: Alignment.topCenter, children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10, right: 5),
-                    child: Icon(
-                      Ionicons.timer_outline,
-                      size: 30,
-                    ),
-                  ),
-                  const Text(
-                    "Video speed",
-                    style: kVideoTitleTS,
-                  ),
-                  //const Padding(
-                  //   padding: EdgeInsets.only(left: 50),
-                  //   child: Text(
-                  //     "Normal",
-                  //     style: kVideoTitleTS,
-                  //   ),
-                  // ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton(
-                        dropdownColor: kBackgroundColor,
-                        enableFeedback: true,
-                        icon: const Icon(
-                          Ionicons.chevron_down,
-                          color: kWhiteColor,
-                        ),
-                        style: kVideoTitleTS,
-                        items: settingItems,
-                        value: currentSpeed,
-                        onChanged: (String? newSpeed) {
-                          widget.videoPlayerController!
-                              .setPlaybackSpeed(double.parse(newSpeed!));
-                          setState(() {
-                            currentSpeed = newSpeed;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              bottom: 15,
-              left: 0,
-              child: Row(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10, right: 5),
-                    child: Icon(
-                      Ionicons.help,
-                      size: 30,
-                    ),
-                  ),
-                  Text(
-                    "Help and feedback",
-                    style: kVideoTitleTS,
-                  ),
-                ],
-              ),
-            ),
-          ]),
-        ),
-      ),
+      builder: (BuildContext context) =>
+          StatefulBuilder(builder: (context, StateSetter setState) {
+        return Dialog(
+          backgroundColor: kBackgroundColor,
+          child: SizedBox(
+            height: 120,
+            width: 412,
+            child: VideoSettings(widget.videoPlayerController!),
+          ),
+        );
+      }),
     );
   }
 
@@ -156,14 +99,15 @@ class _CustomConstrolsState extends State<CustomConstrols>
   }
 
   void onTapPause() {
-    if (_isPlay == false) {
-      _animationController.forward();
-      _isPlay = true;
-    } else {
-      _animationController.reverse();
-      _isPlay = false;
-    }
-    _isPlay
+    setState(() {
+      widget.isPlay = !widget.isPlay;
+    });
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1))
+          ..forward(from: 0.3);
+    animation = CurvedAnimation(
+        parent: animationController, curve: Curves.easeInOutCirc);
+    widget.isPlay
         ? widget.videoPlayerController!.pause()
         : widget.videoPlayerController!.play();
   }
@@ -232,6 +176,40 @@ class _CustomConstrolsState extends State<CustomConstrols>
                   onTap: () => setVisible(),
                 ),
               ),
+              if (MediaQuery.of(context).orientation == Orientation.landscape)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12, left: 50),
+                      child: Row(
+                        children: [
+                          const Icon(Ionicons.chevron_down),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            widget.videoModel.title,
+                            style: kVideoTitleTS,
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          const Icon(Ionicons.chevron_forward)
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 95),
+                      child: Text(
+                        widget.videoModel.author.username,
+                        style: kSubtitle2.copyWith(color: kWhiteColor),
+                      ),
+                    ),
+                  ],
+                )
+              else
+                const SizedBox(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -276,11 +254,17 @@ class _CustomConstrolsState extends State<CustomConstrols>
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: GestureDetector(
                       onTap: () => onTapPause(),
-                      child: AnimatedIcon(
-                        icon: AnimatedIcons.pause_play,
-                        progress: _animationController,
-                        size: 50,
-                        color: kWhiteColor,
+                      child: FadeTransition(
+                        opacity: animation,
+                        child: widget.isPlay
+                            ? const Icon(
+                                Ionicons.play,
+                                size: 34,
+                              )
+                            : const Icon(
+                                Ionicons.pause,
+                                size: 34,
+                              ),
                       ),
                     ),
                   ),
@@ -325,7 +309,10 @@ class _CustomConstrolsState extends State<CustomConstrols>
                 top: 5,
                 right: 8.5,
                 child: IconButton(
-                  onPressed: () => onTapSettings(context),
+                  onPressed: () => MediaQuery.of(context).orientation ==
+                          Orientation.landscape
+                      ? onTapSettingsInFullScreen(context)
+                      : onTapSettingsInPortraitMode(),
                   icon: const Icon(Ionicons.settings_outline),
                 ),
               ),
@@ -345,18 +332,19 @@ class _CustomConstrolsState extends State<CustomConstrols>
                 right: 12.5,
                 bottom: 14,
                 child: GestureDetector(
-                  onTap: () async {
+                  onTap: () {
                     if (MediaQuery.of(context).orientation ==
                         Orientation.portrait) {
                       // AutoOrientation.landscapeAutoMode();
                       widget.enterFullScreen();
                     } else if (MediaQuery.of(context).orientation ==
                         Orientation.landscape) {
-                      // AutoOrientation.portraitUpMode();
-                      widget.enterFullScreen();
+                      AutoOrientation.portraitAutoMode();
+
+                      widget.exitFullScreen();
                     }
 
-                    await Wakelock.enable();
+                    Wakelock.enable();
                   },
                   child: const Icon(
                     Ionicons.expand,
@@ -368,7 +356,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
           ),
         ),
         Positioned(
-          bottom: -2.4,
+          height: 5,
           child: VideoProgressBar(
             widget.videoPlayerController!,
             barHeight: 5,

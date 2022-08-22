@@ -17,6 +17,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
   int currentIndex = 1;
 
   void setChapter(int index) {
+    if (index == currentIndex) return;
     setState(() {
       isCurrChapter[index] = true;
       isCurrChapter[currentIndex] = false;
