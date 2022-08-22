@@ -27,10 +27,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_report": MessageLookupByLibrary.simpleMessage("Report"),
         "action_save": MessageLookupByLibrary.simpleMessage("Save"),
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
+        "description_dislike": MessageLookupByLibrary.simpleMessage("Dislikes"),
+        "description_like": MessageLookupByLibrary.simpleMessage("Likes"),
+        "description_title":
+            MessageLookupByLibrary.simpleMessage("Description"),
+        "description_view": MessageLookupByLibrary.simpleMessage("View"),
         "example": MessageLookupByLibrary.simpleMessage("example text"),
         "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),
-        "home_screen_followed":
-            MessageLookupByLibrary.simpleMessage("Followed"),
+        "home_screen_signed": MessageLookupByLibrary.simpleMessage("Signed"),
         "navbar_courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "navbar_home": MessageLookupByLibrary.simpleMessage("Home"),
         "navbar_marathons": MessageLookupByLibrary.simpleMessage("Marathons"),

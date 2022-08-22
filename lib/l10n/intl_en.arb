@@ -10,6 +10,10 @@
     "setteings_message_dont_recom": "Don’t recommend this user's video",
     "action_report": "Report",
     "action_save": "Save",
-    "home_screen_followed":"Followed",
-    "home_screen_all":"All"
+    "home_screen_signed": "Signed",
+    "home_screen_all": "All",
+    "description_title": "Description",
+    "description_like": "Likes",
+    "description_dislike": "Dislikes",
+    "description_view": "View"
 }

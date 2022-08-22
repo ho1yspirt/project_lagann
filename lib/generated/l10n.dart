@@ -160,11 +160,11 @@ class S {
     );
   }
 
-  /// `Followed`
-  String get home_screen_followed {
+  /// `Signed`
+  String get home_screen_signed {
     return Intl.message(
-      'Followed',
-      name: 'home_screen_followed',
+      'Signed',
+      name: 'home_screen_signed',
       desc: '',
       args: [],
     );
@@ -175,6 +175,46 @@ class S {
     return Intl.message(
       'All',
       name: 'home_screen_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description_title {
+    return Intl.message(
+      'Description',
+      name: 'description_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Likes`
+  String get description_like {
+    return Intl.message(
+      'Likes',
+      name: 'description_like',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dislikes`
+  String get description_dislike {
+    return Intl.message(
+      'Dislikes',
+      name: 'description_dislike',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View`
+  String get description_view {
+    return Intl.message(
+      'View',
+      name: 'description_view',
       desc: '',
       args: [],
     );

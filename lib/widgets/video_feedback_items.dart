@@ -33,7 +33,6 @@ class _VideoFeedbackState extends State<VideoFeedback> {
                   setState(() {
                     _isLiked = !_isLiked;
                     _isDisLiked = false;
-                    print(_isLiked);
                   });
                 } else {
                   setState(() {
