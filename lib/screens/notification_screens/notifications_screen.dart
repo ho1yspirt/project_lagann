@@ -8,6 +8,7 @@ import '../../generated/l10n.dart';
 import '../../models/user.dart';
 import '../../widgets/notification_widgets/notification_like_item.dart';
 
+
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({Key? key}) : super(key: key);
 
@@ -59,7 +60,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         repliesCount: '0',
         commentType: 'Replied'),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
