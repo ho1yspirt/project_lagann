@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/screens/home_screens/home_all_screen.dart';
-import 'package:project_lagann/screens/notifications_screen.dart';
+import 'package:project_lagann/screens/notification_screens/notifications_screen.dart';
 import 'package:project_lagann/screens/search_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
 import '../../generated/l10n.dart';
