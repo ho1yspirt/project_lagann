@@ -21,10 +21,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           icon: const Icon(Ionicons.arrow_back_outline),
         ),
         title: const Text('Notifications'),
-        actions: [
-          IconButton(
-              onPressed: () {}, icon: const Icon(Ionicons.create_outline))
-        ],
       ),
       body: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
