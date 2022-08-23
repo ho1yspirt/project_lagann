@@ -150,11 +150,31 @@ class S {
     );
   }
 
+  /// `Clear all`
+  String get action_clear_all {
+    return Intl.message(
+      'Clear all',
+      name: 'action_clear_all',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search`
   String get action_search {
     return Intl.message(
       'Search',
       name: 'action_search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search history`
+  String get search_screen_search_history {
+    return Intl.message(
+      'Search history',
+      name: 'search_screen_search_history',
       desc: '',
       args: [],
     );

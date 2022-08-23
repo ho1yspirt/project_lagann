@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import './constants.dart';
 
-// TODO: create project theme (DESIGNERS MUST DIE)
-
 ThemeData kBasicTheme() => ThemeData(
       // colors
       // brightness: Brightness.dark,
@@ -29,7 +27,6 @@ ThemeData kBasicTheme() => ThemeData(
         elevation: 0,
       ),
       // backdrop
-
       // banner
 
       // bottom nvabar
@@ -44,6 +41,7 @@ ThemeData kBasicTheme() => ThemeData(
       // buttons
       // fab
       // card
+
       // chips
       chipTheme: ChipThemeData(
         backgroundColor: kSurfaceColorWithOpacity,
@@ -67,11 +65,19 @@ ThemeData kBasicTheme() => ThemeData(
       // slider
       // snackbar
       // tab
-      // text field
-      inputDecorationTheme: const InputDecorationTheme(
-        labelStyle: TextStyle(color: kWhiteColor),
 
-        // enabledBorder: InputBorder(borderSide: BorderSide.none),
+      // text field
+      inputDecorationTheme: InputDecorationTheme(
+        isDense: true,
+        contentPadding: const EdgeInsets.fromLTRB(8, 8, 0, 10),
+        labelStyle: kSubtitle1.copyWith(color: kWhiteColor),
+        hintStyle: kSubtitle1.copyWith(color: kGreyColor),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide.none,
+        ),
+        filled: true,
+        fillColor: kSurfaceColorWithOpacity,
       ),
       // tooltip
     );

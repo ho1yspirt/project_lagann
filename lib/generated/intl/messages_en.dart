@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "action_clear_all": MessageLookupByLibrary.simpleMessage("Clear all"),
         "action_comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "action_likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "action_notinterested":
@@ -40,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Notifications"),
         "navbar_pro_video": MessageLookupByLibrary.simpleMessage("PROVideo"),
         "navbar_profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "search_screen_search_history":
+            MessageLookupByLibrary.simpleMessage("Search history"),
         "setteings_message_dont_recom": MessageLookupByLibrary.simpleMessage(
             "Don’t recommend this user\'s video")
       };
