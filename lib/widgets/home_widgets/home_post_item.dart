@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/utils/theme.dart';
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 import 'custom_home_button.dart';
@@ -90,22 +91,34 @@ class _HomePostItemState extends State<HomePostItem> {
                               const CustomHomeButton(
                                   isChangeble: true,
                                   icon: Icon(Ionicons.heart_outline),
-                                  activatedIcon: Icon(Ionicons.heart),
+                                  activatedIcon: GradientIcon(
+                                      icon: Ionicons.heart,
+                                      size: kIconSize5,
+                                      gradient: kPrimaryGradient),
                                   title: '500k'),
                               const CustomHomeButton(
                                   isChangeble: false,
                                   icon: Icon(Ionicons.chatbubble_outline),
-                                  activatedIcon: Icon(Ionicons.chatbubble),
+                                  activatedIcon: GradientIcon(
+                                      icon: Ionicons.chatbubble,
+                                      size: kIconSize5,
+                                      gradient: kPrimaryGradient),
                                   title: '12k'),
                               CustomHomeButton(
                                   isChangeble: true,
                                   icon: const Icon(Ionicons.bookmark_outline),
-                                  activatedIcon: const Icon(Ionicons.bookmark),
+                                  activatedIcon: const GradientIcon(
+                                      icon: Ionicons.bookmark,
+                                      size: kIconSize5,
+                                      gradient: kPrimaryGradient),
                                   title: S.of(context).action_save),
                               CustomHomeButton(
                                   isChangeble: false,
                                   icon: const Icon(Ionicons.share_outline),
-                                  activatedIcon: const Icon(Ionicons.share),
+                                  activatedIcon: const GradientIcon(
+                                      icon: Ionicons.share,
+                                      size: kIconSize5,
+                                      gradient: kPrimaryGradient),
                                   title: S.of(context).action_share),
                             ],
                           ),

@@ -149,3 +149,18 @@ Container kSeporatorDot = Container(
   margin: const EdgeInsets.only(left: 8, right: 8),
   decoration: const BoxDecoration(color: kGreyColor, shape: BoxShape.circle),
 );
+Container kDot = Container(
+  height: 3,
+  width: 3,
+  decoration: const BoxDecoration(color: kSurfaceColor, shape: BoxShape.circle),
+);
+Container kThreeDotAvatar = Container(
+  width: 24,
+  height: 24,
+  padding: const EdgeInsets.all(1),
+  decoration: const BoxDecoration(color: kGreyColor, shape: BoxShape.circle),
+  child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [kDot, kDot, kDot]),
+);

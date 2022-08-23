@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_lagann/utils/constants.dart';
+import '../../utils/theme.dart';
 
 class CustomHomeButton extends StatefulWidget {
   final Icon icon;
-  final Icon activatedIcon;
+  final GradientIcon activatedIcon;
   final String title;
   final bool isChangeble;
   const CustomHomeButton({
