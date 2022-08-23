@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Not interested"),
         "action_report": MessageLookupByLibrary.simpleMessage("Report"),
         "action_save": MessageLookupByLibrary.simpleMessage("Save"),
+        "action_search": MessageLookupByLibrary.simpleMessage("Search"),
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
         "example": MessageLookupByLibrary.simpleMessage("example text"),
         "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),

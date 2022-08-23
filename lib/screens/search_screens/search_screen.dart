@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-
-// TODO: create localize
-// TODO: assign adaptive theme
+import '../../generated/l10n.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -17,9 +15,12 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: TextFormField(
-            // TODO: implement method of searchcpntroller
-            // onFieldSubmitted: (value) => searchController.(value),
-            ),
+          decoration: InputDecoration(
+            hintText: S.of(context).action_search,
+          ),
+          // TODO: implement method of searchcpntroller
+          // onFieldSubmitted: (value) => searchController.(value),
+        ),
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).maybePop();
@@ -30,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
           TextButton(
             // TODO: implement method of searchcpntroller
             onPressed: () {},
-            child: const Text('Search'),
+            child: Text(S.of(context).action_search),
           ),
         ],
       ),

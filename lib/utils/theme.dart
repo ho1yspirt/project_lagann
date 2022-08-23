@@ -70,6 +70,7 @@ ThemeData kBasicTheme() => ThemeData(
       // text field
       inputDecorationTheme: const InputDecorationTheme(
         labelStyle: TextStyle(color: kWhiteColor),
+
         // enabledBorder: InputBorder(borderSide: BorderSide.none),
       ),
       // tooltip

@@ -150,6 +150,16 @@ class S {
     );
   }
 
+  /// `Search`
+  String get action_search {
+    return Intl.message(
+      'Search',
+      name: 'action_search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Not interested`
   String get action_notinterested {
     return Intl.message(

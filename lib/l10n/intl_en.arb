@@ -9,6 +9,7 @@
     "action_comments":"Comments",
     "action_likes":"Likes",
     "action_share": "Share",
+    "action_search":"Search",
     "action_notinterested": "Not interested",
     "setteings_message_dont_recom": "Don’t recommend this user's video",
     "action_report": "Report",
