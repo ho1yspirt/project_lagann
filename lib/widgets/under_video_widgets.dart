@@ -39,7 +39,7 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
     showFlexibleBottomSheet(
       context: context,
       isModal: false,
-      isDismissible: false,
+      // isDismissible: false,
       minHeight: 0.685,
       initHeight: 0.685,
       maxHeight: 0.685,
@@ -62,6 +62,73 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
                     Text(
                       S.of(context).description_title,
                       style: kSliverAppBarTS,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        SystemChrome.setPreferredOrientations([
+                          DeviceOrientation.portraitUp,
+                          DeviceOrientation.portraitDown,
+                          DeviceOrientation.landscapeLeft,
+                          DeviceOrientation.landscapeRight
+                        ]);
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(
+                        Ionicons.close,
+                        size: kIconSize7,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: double.infinity,
+              child: Description(
+                widget.videoModel,
+                hashTags,
+                scrollController,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void onTapCommets() {
+    showFlexibleBottomSheet(
+      context: context,
+      isModal: false,
+      // isDismissible: false,
+      minHeight: 0.685,
+      initHeight: 0.685,
+      maxHeight: 0.685,
+      anchors: [0, 0.685],
+      bottomSheetColor: kBackgroundColor,
+      builder: (
+        BuildContext context,
+        ScrollController scrollController,
+        _,
+      ) {
+        return Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: SizedBox(
+                height: 52,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      S.of(context).commetns_title,
+                      style: kSliverAppBarTS,
+                    ),
+                    Text(
+                      widget.videoModel.commentsCount,
+                      style: kSliverAppBarTS.copyWith(
+                        color: const Color(0xFFF2F2F2).withOpacity(0.4),
+                      ),
                     ),
                     IconButton(
                       onPressed: () {
@@ -265,28 +332,31 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                width: 16,
-              ),
-              const Text(
-                "Comments",
-                style: kChapterDefaultTS,
-              ),
-              const SizedBox(
-                width: 12,
-              ),
-              Text(
-                widget.videoModel.commentsCount,
-                style: kChapterDefaultTS,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 187,
-              ),
-              const Icon(Ionicons.swap_vertical)
-            ],
+          child: GestureDetector(
+            onTap: () => onTapCommets(),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  width: 16,
+                ),
+                const Text(
+                  "Comments",
+                  style: kChapterDefaultTS,
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Text(
+                  widget.videoModel.commentsCount,
+                  style: kChapterDefaultTS,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 187,
+                ),
+                const Icon(Ionicons.swap_vertical)
+              ],
+            ),
           ),
         )
       ],

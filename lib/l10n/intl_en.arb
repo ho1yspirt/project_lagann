@@ -15,5 +15,6 @@
     "description_title": "Description",
     "description_like": "Likes",
     "description_dislike": "Dislikes",
-    "description_view": "View"
+    "description_view": "View",
+    "commetns_title": "Comments"
 }

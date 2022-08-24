@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_report": MessageLookupByLibrary.simpleMessage("Report"),
         "action_save": MessageLookupByLibrary.simpleMessage("Save"),
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
+        "commetns_title": MessageLookupByLibrary.simpleMessage("Comments"),
         "description_dislike": MessageLookupByLibrary.simpleMessage("Dislikes"),
         "description_like": MessageLookupByLibrary.simpleMessage("Likes"),
         "description_title":

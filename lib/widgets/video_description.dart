@@ -136,7 +136,7 @@ class _DescriptionState extends State<Description> {
                   ],
                 ),
                 const SizedBox(
-                  width: 43,
+                  width: 60,
                 ),
                 //Date
                 Column(

@@ -219,6 +219,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Comments`
+  String get commetns_title {
+    return Intl.message(
+      'Comments',
+      name: 'commetns_title',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
