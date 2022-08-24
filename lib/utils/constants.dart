@@ -60,7 +60,7 @@ const TextStyle kHeadline4 = TextStyle(
 );
 
 // colors
-const Color kPrimaryColor = Color(0xFF8060FF);
+const Color kPrimaryColor = Color(0xFF8162FF);
 const Color kBackgroundColor = Color(0xFF242A38);
 const Color kSurfaceColor = Color(0xFF1C202B);
 const Color kSurfaceColorWithOpacity = Color(0xFF4E596F);
@@ -148,4 +148,19 @@ Container kSeporatorDot = Container(
   width: 4,
   margin: const EdgeInsets.only(left: 8, right: 8),
   decoration: const BoxDecoration(color: kGreyColor, shape: BoxShape.circle),
+);
+Container kDot = Container(
+  height: 3,
+  width: 3,
+  decoration: const BoxDecoration(color: kSurfaceColor, shape: BoxShape.circle),
+);
+Container kThreeDotAvatar = Container(
+  width: 24,
+  height: 24,
+  padding: const EdgeInsets.all(1),
+  decoration: const BoxDecoration(color: kGreyColor, shape: BoxShape.circle),
+  child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [kDot, kDot, kDot]),
 );

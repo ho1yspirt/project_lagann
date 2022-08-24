@@ -84,6 +84,7 @@ class _VideoScreenState extends State<VideoScreen> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor:
           MediaQuery.of(context).orientation == Orientation.landscape
               ? const Color.fromARGB(0, 0, 0, 0)
