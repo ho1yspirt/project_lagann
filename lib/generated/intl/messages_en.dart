@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "action_comments": MessageLookupByLibrary.simpleMessage("Comments"),
+        "action_likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "action_notinterested":
             MessageLookupByLibrary.simpleMessage("Not interested"),
         "action_report": MessageLookupByLibrary.simpleMessage("Report"),
@@ -29,12 +31,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
         "example": MessageLookupByLibrary.simpleMessage("example text"),
         "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),
-        "home_screen_followed":
-            MessageLookupByLibrary.simpleMessage("Followed"),
+        "home_screen_signed": MessageLookupByLibrary.simpleMessage("Signed"),
         "navbar_courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "navbar_home": MessageLookupByLibrary.simpleMessage("Home"),
         "navbar_marathons": MessageLookupByLibrary.simpleMessage("Marathons"),
-        "navbar_pro_video": MessageLookupByLibrary.simpleMessage("PRO Video"),
+        "navbar_notifications":
+            MessageLookupByLibrary.simpleMessage("Notifications"),
+        "navbar_pro_video": MessageLookupByLibrary.simpleMessage("PROVideo"),
         "navbar_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "setteings_message_dont_recom": MessageLookupByLibrary.simpleMessage(
             "Don’t recommend this user\'s video")

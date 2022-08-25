@@ -1,15 +1,18 @@
 {
     "example": "example text",
     "navbar_home": "Home",
-    "navbar_pro_video": "PRO Video",
+    "navbar_pro_video": "PROVideo",
     "navbar_courses": "Courses",
     "navbar_marathons": "Marathons",
     "navbar_profile": "Profile",
+    "navbar_notifications":"Notifications",
+    "action_comments":"Comments",
+    "action_likes":"Likes",
     "action_share": "Share",
     "action_notinterested": "Not interested",
     "setteings_message_dont_recom": "Don’t recommend this user's video",
     "action_report": "Report",
     "action_save": "Save",
-    "home_screen_followed":"Followed",
+    "home_screen_signed":"Signed",
     "home_screen_all":"All"
 }

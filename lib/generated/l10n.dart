@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `PRO Video`
+  /// `PROVideo`
   String get navbar_pro_video {
     return Intl.message(
-      'PRO Video',
+      'PROVideo',
       name: 'navbar_pro_video',
       desc: '',
       args: [],
@@ -105,6 +105,36 @@ class S {
     return Intl.message(
       'Profile',
       name: 'navbar_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get navbar_notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'navbar_notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comments`
+  String get action_comments {
+    return Intl.message(
+      'Comments',
+      name: 'action_comments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Likes`
+  String get action_likes {
+    return Intl.message(
+      'Likes',
+      name: 'action_likes',
       desc: '',
       args: [],
     );
@@ -160,11 +190,11 @@ class S {
     );
   }
 
-  /// `Followed`
-  String get home_screen_followed {
+  /// `Signed`
+  String get home_screen_signed {
     return Intl.message(
-      'Followed',
-      name: 'home_screen_followed',
+      'Signed',
+      name: 'home_screen_signed',
       desc: '',
       args: [],
     );

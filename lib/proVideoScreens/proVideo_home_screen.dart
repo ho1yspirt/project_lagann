@@ -3,6 +3,7 @@ import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/utils/constants.dart';
 
+import '../generated/l10n.dart';
 import '../widgets/widgets.dart';
 
 class ProVideoHomeScreen extends StatefulWidget {
@@ -95,7 +96,9 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          const SlivAppBar(),
+          SlivAppBar(
+            title: S.of(context).navbar_pro_video,
+          ),
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
