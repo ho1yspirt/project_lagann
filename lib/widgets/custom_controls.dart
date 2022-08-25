@@ -1,6 +1,5 @@
 import 'package:auto_orientation/auto_orientation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:video_player/video_player.dart';
@@ -25,7 +24,6 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
-  bool _isFullScreen = true;
   String currentSpeed = "1.0";
 
   List<DropdownMenuItem<String>> settingItems = [
@@ -325,6 +323,10 @@ class _CustomConstrolsState extends State<CustomConstrols>
                   onPressed: () => onTapSettings(context),
                   icon: const Icon(Ionicons.settings_outline),
                 ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Ionicons.chevron_down),
               ),
               Positioned(
                 left: 10,
