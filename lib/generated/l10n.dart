@@ -259,6 +259,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Cancel sending a comment`
+  String get comments_save_title {
+    return Intl.message(
+      'Cancel sending a comment',
+      name: 'comments_save_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top comments`
+  String get comments_pop_up_item1 {
+    return Intl.message(
+      'Top comments',
+      name: 'comments_pop_up_item1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New comments`
+  String get comments_pop_up_item2 {
+    return Intl.message(
+      'New comments',
+      name: 'comments_pop_up_item2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old comments`
+  String get comments_pop_up_item3 {
+    return Intl.message(
+      'Old comments',
+      name: 'comments_pop_up_item3',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

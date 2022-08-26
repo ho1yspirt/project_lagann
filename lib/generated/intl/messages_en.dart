@@ -29,6 +29,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_report": MessageLookupByLibrary.simpleMessage("Report"),
         "action_save": MessageLookupByLibrary.simpleMessage("Save"),
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
+        "comments_pop_up_item1":
+            MessageLookupByLibrary.simpleMessage("Top comments"),
+        "comments_pop_up_item2":
+            MessageLookupByLibrary.simpleMessage("New comments"),
+        "comments_pop_up_item3":
+            MessageLookupByLibrary.simpleMessage("Old comments"),
+        "comments_save_title":
+            MessageLookupByLibrary.simpleMessage("Cancel sending a comment"),
         "commetns_title": MessageLookupByLibrary.simpleMessage("Comments"),
         "description_dislike": MessageLookupByLibrary.simpleMessage("Dislikes"),
         "description_like": MessageLookupByLibrary.simpleMessage("Likes"),

@@ -45,6 +45,7 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
       maxHeight: 0.692,
       anchors: [0, 0.692],
       bottomSheetColor: kBackgroundColor,
+      isDismissible: false,
       barrierColor: Colors.black87,
       builder: (
         BuildContext context,

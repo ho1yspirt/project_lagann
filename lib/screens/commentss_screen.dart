@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/widgets/comment_item.dart';
 
+import '../generated/l10n.dart';
 import '../models/comment.dart';
 import '../models/user.dart';
 import '../models/video.dart';
@@ -17,10 +19,36 @@ class CommentsScreen extends StatefulWidget {
 
 class _CommentsScreenState extends State<CommentsScreen> {
   final TextEditingController _textEditingController = TextEditingController();
+  final FocusNode _focus = FocusNode();
+  double height1 = 36;
+  double height2 = 52;
   @override
   void dispose() {
     super.dispose();
     _textEditingController.dispose();
+    _focus.removeListener(_onFocusChange);
+    _focus.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_onFocusChange);
+  }
+
+  void _onFocusChange() {
+    print("Focus: ${_focus.hasFocus.toString()}");
+    if (height1 == 36 && height2 == 52) {
+      setState(() {
+        height1 = 80;
+        height2 = 90;
+      });
+    } else {
+      setState(() {
+        height1 = 36;
+        height2 = 52;
+      });
+    }
   }
 
   static const UserModel _testUser = UserModel(
@@ -148,56 +176,122 @@ class _CommentsScreenState extends State<CommentsScreen> {
         systemNavigationBarColor: kSurfaceColor,
       ),
       child: GestureDetector(
-        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-        child: Stack(
-          alignment: Alignment.bottomCenter,
+        onTap: () {
+          _textEditingController.text == ''
+              ? FocusManager.instance.primaryFocus?.unfocus()
+              : showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text(S.of(context).comments_save_title),
+                      titleTextStyle: kSliverAppBarTS,
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            FocusManager.instance.primaryFocus?.previousFocus();
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            "No",
+                            style:
+                                kChapterActiveTS.copyWith(color: kPrimaryColor),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            _textEditingController.clear();
+                            FocusManager.instance.primaryFocus?.unfocus();
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            "Yes",
+                            style:
+                                kChapterActiveTS.copyWith(color: kPrimaryColor),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                );
+        },
+        child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 45),
-              child: ListView.builder(
-                controller: widget.scrollController,
-                itemCount: _testCommnetList.length,
-                itemBuilder: (context, index) {
-                  var comment = _testCommnetList[index];
-                  return CommentItem(
-                      comment, _testReply, widget.scrollController);
-                },
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 52,
-              color: kSurfaceColor,
-            ),
-            Positioned(
-              bottom: 5,
-              child: SizedBox(
-                width: 302,
-                // height: 40,
-                child: TextFormField(
-                  controller: _textEditingController,
-                  keyboardType: TextInputType.multiline,
-                  textAlignVertical: TextAlignVertical.center,
-                  maxLines: 3,
-                  minLines: 1,
-                  style: kSubtitle2.copyWith(color: kWhiteColor),
-                  decoration: InputDecoration(
-                    hintText: "Write a comment...",
-                    hintStyle: kSubtitle2.copyWith(color: kGreyColor),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    filled: true,
-                    fillColor: kSurfaceColorWithOpacity,
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 45),
+                child: ListView.builder(
+                  controller: widget.scrollController,
+                  itemCount: _testCommnetList.length,
+                  itemBuilder: (context, index) {
+                    var comment = _testCommnetList[index];
+                    return CommentItem(
+                        comment, _testReply, widget.scrollController);
+                  },
                 ),
               ),
+            ),
+            Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: height2,
+                  color: kSurfaceColor,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: CircleAvatar(
+                        foregroundImage:
+                            NetworkImage(_testUser.profileImageUrl),
+                        radius: 16,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 290,
+                      height: height1,
+                      child: TextFormField(
+                        controller: _textEditingController,
+                        keyboardType: TextInputType.multiline,
+                        textAlignVertical: height1 == 36
+                            ? TextAlignVertical.bottom
+                            : TextAlignVertical.center,
+                        maxLines: 4,
+                        minLines: 1,
+                        style: kSubtitle2.copyWith(color: kWhiteColor),
+                        focusNode: _focus,
+                        decoration: InputDecoration(
+                          hintText: "Write a comment...",
+                          hintStyle: kSubtitle2.copyWith(color: kGreyColor),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          filled: true,
+                          fillColor: kSurfaceColorWithOpacity,
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        right: 10,
+                      ),
+                      child: Icon(
+                        Ionicons.send,
+                        color: kPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

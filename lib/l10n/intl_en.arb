@@ -5,9 +5,9 @@
     "navbar_courses": "Courses",
     "navbar_marathons": "Marathons",
     "navbar_profile": "Profile",
-    "navbar_notifications":"Notifications",
-    "action_comments":"Comments",
-    "action_likes":"Likes",
+    "navbar_notifications": "Notifications",
+    "action_comments": "Comments",
+    "action_likes": "Likes",
     "action_share": "Share",
     "action_notinterested": "Not interested",
     "setteings_message_dont_recom": "Don’t recommend this user's video",
@@ -19,5 +19,9 @@
     "description_like": "Likes",
     "description_dislike": "Dislikes",
     "description_view": "View",
-    "commetns_title": "Comments"
+    "commetns_title": "Comments",
+    "comments_save_title": "Cancel sending a comment",
+    "comments_pop_up_item1": "Top comments",
+    "comments_pop_up_item2": "New comments",
+    "comments_pop_up_item3": "Old comments"
 }
