@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/models/video.dart';
 
-import '../../generated/l10n.dart';
-import '../../utils/constants.dart';
+import '../generated/l10n.dart';
+import '../utils/constants.dart';
 
 class VideoFeedback extends StatefulWidget {
   final VideoModel videoModel;

@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/models/video.dart';
-import 'package:project_lagann/widgets/pro_video_widgets/video_description.dart';
-import 'package:project_lagann/widgets/pro_video_widgets/video_feedback_items.dart';
-import 'package:provider/provider.dart';
+import 'package:project_lagann/widgets/video_description.dart';
+import 'package:project_lagann/widgets/video_feedback_items.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import '../../generated/l10n.dart';
-import '../../utils/constants.dart';
-import '../../controllers/comments_controller.dart';
+import '../generated/l10n.dart';
+import '../utils/constants.dart';
 
 class UnderVideoWidgets extends StatefulWidget {
   final VideoModel videoModel;
@@ -40,13 +38,13 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
   void onTapShowDescription() {
     showFlexibleBottomSheet(
       context: context,
-      minHeight: 0.692,
-      initHeight: 0.692,
-      maxHeight: 0.692,
-      anchors: [0, 0.692],
+      isModal: false,
+      // isDismissible: false,
+      minHeight: 0.685,
+      initHeight: 0.685,
+      maxHeight: 0.685,
+      anchors: [0, 0.685],
       bottomSheetColor: kBackgroundColor,
-      isDismissible: false,
-      barrierColor: Colors.black87,
       builder: (
         BuildContext context,
         ScrollController scrollController,
@@ -64,6 +62,73 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
                     Text(
                       S.of(context).description_title,
                       style: kSliverAppBarTS,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        SystemChrome.setPreferredOrientations([
+                          DeviceOrientation.portraitUp,
+                          DeviceOrientation.portraitDown,
+                          DeviceOrientation.landscapeLeft,
+                          DeviceOrientation.landscapeRight
+                        ]);
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(
+                        Ionicons.close,
+                        size: kIconSize7,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: double.infinity,
+              child: Description(
+                widget.videoModel,
+                hashTags,
+                scrollController,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void onTapCommets() {
+    showFlexibleBottomSheet(
+      context: context,
+      isModal: false,
+      // isDismissible: false,
+      minHeight: 0.685,
+      initHeight: 0.685,
+      maxHeight: 0.685,
+      anchors: [0, 0.685],
+      bottomSheetColor: kBackgroundColor,
+      builder: (
+        BuildContext context,
+        ScrollController scrollController,
+        _,
+      ) {
+        return Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: SizedBox(
+                height: 52,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      S.of(context).commetns_title,
+                      style: kSliverAppBarTS,
+                    ),
+                    Text(
+                      widget.videoModel.commentsCount,
+                      style: kSliverAppBarTS.copyWith(
+                        color: const Color(0xFFF2F2F2).withOpacity(0.4),
+                      ),
                     ),
                     IconButton(
                       onPressed: () {
@@ -268,8 +333,7 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: GestureDetector(
-            onTap: () => Provider.of<CommentsController>(context, listen: false)
-                .onTapCommets(context, widget.videoModel),
+            onTap: () => onTapCommets(),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -287,10 +351,10 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
                   widget.videoModel.commentsCount,
                   style: kChapterDefaultTS,
                 ),
-                const Spacer(),
-                const Padding(
-                    padding: EdgeInsets.only(right: 15),
-                    child: Icon(Ionicons.swap_vertical))
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 187,
+                ),
+                const Icon(Ionicons.swap_vertical)
               ],
             ),
           ),

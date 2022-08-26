@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/models/video.dart';
-import 'package:project_lagann/widgets/pro_video_widgets/video_progress_indicator.dart';
-import 'package:project_lagann/widgets/pro_video_widgets/video_settings.dart';
+import 'package:project_lagann/widgets/video_progress_indicator.dart';
+import 'package:project_lagann/widgets/video_settings.dart';
 import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';
 
-import '../../utils/constants.dart';
+import '../utils/constants.dart';
 
 class CustomConstrols extends StatefulWidget {
   final VideoPlayerController? videoPlayerController;

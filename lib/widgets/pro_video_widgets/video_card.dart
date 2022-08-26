@@ -4,7 +4,7 @@ import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import '../../widgets/widgets.dart';
+import '../widgets/widgets.dart';
 
 class VideoCard extends StatefulWidget {
   final VideoModel videoModel;
