@@ -146,7 +146,7 @@ Container kSeporatorLine = Container(
 Container kSeporatorDot = Container(
   height: 4,
   width: 4,
-  margin: const EdgeInsets.only(left: 8, right: 8),
+  margin: const EdgeInsets.symmetric(horizontal: 4),
   decoration: const BoxDecoration(color: kGreyColor, shape: BoxShape.circle),
 );
 Container kDot = Container(
@@ -163,4 +163,15 @@ Container kThreeDotAvatar = Container(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [kDot, kDot, kDot]),
+);
+
+Container kHashtagCircle = Container(
+  height: 48,
+  width: 48,
+  decoration: const BoxDecoration(color: kSurfaceColor, shape: BoxShape.circle),
+  child: const Center(
+      child: Text(
+    '#',
+    style: kHeadline4,
+  )),
 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/screens/search_screens/search_result_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
 import '../../generated/l10n.dart';
 
@@ -53,42 +54,48 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Center(
-              child: GestureDetector(
-                // TODO: implement method of searchcpntroller
-                onTap: () {},
-                child: Text(
-                  S.of(context).action_search,
-                  style: kHeadline5.copyWith(color: kWhiteColor),
-                ),
+            padding: const EdgeInsets.only(right: 10),
+            child: TextButton(
+              // TODO: implement method of searchcpntroller
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchResultScreen(),
+                  ),
+                );
+              },
+              child: Text(
+                S.of(context).action_search,
+                style: kHeadline5.copyWith(color: kWhiteColor),
               ),
             ),
           ),
         ],
         bottom: PreferredSize(
-            preferredSize: Size(MediaQuery.of(context).size.width, 40),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      S.of(context).search_screen_search_history,
-                      style: kSubtitle1.copyWith(color: kWhiteColor),
+          preferredSize: Size(MediaQuery.of(context).size.width, 40),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    S.of(context).search_screen_search_history,
+                    style: kSubtitle1.copyWith(color: kWhiteColor),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      S.of(context).action_clear_all,
+                      style: kBody1TS.copyWith(color: kGreyColor),
                     ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        S.of(context).action_clear_all,
-                        style: kBody1TS.copyWith(color: kGreyColor),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            )),
+            ),
+          ),
+        ),
       ),
       body:
           // searchController.searchedContent.isEmpty ?

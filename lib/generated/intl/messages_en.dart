@@ -31,6 +31,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_save": MessageLookupByLibrary.simpleMessage("Save"),
         "action_search": MessageLookupByLibrary.simpleMessage("Search"),
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
+        "action_subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
+        "count_posts": MessageLookupByLibrary.simpleMessage("Posts"),
+        "count_subscribers":
+            MessageLookupByLibrary.simpleMessage("Subscribers"),
         "example": MessageLookupByLibrary.simpleMessage("example text"),
         "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),
         "home_screen_signed": MessageLookupByLibrary.simpleMessage("Signed"),

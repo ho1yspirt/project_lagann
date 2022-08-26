@@ -11,11 +11,14 @@
     "action_share": "Share",
     "action_clear_all":"Clear all",
     "action_search":"Search",
+    "action_subscribe":"Subscribe",
     "search_screen_search_history":"Search history",
     "action_notinterested": "Not interested",
     "setteings_message_dont_recom": "Don’t recommend this user's video",
     "action_report": "Report",
     "action_save": "Save",
     "home_screen_signed":"Signed",
-    "home_screen_all":"All"
+    "home_screen_all":"All",
+    "count_subscribers":"Subscribers",
+    "count_posts":"Posts"
 }

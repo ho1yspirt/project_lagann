@@ -170,6 +170,16 @@ class S {
     );
   }
 
+  /// `Subscribe`
+  String get action_subscribe {
+    return Intl.message(
+      'Subscribe',
+      name: 'action_subscribe',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search history`
   String get search_screen_search_history {
     return Intl.message(
@@ -235,6 +245,26 @@ class S {
     return Intl.message(
       'All',
       name: 'home_screen_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscribers`
+  String get count_subscribers {
+    return Intl.message(
+      'Subscribers',
+      name: 'count_subscribers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Posts`
+  String get count_posts {
+    return Intl.message(
+      'Posts',
+      name: 'count_posts',
       desc: '',
       args: [],
     );
