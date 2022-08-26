@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/widgets/card_widgets/course_item_card.dart';
+import 'package:project_lagann/widgets/card_widgets/marathon_item_card.dart';
 import 'package:project_lagann/widgets/card_widgets/short_post_item_card.dart';
 import '../../generated/l10n.dart';
 import '../../models/user.dart';
@@ -202,14 +203,25 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
               (BuildContext context, int index) {
                 return const ShortPostItemCard();
               },
-              childCount: 20,
+              childCount: 3,
             ),
           ),
           SliverList(
-              delegate: SliverChildListDelegate([
-            const SearchHashtagItem(),
-            const SearchHashtagItem(),
-          ])),
+            delegate: SliverChildListDelegate(
+              [
+                const SearchHashtagItem(),
+                const SearchHashtagItem(),
+              ],
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return const MarathonItemCard();
+              },
+              childCount: 3,
+            ),
+          ),
         ],
       ),
     );
