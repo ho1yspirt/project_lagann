@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-import '../generated/l10n.dart';
-import '../models/video.dart';
-import '../utils/constants.dart';
+import '../../generated/l10n.dart';
+import '../../models/video.dart';
+import '../../utils/constants.dart';
 
 class Description extends StatefulWidget {
   final VideoModel videoModel;

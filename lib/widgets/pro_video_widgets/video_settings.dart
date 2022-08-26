@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:video_player/video_player.dart';
 
-import '../utils/constants.dart';
+import '../../utils/constants.dart';
 
 class VideoSettings extends StatefulWidget {
   const VideoSettings(this.videoPlayerController, {Key? key}) : super(key: key);

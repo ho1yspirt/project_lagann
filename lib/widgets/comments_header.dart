@@ -5,7 +5,7 @@ import 'package:ionicons/ionicons.dart';
 
 import '../generated/l10n.dart';
 import '../models/video.dart';
-import '../screens/commentss_screen.dart';
+import '../screens/comments_screen.dart';
 import '../utils/constants.dart';
 
 class CommentsHeader extends StatefulWidget {
