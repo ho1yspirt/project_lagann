@@ -30,7 +30,7 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
           padding: const EdgeInsets.only(top: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 flex: 2,
@@ -77,20 +77,17 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
           ],
         ),
         SizedBox(
-          height: 47,
+          height: 27,
           child: Padding(
             padding: const EdgeInsets.only(left: 16, top: 10, right: 16),
-            child: GridView.builder(
-                itemCount: hashTags.length,
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 100.9,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 5,
-                  mainAxisExtent: 15,
-                ),
+            child: ListView.builder(
+                itemCount: 3,
+                scrollDirection: Axis.horizontal,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, index) {
-                  return Text(hashTags[index]);
+                  return Padding(
+                      padding: const EdgeInsets.only(right: 4),
+                      child: Text(hashTags[index]));
                 }),
           ),
         ),
@@ -119,18 +116,18 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
               Padding(
                 padding: const EdgeInsets.only(
                   left: 16,
-                  right: 8,
+                  // right: 8,
                   top: 8,
                   bottom: 16,
                 ),
                 child: CircleAvatar(
                   foregroundImage:
                       NetworkImage(widget.videoModel.author.profileImageUrl),
-                  radius: 30,
+                  radius: 22,
                 ),
               ),
               Positioned(
-                left: 85,
+                left: 70,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
