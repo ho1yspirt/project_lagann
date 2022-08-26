@@ -11,7 +11,7 @@ ThemeData kBasicTheme() => ThemeData(
       // backgroundColor: kBackgroundColor,
       scaffoldBackgroundColor: kBackgroundColor,
 
-      colorScheme: ColorScheme(
+      colorScheme: const ColorScheme(
           brightness: Brightness.dark,
           primary: kPrimaryColor,
           onPrimary: kWhiteColor,
@@ -45,6 +45,18 @@ ThemeData kBasicTheme() => ThemeData(
       // fab
       // card
       // chips
+      chipTheme: ChipThemeData(
+        backgroundColor: kSurfaceColorWithOpacity,
+        selectedColor: kWhiteColor,
+        disabledColor: kGreyColor,
+        secondarySelectedColor: kWhiteColor,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5))),
+        elevation: 0.0,
+        showCheckmark: false,
+        labelStyle: kBody1TS,
+        secondaryLabelStyle: kBody1TS.copyWith(color: kSurfaceColor),
+      ),
       // dialog
       // divider
       // menu
@@ -56,7 +68,7 @@ ThemeData kBasicTheme() => ThemeData(
       // snackbar
       // tab
       // text field
-      inputDecorationTheme: InputDecorationTheme(
+      inputDecorationTheme: const InputDecorationTheme(
         labelStyle: TextStyle(color: kWhiteColor),
         // enabledBorder: InputBorder(borderSide: BorderSide.none),
       ),
@@ -79,8 +91,8 @@ class GradientIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShaderMask(
       child: SizedBox(
-        width: size * 1.2,
-        height: size * 1.2,
+        width: size,
+        height: size,
         child: Icon(
           icon,
           size: size,

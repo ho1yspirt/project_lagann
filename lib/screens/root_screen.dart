@@ -34,37 +34,43 @@ class _RootScreenState extends State<RootScreen> {
             _currentBottomNavBarIndex = newIndex;
           });
         },
-        // TODO: create proper theme for botnavbar item
         items: [
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
-                  icon: Ionicons.home, size: 27, gradient: kPrimaryGradient),
-              icon: const Icon(Ionicons.home_outline, size: 28),
-              label: S.of(context).bottom_navbar_home),
+                  icon: Ionicons.home,
+                  size: kIconSize6,
+                  gradient: kPrimaryGradient),
+              icon: const Icon(Ionicons.home_outline, size: kIconSize6),
+              label: S.of(context).navbar_home),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
                   icon: Ionicons.play_circle,
-                  size: 27,
+                  size: kIconSize6,
                   gradient: kPrimaryGradient),
-              icon: const Icon(Ionicons.play_circle_outline, size: 28),
-              label: S.of(context).bottom_navbar_pro_video),
+              icon: const Icon(Ionicons.play_circle_outline, size: kIconSize6),
+              label: S.of(context).navbar_pro_video),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
-                  icon: Ionicons.book, size: 27, gradient: kPrimaryGradient),
-              icon: const Icon(Ionicons.book_outline, size: 28),
-              label: S.of(context).bottom_navbar_courses),
+                  icon: Ionicons.book,
+                  size: kIconSize6,
+                  gradient: kPrimaryGradient),
+              icon: const Icon(Ionicons.book_outline, size: kIconSize6),
+              label: S.of(context).navbar_courses),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
-                  icon: Ionicons.trophy, size: 27, gradient: kPrimaryGradient),
-              icon: const Icon(Ionicons.trophy_outline, size: 28),
-              label: S.of(context).bottom_navbar_marathons),
+                  icon: Ionicons.trophy,
+                  size: kIconSize6,
+                  gradient: kPrimaryGradient),
+              icon: const Icon(Ionicons.trophy_outline, size: kIconSize6),
+              label: S.of(context).navbar_marathons),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
                   icon: Ionicons.person_circle,
-                  size: 27,
+                  size: kIconSize6,
                   gradient: kPrimaryGradient),
-              icon: const Icon(Ionicons.person_circle_outline, size: 28),
-              label: S.of(context).bottom_navbar_profile),
+              icon:
+                  const Icon(Ionicons.person_circle_outline, size: kIconSize6),
+              label: S.of(context).navbar_profile),
         ],
       ),
     );

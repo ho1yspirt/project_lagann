@@ -33,7 +33,7 @@ class SettingElements extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 24),
                 child: Text(
-                  S.of(context).settings_message_share,
+                  S.of(context).action_share,
                   style: kChapterDefaultTS,
                 ),
               ),
@@ -59,7 +59,7 @@ class SettingElements extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 24),
               child: Text(
-                S.of(context).settings_message_notinterested,
+                S.of(context).action_notinterested,
                 style: kChapterDefaultTS,
               ),
             ),
@@ -109,7 +109,7 @@ class SettingElements extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 24),
               child: Text(
-                S.of(context).setteings_message_report,
+                S.of(context).action_report,
                 style: kChapterDefaultTS,
               ),
             ),
@@ -134,7 +134,7 @@ class SettingElements extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 24),
               child: Text(
-                S.of(context).setteings_message_save,
+                S.of(context).action_save,
                 style: kChapterDefaultTS,
               ),
             ),

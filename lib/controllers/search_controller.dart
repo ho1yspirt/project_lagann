@@ -1,5 +1,5 @@
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
 // TODO: create searchcontroller
 
-class searchController extends GetxController {}
+// class searchController extends GetxController {}

@@ -3,6 +3,7 @@ import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/utils/constants.dart';
 
+import '../generated/l10n.dart';
 import '../widgets/widgets.dart';
 
 class ProVideoHomeScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
   int currentIndex = 1;
 
   void setChapter(int index) {
+    if (index == currentIndex) return;
     setState(() {
       isCurrChapter[index] = true;
       isCurrChapter[currentIndex] = false;
@@ -94,7 +96,9 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          const SlivAppBar(),
+          SlivAppBar(
+            title: S.of(context).navbar_pro_video,
+          ),
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
@@ -109,8 +113,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[0]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -132,7 +136,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       padding:
                           const EdgeInsets.only(bottom: 3, right: 12, left: 12),
                       alignment: Alignment.bottomCenter,
-                      child: kSeporatorLinePro,
+                      child: kSeporatorLine,
                     ),
 
                     GestureDetector(
@@ -140,8 +144,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[1]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -161,8 +165,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[2]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
@@ -182,8 +186,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: isCurrChapter[3]
-                              ? kChapterActiveColor
-                              : kChapterDefaultColor,
+                              ? kWhiteColor
+                              : kSurfaceColorWithOpacity,
                           borderRadius: BorderRadius.circular(5),
                         ),
                         alignment: Alignment.center,
