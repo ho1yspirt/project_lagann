@@ -1,7 +1,6 @@
 import 'package:auto_orientation/auto_orientation.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
-
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/models/video.dart';
@@ -32,6 +31,19 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
+  String currentSpeed = "1.0";
+
+  List<DropdownMenuItem<String>> settingItems = [
+    const DropdownMenuItem(value: "2.0", child: Text("2.0x")),
+    const DropdownMenuItem(value: "1.75", child: Text("1.75x")),
+    const DropdownMenuItem(value: "1.5", child: Text("1.5x")),
+    const DropdownMenuItem(value: "1.25", child: Text("1.25x")),
+    const DropdownMenuItem(value: "1.0", child: Text("Normal")),
+    const DropdownMenuItem(value: "0.75", child: Text("0.75x")),
+    const DropdownMenuItem(value: "0.5", child: Text("0.5x")),
+    const DropdownMenuItem(value: "0.25", child: Text("0.25x")),
+  ];
+
 
   final Duration _skipDuration = const Duration(milliseconds: 400);
   late AnimationController animationController;
@@ -315,6 +327,10 @@ class _CustomConstrolsState extends State<CustomConstrols>
                       : onTapSettingsInPortraitMode(),
                   icon: const Icon(Ionicons.settings_outline),
                 ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Ionicons.chevron_down),
               ),
               Positioned(
                 left: 10,
