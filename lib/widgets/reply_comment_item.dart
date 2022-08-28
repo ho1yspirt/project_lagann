@@ -96,7 +96,7 @@ class _ReplyCommentItemState extends State<ReplyCommentItem> {
             Padding(
               padding: const EdgeInsets.only(
                 top: 36,
-                left: 49,
+                left: 35,
                 right: 68,
               ),
               child: Text(

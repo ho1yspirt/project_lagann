@@ -77,6 +77,7 @@ class _DescriptionState extends State<Description> {
               height: 26,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //Likes
                 Padding(
@@ -97,9 +98,7 @@ class _DescriptionState extends State<Description> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: 60,
-                ),
+
                 //Dislikes
                 Column(
                   children: [
@@ -116,9 +115,7 @@ class _DescriptionState extends State<Description> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 60,
-                ),
+
                 //Views
                 Column(
                   children: [
@@ -135,24 +132,26 @@ class _DescriptionState extends State<Description> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 60,
-                ),
+
                 //Date
-                Column(
-                  children: [
-                    Text(
-                      DateFormat("MMM dd").format(widget.videoModel.timestamp),
-                      style: kSliverAppBarTS,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      widget.videoModel.timestamp.year.toString(),
-                      style: kVideoInfoTS,
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: Column(
+                    children: [
+                      Text(
+                        DateFormat("MMM dd")
+                            .format(widget.videoModel.timestamp),
+                        style: kSliverAppBarTS,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        widget.videoModel.timestamp.year.toString(),
+                        style: kVideoInfoTS,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

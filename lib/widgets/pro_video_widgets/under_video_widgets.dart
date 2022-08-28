@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/controllers/comments_controller.dart';
 import 'package:project_lagann/models/video.dart';
-import 'package:project_lagann/screens/comments_screen.dart';
 import 'package:project_lagann/widgets/pro_video_widgets/video_description.dart';
 import 'package:project_lagann/widgets/pro_video_widgets/video_feedback_items.dart';
 import 'package:provider/provider.dart';
@@ -41,11 +40,11 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
   void onTapShowDescription() {
     showFlexibleBottomSheet(
       context: context,
-      isModal: false,
-      // isDismissible: false,
-      minHeight: 0.685,
-      initHeight: 0.685,
-      maxHeight: 0.685,
+      isModal: true,
+      // barrierColor: Colors.black12,
+      minHeight: 0.692,
+      initHeight: 0.692,
+      maxHeight: 0.692,
       anchors: [0, 0.685],
       bottomSheetColor: kBackgroundColor,
       builder: (
@@ -269,6 +268,7 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
             onTap: () => context
                 .read<CommentsController>()
                 .onTapCommets(context, widget.videoModel),
@@ -289,10 +289,13 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
                   widget.videoModel.commentsCount,
                   style: kChapterDefaultTS,
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width - 187,
-                ),
-                const Icon(Ionicons.swap_vertical)
+                const Spacer(),
+                const Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: Icon(
+                    Ionicons.swap_vertical,
+                  ),
+                )
               ],
             ),
           ),
