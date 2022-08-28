@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_lagann/controllers/feedback_controller.dart';
 import 'package:project_lagann/screens/root_screen.dart';
 import 'package:project_lagann/utils/theme.dart';
 // localization
@@ -26,6 +27,7 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider(create: (context) => CommentsController()),
         ChangeNotifierProvider(create: (context) => VideoController()),
+        ChangeNotifierProvider(create: (context) => FeedbakcController()),
       ],
       child: MaterialApp(
         // themes

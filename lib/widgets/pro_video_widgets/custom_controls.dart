@@ -6,6 +6,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/widgets/pro_video_widgets/video_progress_indicator.dart';
 import 'package:project_lagann/widgets/pro_video_widgets/video_settings.dart';
+import 'package:project_lagann/widgets/widgets.dart';
 import 'package:video_player/video_player.dart';
 import 'package:wakelock/wakelock.dart';
 
@@ -31,19 +32,6 @@ class _CustomConstrolsState extends State<CustomConstrols>
   bool _isVisibleRight = true;
   bool _isVisibleLeft = true;
   bool _isVisibleAll = true;
-  String currentSpeed = "1.0";
-
-  List<DropdownMenuItem<String>> settingItems = [
-    const DropdownMenuItem(value: "2.0", child: Text("2.0x")),
-    const DropdownMenuItem(value: "1.75", child: Text("1.75x")),
-    const DropdownMenuItem(value: "1.5", child: Text("1.5x")),
-    const DropdownMenuItem(value: "1.25", child: Text("1.25x")),
-    const DropdownMenuItem(value: "1.0", child: Text("Normal")),
-    const DropdownMenuItem(value: "0.75", child: Text("0.75x")),
-    const DropdownMenuItem(value: "0.5", child: Text("0.5x")),
-    const DropdownMenuItem(value: "0.25", child: Text("0.25x")),
-  ];
-
 
   final Duration _skipDuration = const Duration(milliseconds: 400);
   late AnimationController animationController;
@@ -173,6 +161,8 @@ class _CustomConstrolsState extends State<CustomConstrols>
 
   @override
   Widget build(BuildContext context) {
+    bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
@@ -319,12 +309,9 @@ class _CustomConstrolsState extends State<CustomConstrols>
               ),
               Positioned(
                 top: 5,
-                right: 8.5,
+                right: isLandscape ? 30 : 8.5,
                 child: IconButton(
-                  onPressed: () => MediaQuery.of(context).orientation ==
-                          Orientation.landscape
-                      ? onTapSettingsInFullScreen(context)
-                      : onTapSettingsInPortraitMode(),
+                  onPressed: () => onTapSettingsInFullScreen(context),
                   icon: const Icon(Ionicons.settings_outline),
                 ),
               ),
@@ -333,8 +320,8 @@ class _CustomConstrolsState extends State<CustomConstrols>
                 icon: const Icon(Ionicons.chevron_down),
               ),
               Positioned(
-                left: 10,
-                bottom: 10,
+                left: isLandscape ? 60 : 10,
+                bottom: isLandscape ? 54 : 10,
                 child: ValueListenableBuilder(
                   valueListenable: widget.videoPlayerController!,
                   builder: (context, VideoPlayerValue value, child) {
@@ -345,8 +332,8 @@ class _CustomConstrolsState extends State<CustomConstrols>
                 ),
               ),
               Positioned(
-                right: 12.5,
-                bottom: 14,
+                right: isLandscape ? 39 : 12.5,
+                bottom: isLandscape ? 12 : 14,
                 child: GestureDetector(
                   onTap: () {
                     if (MediaQuery.of(context).orientation ==
@@ -356,23 +343,30 @@ class _CustomConstrolsState extends State<CustomConstrols>
                     } else if (MediaQuery.of(context).orientation ==
                         Orientation.landscape) {
                       AutoOrientation.portraitAutoMode();
-
                       widget.exitFullScreen();
                     }
-
                     Wakelock.enable();
                   },
-                  child: const Icon(
+                  child: Icon(
                     Ionicons.expand,
-                    size: 20,
+                    size: isLandscape ? kIconSize7 : kIconSize8,
                   ),
                 ),
               ),
+              if (isLandscape)
+                Positioned(
+                  top: 363,
+                  left: 47,
+                  width: MediaQuery.of(context).size.width,
+                  child: VideoFeedback(widget.videoModel),
+                ),
             ],
           ),
         ),
         Positioned(
-          height: 5,
+          height: isLandscape ? 90 : 5,
+          left: isLandscape ? 60 : 0,
+          right: isLandscape ? 36 : 0,
           child: VideoProgressBar(
             widget.videoPlayerController!,
             barHeight: 5,
