@@ -10,7 +10,7 @@ class SettingElements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      heightFactor: 0.4,
+      heightFactor: 0.45,
       child: Column(children: [
         GestureDetector(
           onTap: (() {}),
