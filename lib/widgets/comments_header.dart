@@ -2,6 +2,8 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/controllers/comments_controller.dart';
+import 'package:provider/provider.dart';
 
 import '../generated/l10n.dart';
 import '../models/video.dart';
@@ -24,21 +26,6 @@ class _CommentsHeaderState extends State<CommentsHeader> {
   MenuItem topComments = MenuItem(text: S.current.comments_pop_up_item1);
   MenuItem newComments = MenuItem(text: S.current.comments_pop_up_item2);
   MenuItem oldComments = MenuItem(text: S.current.comments_pop_up_item3);
-
-  List<bool> selectedFilters = [true, false, false];
-  int currentIndex = 0;
-
-  onChanged(BuildContext context, int index) {
-    if (index == currentIndex) {
-      return;
-    } else {
-      setState(() {
-        selectedFilters[currentIndex] = false;
-        selectedFilters[index] = true;
-        currentIndex = index;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +70,9 @@ class _CommentsHeaderState extends State<CommentsHeader> {
                         value: 0,
                         child: Text(
                           topComments.text,
-                          style: selectedFilters[0]
+                          style: context
+                                  .watch<CommentsController>()
+                                  .selectedFilters[0]
                               ? kChapterDefaultTS
                               : kChapterDefaultTS.copyWith(
                                   color: kSurfaceColorWithOpacity,
@@ -94,7 +83,9 @@ class _CommentsHeaderState extends State<CommentsHeader> {
                         value: 1,
                         child: Text(
                           newComments.text,
-                          style: selectedFilters[1]
+                          style: context
+                                  .watch<CommentsController>()
+                                  .selectedFilters[1]
                               ? kChapterDefaultTS
                               : kChapterDefaultTS.copyWith(
                                   color: kSurfaceColorWithOpacity,
@@ -105,7 +96,9 @@ class _CommentsHeaderState extends State<CommentsHeader> {
                         value: 2,
                         child: Text(
                           oldComments.text,
-                          style: selectedFilters[2]
+                          style: context
+                                  .watch<CommentsController>()
+                                  .selectedFilters[2]
                               ? kChapterDefaultTS
                               : kChapterDefaultTS.copyWith(
                                   color: kSurfaceColorWithOpacity,
@@ -114,7 +107,9 @@ class _CommentsHeaderState extends State<CommentsHeader> {
                       ),
                     ],
                     onChanged: (value) {
-                      onChanged(context, value as int);
+                      context
+                          .read<CommentsController>()
+                          .onChanged(context, value as int);
                     },
                     itemHeight: 48,
                     dropdownWidth: 258,
