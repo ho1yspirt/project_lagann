@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
+import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
+import 'package:uni_links/uni_links.dart';
 
 import '../generated/l10n.dart';
 import '../widgets/widgets.dart';
@@ -30,6 +34,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
   @override
   void initState() {
     super.initState();
+
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -62,7 +67,8 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       title: "Weather App UI Design in Figma - Full course",
       thumbnailUrl:
           "https://thumbs.dreamstime.com/b/d-mural-wallpaper-beautiful-view-landscape-background-old-arches-tree-sun-water-birds-flowers-transparent-curtains-166191190.jpg",
-      videoUrl: "https://youtu.be/2XOciSjxocI",
+      videoUrl:
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       duration: "20",
       timestamp: DateTime(2021, 7, 15),
       viewCount: "8K",
@@ -145,7 +151,8 @@ Valhalla calling me""",
       author: _testUser,
       title: 'Flutter Clubhouse Clone UI Tutorial | Apps From Scratch',
       thumbnailUrl: 'https://i.ytimg.com/vi/x606y4QWrxo/0.jpg',
-      videoUrl: "https://youtu.be/2XOciSjxocI",
+      videoUrl:
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       duration: '8:20',
       timestamp: DateTime(2021, 3, 20),
       viewCount: '10K',
@@ -229,7 +236,8 @@ Valhalla calling me""",
       title:
           'Build Flutter Apps Fast with Riverpod, Firebase, Hooks, and Freezed Architecture',
       thumbnailUrl: 'https://i.ytimg.com/vi/vrPk6LB9bjo/0.jpg',
-      videoUrl: "https://youtu.be/2XOciSjxocI",
+      videoUrl:
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       duration: '22:06',
       timestamp: DateTime(2021, 2, 26),
       viewCount: '8K',
@@ -312,7 +320,8 @@ Valhalla calling me""",
       author: _testUser,
       title: 'Flutter Instagram Stories',
       thumbnailUrl: 'https://i.ytimg.com/vi/ilX5hnH8XoI/0.jpg',
-      videoUrl: "https://youtu.be/2XOciSjxocI",
+      videoUrl:
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
       duration: '10:53',
       timestamp: DateTime(2022, 8, 7),
       viewCount: '18K',
