@@ -22,18 +22,29 @@ class _CommentsScreenState extends State<CommentsScreen> {
   final FocusNode _focus = FocusNode();
   double height1 = 36;
   double height2 = 52;
-  @override
-  void dispose() {
-    super.dispose();
-    _textEditingController.dispose();
-    _focus.removeListener(_onFocusChange);
-    _focus.dispose();
-  }
 
   @override
   void initState() {
     super.initState();
     _focus.addListener(_onFocusChange);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    _textEditingController.dispose();
+    _focus.removeListener(_onFocusChange);
+    _focus.dispose();
   }
 
   void _onFocusChange() {

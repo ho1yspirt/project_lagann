@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/controllers/video_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../utils/constants.dart';
@@ -14,8 +16,6 @@ class VideoSettings extends StatefulWidget {
 }
 
 class _VideoSettingsState extends State<VideoSettings> {
-  String currentSpeed = "1.0";
-
   List<DropdownMenuItem<String>> settingItems = [
     const DropdownMenuItem(value: "2.0", child: Text("2.0x")),
     const DropdownMenuItem(value: "1.75", child: Text("1.75x")),
@@ -64,10 +64,10 @@ class _VideoSettingsState extends State<VideoSettings> {
                   ),
                   style: kVideoTitleTS,
                   items: settingItems,
-                  value: currentSpeed,
+                  value: context.watch<VideoController>().currentSpeed,
                   onChanged: (String? newSpeed) {
+                    context.read<VideoController>().setVideoSpeed(newSpeed!);
                     setState(() {
-                      currentSpeed = newSpeed!;
                       widget.videoPlayerController
                           .setPlaybackSpeed(double.parse(newSpeed));
                     });

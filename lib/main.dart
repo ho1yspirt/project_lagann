@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:project_lagann/controllers/feedback_controller.dart';
 import 'package:project_lagann/screens/root_screen.dart';
 import 'package:project_lagann/utils/theme.dart';
 // localization
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'controllers/comments_controller.dart';
+import 'controllers/video_controller.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -23,7 +25,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => CommentsController())
+        ChangeNotifierProvider(create: (context) => CommentsController()),
+        ChangeNotifierProvider(create: (context) => VideoController()),
+        ChangeNotifierProvider(create: (context) => FeedbakcController()),
       ],
       child: MaterialApp(
         // themes

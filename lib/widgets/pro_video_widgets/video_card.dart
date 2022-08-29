@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
@@ -22,8 +23,17 @@ class _VideoCardState extends State<VideoCard> {
         context: context,
         backgroundColor: kBackgroundColor,
         builder: (BuildContext context) {
+          SystemChrome.setPreferredOrientations(
+              [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
           return const SettingElements();
-        });
+        }).then((value) {
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]);
+    });
   }
 
   @override

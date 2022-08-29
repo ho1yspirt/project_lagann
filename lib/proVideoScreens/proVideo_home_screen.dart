@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/utils/constants.dart';
@@ -24,6 +25,26 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       isCurrChapter[currentIndex] = false;
       currentIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   static const UserModel _testUser = UserModel(

@@ -14,9 +14,9 @@ class CommentsController extends ChangeNotifier {
       context: context,
       isModal: false,
       isDismissible: false,
-      minHeight: 0.685,
-      initHeight: 0.685,
-      maxHeight: 0.685,
+      minHeight: 0.692,
+      initHeight: 0.692,
+      maxHeight: 0.692,
       anchors: [0, 0.685],
       useRootNavigator: true,
       bottomSheetColor: kBackgroundColor,
@@ -28,5 +28,21 @@ class CommentsController extends ChangeNotifier {
         return CommentsHeader(videoModel, scrollController);
       },
     );
+  }
+
+  final List<bool> _selectedFilters = [true, false, false];
+  int _currentIndex = 0;
+
+  List<bool> get selectedFilters => _selectedFilters;
+
+  onChanged(BuildContext context, int index) {
+    if (index == _currentIndex) {
+      return;
+    } else {
+      _selectedFilters[_currentIndex] = false;
+      _selectedFilters[index] = true;
+      _currentIndex = index;
+      notifyListeners();
+    }
   }
 }
