@@ -28,7 +28,8 @@ class _CustomChoiceChipsState extends State<CustomChoiceChips> {
         child: ChoiceChip(
           label: Text(widget.chipsList[i].label),
           selected: widget.selectedChipIndex == i,
-          onSelected: (bool value) {
+          onSelected: (value) {
+            widget.chipsList[i].onSelected();
             setState(() {
               widget.selectedChipIndex = i;
             });
@@ -42,9 +43,15 @@ class _CustomChoiceChipsState extends State<CustomChoiceChips> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      children: filterChips(),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: SizedBox(
+        height: 40,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: filterChips(),
+        ),
+      ),
     );
   }
 }
