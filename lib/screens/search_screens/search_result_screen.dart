@@ -14,7 +14,7 @@ import '../../utils/constants.dart';
 import '../../widgets/custom_tabbar_indicator.dart';
 import '../../widgets/search_widgets/search_hashtag_item.dart';
 import '../../widgets/search_widgets/search_user_item.dart';
-import '../../widgets/video_card.dart';
+import '../../widgets/pro_video_widgets/video_card.dart';
 
 class SearchResultScreen extends StatefulWidget {
   const SearchResultScreen({Key? key}) : super(key: key);
@@ -385,6 +385,7 @@ class _SearchResultScreenState extends State<SearchResultScreen>
       likes: "4775",
       dislikes: "177",
       commentsCount: "250",
+      description: "some desc",
     ),
     VideoModel(
       id: 'x606y4QWrxo',
@@ -398,6 +399,7 @@ class _SearchResultScreenState extends State<SearchResultScreen>
       likes: '958',
       dislikes: '4',
       commentsCount: "250",
+      description: "some desc",
     ),
   ];
 
