@@ -23,7 +23,7 @@ class CustomSliverBoxLink extends StatelessWidget {
         InkWell(
             borderRadius: BorderRadius.circular(5),
             onTap: () {
-              navigateTo;
+              navigateTo();
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 2),

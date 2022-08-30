@@ -11,7 +11,6 @@ import '../../generated/l10n.dart';
 import '../../models/user.dart';
 import '../../models/video.dart';
 import '../../utils/constants.dart';
-import '../../widgets/custom_choice_chips.dart';
 import '../../widgets/search_widgets/search_hashtag_item.dart';
 import '../../widgets/search_widgets/search_user_item.dart';
 import '../../widgets/video_card.dart';
@@ -23,19 +22,21 @@ class SearchResultScreen extends StatefulWidget {
   State<SearchResultScreen> createState() => _SearchResultScreenState();
 }
 
-class _SearchResultScreenState extends State<SearchResultScreen> {
+class _SearchResultScreenState extends State<SearchResultScreen>
+    with TickerProviderStateMixin {
   final TextEditingController _textController = TextEditingController();
 
-  int _currentIndex = 0;
+  late TabController _tabController;
 
-  final PageController _pageController = PageController(initialPage: 0);
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 7, vsync: this);
+  }
 
-  void setIndex(int newIndex) {
+  changeMyTab() {
     setState(() {
-      _currentIndex = newIndex;
-      _pageController.animateToPage(newIndex,
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.decelerate);
+      _tabController.index = 2;
     });
   }
 
@@ -442,11 +443,11 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
             padding: const EdgeInsets.only(right: 4),
             child: IconButton(
               onPressed: () {
-                if (_currentIndex == 3) {
+                if (_tabController.index == 3) {
                   onTapFilterUser(context);
-                } else if (_currentIndex == 4) {
+                } else if (_tabController.index == 4) {
                   onTapFilterMarathon(context);
-                } else if (_currentIndex == 5) {
+                } else if (_tabController.index == 5) {
                   onTapFilterCourse(context);
                 } else {
                   onTapFilterContent(context);
@@ -456,55 +457,72 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
             ),
           )
         ],
-        bottom: PreferredSize(
-          preferredSize: Size(MediaQuery.of(context).size.width, 60),
-          child: CustomChoiceChips(
-            selectedChipIndex: _currentIndex,
-            chipsList: [
-              ChipFilter(S.of(context).action_top, () {
-                setIndex(0);
-              }),
-              ChipFilter('ShortPosts', () {
-                setIndex(1);
-              }),
-              ChipFilter(S.of(context).navbar_pro_video, () {
-                setIndex(2);
-              }),
-              ChipFilter(S.of(context).action_people, () {
-                setIndex(3);
-              }),
-              ChipFilter(S.of(context).navbar_marathons, () {
-                setIndex(4);
-              }),
-              ChipFilter(S.of(context).navbar_courses, () {
-                setIndex(5);
-              }),
-              ChipFilter(S.of(context).action_hashtags, () {
-                setIndex(6);
-              }),
-            ],
-          ),
+        bottom: TabBar(
+          controller: _tabController,
+          splashBorderRadius: BorderRadius.circular(5),
+          indicatorColor: kPrimaryColor,
+          indicatorWeight: 4,
+          isScrollable: true,
+          tabs: [
+            Tab(
+              child: Text(
+                S.of(context).action_top,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Tab(
+              child: Text(
+                'ShortPosts',
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Tab(
+              child: Text(
+                S.of(context).navbar_pro_video,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Tab(
+              child: Text(
+                S.of(context).action_people,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Tab(
+              child: Text(
+                S.of(context).navbar_marathons,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Tab(
+              child: Text(
+                S.of(context).navbar_courses,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Tab(
+              child: Text(
+                S.of(context).action_hashtags,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+          ],
         ),
       ),
-      body: PageView(
-        physics: const ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-        controller: _pageController,
-        onPageChanged: (newIndex) {
-          setState(() {
-            _currentIndex = newIndex;
-          });
-        },
+      body: TabBarView(
+        controller: _tabController,
         children: [
           Scaffold(
             body: CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
-                    child: CustomSliverBoxLink(
-                        title: S.of(context).action_hashtags,
-                        navigateTo: (context) {
-                          setIndex(6);
-                          print(0);
-                        })),
+                  child: CustomSliverBoxLink(
+                    title: S.of(context).action_hashtags,
+                    navigateTo: () {
+                      _tabController.animateTo(6);
+                    },
+                  ),
+                ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
@@ -515,7 +533,11 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                 ),
                 SliverToBoxAdapter(
                     child: CustomSliverBoxLink(
-                        title: S.of(context).action_people, navigateTo: () {})),
+                  title: S.of(context).action_people,
+                  navigateTo: () {
+                    _tabController.animateTo(3);
+                  },
+                )),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
@@ -530,7 +552,9 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                 SliverToBoxAdapter(
                     child: CustomSliverBoxLink(
                         title: S.of(context).navbar_marathons,
-                        navigateTo: () {})),
+                        navigateTo: () {
+                          _tabController.animateTo(4);
+                        })),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -542,7 +566,9 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                 SliverToBoxAdapter(
                     child: CustomSliverBoxLink(
                         title: S.of(context).navbar_courses,
-                        navigateTo: () {})),
+                        navigateTo: () {
+                          _tabController.animateTo(5);
+                        })),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -555,7 +581,10 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     child: Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: CustomSliverBoxLink(
-                      title: 'ShortPosts', navigateTo: () {}),
+                      title: 'ShortPosts',
+                      navigateTo: () {
+                        _tabController.animateTo(1);
+                      }),
                 )),
                 SliverGrid(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -570,11 +599,16 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                   ),
                 ),
                 SliverToBoxAdapter(
-                    child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: CustomSliverBoxLink(
-                      title: S.of(context).navbar_pro_video, navigateTo: () {}),
-                )),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: CustomSliverBoxLink(
+                      title: S.of(context).navbar_pro_video,
+                      navigateTo: () {
+                        _tabController.animateTo(2);
+                      },
+                    ),
+                  ),
+                ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
