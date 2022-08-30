@@ -45,11 +45,15 @@ class SearchUserItem extends StatelessWidget {
             ),
           ],
         ),
-        trailing: GestureDetector(
+        trailing: InkWell(
+          borderRadius: BorderRadius.circular(5),
           onTap: () {},
-          child: Text(
-            S.of(context).action_subscribe.toUpperCase(),
-            style: kButtonTS.copyWith(color: kPrimaryColor),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 2),
+            child: Text(
+              S.of(context).action_subscribe.toUpperCase(),
+              style: kButtonTS.copyWith(color: kPrimaryColor),
+            ),
           ),
         ),
       ),

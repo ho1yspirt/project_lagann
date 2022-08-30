@@ -5,14 +5,14 @@ import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 
 class SearchFilterDialog extends StatefulWidget {
-  // final Widget? otherWidget;
+  final Widget optionalWidget;
   final String title;
-  final List<SearchFilterDialogItem> widgetSet;
+  final List<Widget> widgetSet;
   const SearchFilterDialog({
     Key? key,
     required this.title,
     required this.widgetSet,
-    // this.otherWidget,
+    this.optionalWidget = const SizedBox.shrink(),
   }) : super(key: key);
 
   @override
@@ -38,7 +38,10 @@ class _SearchFilterDialogState extends State<SearchFilterDialog> {
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: Column(children: widget.widgetSet),
           ),
-          // widget.otherWidget,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+            child: widget.optionalWidget,
+          ),
           Container(
             height: 2,
             color: kSurfaceColor,

@@ -340,6 +340,26 @@ class S {
     );
   }
 
+  /// `From`
+  String get count_from {
+    return Intl.message(
+      'From',
+      name: 'count_from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To`
+  String get count_to {
+    return Intl.message(
+      'To',
+      name: 'count_to',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search filter`
   String get search_filter {
     return Intl.message(
@@ -485,6 +505,76 @@ class S {
     return Intl.message(
       'None',
       name: 'search_filter_none',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get search_filter_categories {
+    return Intl.message(
+      'Categories',
+      name: 'search_filter_categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subcategory`
+  String get search_filter_subcategory {
+    return Intl.message(
+      'Subcategory',
+      name: 'search_filter_subcategory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get search_filter_status {
+    return Intl.message(
+      'Status',
+      name: 'search_filter_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Announced`
+  String get search_filter_announced {
+    return Intl.message(
+      'Announced',
+      name: 'search_filter_announced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get search_filter_active {
+    return Intl.message(
+      'Active',
+      name: 'search_filter_active',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ended`
+  String get search_filter_ended {
+    return Intl.message(
+      'Ended',
+      name: 'search_filter_ended',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get search_filter_price {
+    return Intl.message(
+      'Price',
+      name: 'search_filter_price',
       desc: '',
       args: [],
     );

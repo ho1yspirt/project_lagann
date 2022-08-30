@@ -21,10 +21,14 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
     return DropdownButtonHideUnderline(
       child: DropdownButton(
         //style
+        alignment: AlignmentDirectional.centerEnd,
         dropdownColor: kSurfaceColor,
         borderRadius: BorderRadius.circular(10),
         iconSize: kIconSize8,
-        icon: const Icon(Ionicons.chevron_down, color: kWhiteColor),
+        icon: const Padding(
+          padding: EdgeInsets.only(left: 16),
+          child: Icon(Ionicons.chevron_down, color: kWhiteColor),
+        ),
         style: kSubtitle1.copyWith(color: kWhiteColor),
         //values
         value: widget.selectedItem,

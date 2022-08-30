@@ -39,9 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
         "action_subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "action_top": MessageLookupByLibrary.simpleMessage("Top"),
+        "count_from": MessageLookupByLibrary.simpleMessage("From"),
         "count_posts": MessageLookupByLibrary.simpleMessage("Posts"),
         "count_subscribers":
             MessageLookupByLibrary.simpleMessage("Subscribers"),
+        "count_to": MessageLookupByLibrary.simpleMessage("To"),
         "date_anytime": MessageLookupByLibrary.simpleMessage("Anytime"),
         "date_last_hour": MessageLookupByLibrary.simpleMessage("Last hour"),
         "date_this_month": MessageLookupByLibrary.simpleMessage("This month"),
@@ -60,10 +62,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "navbar_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "search_filter": MessageLookupByLibrary.simpleMessage("Search filter"),
         "search_filter_accent": MessageLookupByLibrary.simpleMessage("Accent"),
+        "search_filter_active": MessageLookupByLibrary.simpleMessage("Active"),
         "search_filter_activity":
             MessageLookupByLibrary.simpleMessage("Activity"),
+        "search_filter_announced":
+            MessageLookupByLibrary.simpleMessage("Announced"),
+        "search_filter_categories":
+            MessageLookupByLibrary.simpleMessage("Categories"),
         "search_filter_channel_name":
             MessageLookupByLibrary.simpleMessage("Channel name"),
+        "search_filter_ended": MessageLookupByLibrary.simpleMessage("Ended"),
         "search_filter_friends":
             MessageLookupByLibrary.simpleMessage("Friends"),
         "search_filter_like": MessageLookupByLibrary.simpleMessage("Like"),
@@ -71,11 +79,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "search_filter_none": MessageLookupByLibrary.simpleMessage("None"),
         "search_filter_popularity":
             MessageLookupByLibrary.simpleMessage("Popularity"),
+        "search_filter_price": MessageLookupByLibrary.simpleMessage("Price"),
         "search_filter_relevance":
             MessageLookupByLibrary.simpleMessage("Relevance"),
         "search_filter_signed": MessageLookupByLibrary.simpleMessage("Signed"),
         "search_filter_sort_by":
             MessageLookupByLibrary.simpleMessage("Sort by"),
+        "search_filter_status": MessageLookupByLibrary.simpleMessage("Status"),
+        "search_filter_subcategory":
+            MessageLookupByLibrary.simpleMessage("Subcategory"),
         "search_filter_upload_date":
             MessageLookupByLibrary.simpleMessage("Upload date"),
         "search_filter_user_name":

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/widgets/card_widgets/course_item_card.dart';
 import 'package:project_lagann/widgets/card_widgets/marathon_item_card.dart';
@@ -82,6 +83,263 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  void onTapFilterUser(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => SearchFilterDialog(
+        title: S.of(context).search_filter,
+        widgetSet: [
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_sort_by,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).search_filter_relevance,
+              items: [
+                S.of(context).search_filter_relevance,
+                S.of(context).search_filter_popularity,
+              ],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_accent,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).home_screen_all,
+              items: [
+                S.of(context).home_screen_all,
+                S.of(context).search_filter_user_name,
+                S.of(context).search_filter_channel_name,
+              ],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).navbar_profile,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).home_screen_all,
+              items: [
+                S.of(context).home_screen_all,
+                S.of(context).search_filter_signed,
+                S.of(context).search_filter_friends,
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void onTapFilterMarathon(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => SearchFilterDialog(
+        title: S.of(context).search_filter,
+        widgetSet: [
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_categories,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).home_screen_all,
+              items: [S.of(context).home_screen_all, 'provide list'],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_subcategory,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).home_screen_all,
+              items: [S.of(context).home_screen_all, 'provide list'],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_sort_by,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).search_filter_relevance,
+              items: [
+                S.of(context).search_filter_relevance,
+                S.of(context).search_filter_popularity,
+                S.of(context).search_filter_upload_date,
+              ],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_status,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).home_screen_all,
+              items: [
+                S.of(context).home_screen_all,
+                S.of(context).search_filter_announced,
+                S.of(context).search_filter_active,
+                S.of(context).search_filter_ended,
+              ],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_upload_date,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).date_anytime,
+              items: [
+                S.of(context).date_anytime,
+                S.of(context).date_last_hour,
+                S.of(context).date_today,
+                S.of(context).date_this_week,
+                S.of(context).date_this_month,
+                S.of(context).date_this_year,
+              ],
+            ),
+          ),
+        ],
+        optionalWidget: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                S.of(context).search_filter_price,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 40,
+                      child: TextFormField(
+                        cursorColor: kPrimaryColor,
+                        cursorRadius: const Radius.circular(5),
+                        decoration: InputDecoration(
+                          hintText: S.of(context).count_from,
+                        ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: SizedBox(
+                      height: 40,
+                      child: TextFormField(
+                        cursorColor: kPrimaryColor,
+                        cursorRadius: const Radius.circular(5),
+                        decoration: InputDecoration(
+                          hintText: S.of(context).count_to,
+                        ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void onTapFilterCourse(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => SearchFilterDialog(
+        title: S.of(context).search_filter,
+        widgetSet: [
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_categories,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).home_screen_all,
+              items: [S.of(context).home_screen_all, 'provide list'],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_subcategory,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).home_screen_all,
+              items: [S.of(context).home_screen_all, 'provide list'],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_sort_by,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).search_filter_relevance,
+              items: [
+                S.of(context).search_filter_relevance,
+                S.of(context).search_filter_popularity,
+                S.of(context).search_filter_upload_date,
+              ],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_upload_date,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).date_anytime,
+              items: [
+                S.of(context).date_anytime,
+                S.of(context).date_last_hour,
+                S.of(context).date_today,
+                S.of(context).date_this_week,
+                S.of(context).date_this_month,
+                S.of(context).date_this_year,
+              ],
+            ),
+          ),
+        ],
+        optionalWidget: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                S.of(context).search_filter_price,
+                style: kHeadline5.copyWith(color: kWhiteColor),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 40,
+                      child: TextFormField(
+                        cursorColor: kPrimaryColor,
+                        cursorRadius: const Radius.circular(5),
+                        decoration: InputDecoration(
+                          hintText: S.of(context).count_from,
+                        ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: SizedBox(
+                      height: 40,
+                      child: TextFormField(
+                        cursorColor: kPrimaryColor,
+                        cursorRadius: const Radius.circular(5),
+                        decoration: InputDecoration(
+                          hintText: S.of(context).count_to,
+                        ),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -184,7 +442,15 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
             padding: const EdgeInsets.only(right: 4),
             child: IconButton(
               onPressed: () {
-                onTapFilterContent(context);
+                if (_currentIndex == 3) {
+                  onTapFilterUser(context);
+                } else if (_currentIndex == 4) {
+                  onTapFilterMarathon(context);
+                } else if (_currentIndex == 5) {
+                  onTapFilterCourse(context);
+                } else {
+                  onTapFilterContent(context);
+                }
               },
               icon: const Icon(Ionicons.options_outline),
             ),
