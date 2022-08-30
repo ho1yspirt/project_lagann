@@ -57,5 +57,14 @@
     "date_today":"Today",
     "date_this_week":"This week",
     "date_this_month":"This month",
-    "date_this_year":"This year"
+    "date_this_year":"This year",
+    "description_title": "Description",
+    "description_like": "Likes",
+    "description_dislike": "Dislikes",
+    "description_view": "View",
+    "commetns_title": "Comments",
+    "comments_save_title": "Cancel sending a comment",
+    "comments_pop_up_item1": "Top comments",
+    "comments_pop_up_item2": "New comments",
+    "comments_pop_up_item3": "Old comments"
 }

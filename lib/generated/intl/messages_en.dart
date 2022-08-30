@@ -39,6 +39,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
         "action_subscribe": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "action_top": MessageLookupByLibrary.simpleMessage("Top"),
+        "comments_pop_up_item1":
+            MessageLookupByLibrary.simpleMessage("Top comments"),
+        "comments_pop_up_item2":
+            MessageLookupByLibrary.simpleMessage("New comments"),
+        "comments_pop_up_item3":
+            MessageLookupByLibrary.simpleMessage("Old comments"),
+        "comments_save_title":
+            MessageLookupByLibrary.simpleMessage("Cancel sending a comment"),
+        "commetns_title": MessageLookupByLibrary.simpleMessage("Comments"),
         "count_from": MessageLookupByLibrary.simpleMessage("From"),
         "count_posts": MessageLookupByLibrary.simpleMessage("Posts"),
         "count_subscribers":
@@ -50,15 +59,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "date_this_week": MessageLookupByLibrary.simpleMessage("This week"),
         "date_this_year": MessageLookupByLibrary.simpleMessage("This year"),
         "date_today": MessageLookupByLibrary.simpleMessage("Today"),
-        "comments_pop_up_item1":
-            MessageLookupByLibrary.simpleMessage("Top comments"),
-        "comments_pop_up_item2":
-            MessageLookupByLibrary.simpleMessage("New comments"),
-        "comments_pop_up_item3":
-            MessageLookupByLibrary.simpleMessage("Old comments"),
-        "comments_save_title":
-            MessageLookupByLibrary.simpleMessage("Cancel sending a comment"),
-        "commetns_title": MessageLookupByLibrary.simpleMessage("Comments"),
         "description_dislike": MessageLookupByLibrary.simpleMessage("Dislikes"),
         "description_like": MessageLookupByLibrary.simpleMessage("Likes"),
         "description_title":
