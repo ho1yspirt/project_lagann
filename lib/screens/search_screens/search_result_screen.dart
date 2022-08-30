@@ -11,6 +11,7 @@ import '../../generated/l10n.dart';
 import '../../models/user.dart';
 import '../../models/video.dart';
 import '../../utils/constants.dart';
+import '../../widgets/custom_tabbar_indicator.dart';
 import '../../widgets/search_widgets/search_hashtag_item.dart';
 import '../../widgets/search_widgets/search_user_item.dart';
 import '../../widgets/video_card.dart';
@@ -404,6 +405,8 @@ class _SearchResultScreenState extends State<SearchResultScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
+        shadowColor: kSurfaceColor,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).maybePop();
@@ -462,6 +465,7 @@ class _SearchResultScreenState extends State<SearchResultScreen>
           splashBorderRadius: BorderRadius.circular(5),
           indicatorColor: kPrimaryColor,
           indicatorWeight: 4,
+          indicator: const CustomTabIndicator(color: kPrimaryColor),
           isScrollable: true,
           tabs: [
             Tab(
