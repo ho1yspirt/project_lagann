@@ -75,7 +75,7 @@ class _SearchScreenState extends State<SearchScreen> {
         bottom: PreferredSize(
           preferredSize: Size(MediaQuery.of(context).size.width, 40),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,11 +84,14 @@ class _SearchScreenState extends State<SearchScreen> {
                     S.of(context).search_screen_search_history,
                     style: kSubtitle1.copyWith(color: kWhiteColor),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {},
-                    child: Text(
-                      S.of(context).action_clear_all,
-                      style: kBody1TS.copyWith(color: kGreyColor),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text(
+                        S.of(context).action_clear_all,
+                        style: kBody1TS.copyWith(color: kGreyColor),
+                      ),
                     ),
                   ),
                 ],

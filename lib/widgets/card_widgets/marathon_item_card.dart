@@ -8,8 +8,8 @@ class MarathonItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
-      child: GestureDetector(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      child: InkWell(
         onTap: () {},
         child: Row(
           children: [

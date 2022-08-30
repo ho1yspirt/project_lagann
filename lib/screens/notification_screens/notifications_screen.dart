@@ -71,27 +71,21 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           icon: const Icon(Ionicons.arrow_back_outline),
         ),
         title: Text(S.of(context).navbar_notifications),
+        bottom: PreferredSize(
+          preferredSize: Size(MediaQuery.of(context).size.width, 55),
+          child: CustomChoiceChips(
+            selectedChipIndex: 0,
+            chipsList: [
+              ChipFilter('All', () {}),
+              ChipFilter('Comments', () {}),
+              ChipFilter('Likes', () {}),
+              ChipFilter('Courses', () {}),
+            ],
+          ),
+        ),
       ),
       body: CustomScrollView(
         slivers: [
-          SliverList(
-              delegate: SliverChildListDelegate([
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: SizedBox(
-                height: 42,
-                child: CustomChoiceChips(
-                  selectedChipIndex: 0,
-                  chipsList: [
-                    ChipFilter('All', () {}),
-                    ChipFilter('Comments', () {}),
-                    ChipFilter('Likes', () {}),
-                    ChipFilter('Courses', () {}),
-                  ],
-                ),
-              ),
-            ),
-          ])),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {

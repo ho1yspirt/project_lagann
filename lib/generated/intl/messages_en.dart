@@ -22,12 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "action_apply": MessageLookupByLibrary.simpleMessage("Apply"),
+        "action_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "action_clear_all": MessageLookupByLibrary.simpleMessage("Clear all"),
         "action_comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "action_likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "action_notinterested":
             MessageLookupByLibrary.simpleMessage("Not interested"),
         "action_report": MessageLookupByLibrary.simpleMessage("Report"),
+        "action_reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "action_save": MessageLookupByLibrary.simpleMessage("Save"),
         "action_search": MessageLookupByLibrary.simpleMessage("Search"),
         "action_share": MessageLookupByLibrary.simpleMessage("Share"),
@@ -35,6 +38,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "count_posts": MessageLookupByLibrary.simpleMessage("Posts"),
         "count_subscribers":
             MessageLookupByLibrary.simpleMessage("Subscribers"),
+        "date_anytime": MessageLookupByLibrary.simpleMessage("Anytime"),
+        "date_last_hour": MessageLookupByLibrary.simpleMessage("Last hour"),
+        "date_this_month": MessageLookupByLibrary.simpleMessage("This month"),
+        "date_this_week": MessageLookupByLibrary.simpleMessage("This week"),
+        "date_this_year": MessageLookupByLibrary.simpleMessage("This year"),
+        "date_today": MessageLookupByLibrary.simpleMessage("Today"),
         "example": MessageLookupByLibrary.simpleMessage("example text"),
         "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),
         "home_screen_signed": MessageLookupByLibrary.simpleMessage("Signed"),
@@ -45,6 +54,29 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Notifications"),
         "navbar_pro_video": MessageLookupByLibrary.simpleMessage("PROVideo"),
         "navbar_profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "search_filter": MessageLookupByLibrary.simpleMessage("Search filter"),
+        "search_filter_accent": MessageLookupByLibrary.simpleMessage("Accent"),
+        "search_filter_activity":
+            MessageLookupByLibrary.simpleMessage("Activity"),
+        "search_filter_channel_name":
+            MessageLookupByLibrary.simpleMessage("Channel name"),
+        "search_filter_friends":
+            MessageLookupByLibrary.simpleMessage("Friends"),
+        "search_filter_like": MessageLookupByLibrary.simpleMessage("Like"),
+        "search_filter_liked": MessageLookupByLibrary.simpleMessage("Liked"),
+        "search_filter_none": MessageLookupByLibrary.simpleMessage("None"),
+        "search_filter_popularity":
+            MessageLookupByLibrary.simpleMessage("Popularity"),
+        "search_filter_relevance":
+            MessageLookupByLibrary.simpleMessage("Relevance"),
+        "search_filter_signed": MessageLookupByLibrary.simpleMessage("Signed"),
+        "search_filter_sort_by":
+            MessageLookupByLibrary.simpleMessage("Sort by"),
+        "search_filter_upload_date":
+            MessageLookupByLibrary.simpleMessage("Upload date"),
+        "search_filter_user_name":
+            MessageLookupByLibrary.simpleMessage("User name"),
+        "search_filter_viewed": MessageLookupByLibrary.simpleMessage("Viewed"),
         "search_screen_search_history":
             MessageLookupByLibrary.simpleMessage("Search history"),
         "setteings_message_dont_recom": MessageLookupByLibrary.simpleMessage(

@@ -3,6 +3,8 @@ import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/widgets/card_widgets/course_item_card.dart';
 import 'package:project_lagann/widgets/card_widgets/marathon_item_card.dart';
 import 'package:project_lagann/widgets/card_widgets/short_post_item_card.dart';
+import 'package:project_lagann/widgets/custom_dropdown_button.dart';
+import 'package:project_lagann/widgets/search_widgets/search_filter_dialog.dart';
 import '../../generated/l10n.dart';
 import '../../models/user.dart';
 import '../../models/video.dart';
@@ -21,6 +23,67 @@ class SearchResultScreen extends StatefulWidget {
 
 class _SearchResultScreenState extends State<SearchResultScreen> {
   final TextEditingController _textController = TextEditingController();
+
+  int _currentIndex = 0;
+
+  final PageController _pageController = PageController(initialPage: 0);
+
+  void setIndex(int newIndex) {
+    setState(() {
+      _currentIndex = newIndex;
+      _pageController.animateToPage(newIndex,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.decelerate);
+    });
+  }
+
+  void onTapFilterContent(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => SearchFilterDialog(
+        title: S.of(context).search_filter,
+        widgetSet: [
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_sort_by,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).search_filter_relevance,
+              items: [
+                S.of(context).search_filter_relevance,
+                S.of(context).search_filter_popularity,
+                S.of(context).search_filter_like,
+                S.of(context).search_filter_upload_date,
+              ],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_upload_date,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).date_anytime,
+              items: [
+                S.of(context).date_anytime,
+                S.of(context).date_last_hour,
+                S.of(context).date_today,
+                S.of(context).date_this_week,
+                S.of(context).date_this_month,
+                S.of(context).date_this_year,
+              ],
+            ),
+          ),
+          SearchFilterDialogItem(
+            title: S.of(context).search_filter_activity,
+            customDropDownButton: CustomDropDownButton(
+              selectedItem: S.of(context).search_filter_none,
+              items: [
+                S.of(context).search_filter_none,
+                S.of(context).search_filter_viewed,
+                S.of(context).search_filter_liked,
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   final List<UserModel> _testUserList = [
     const UserModel(
@@ -75,33 +138,6 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
       dislikes: '4',
       commentsCount: "250",
     ),
-    VideoModel(
-      id: 'vrPk6LB9bjo',
-      author: _testUser,
-      title:
-          'Build Flutter Apps Fast with Riverpod, Firebase, Hooks, and Freezed Architecture',
-      thumbnailUrl: 'https://i.ytimg.com/vi/vrPk6LB9bjo/0.jpg',
-      videoUrl: "https://youtu.be/2XOciSjxocI",
-      duration: '22:06',
-      timestamp: DateTime(2021, 2, 26),
-      viewCount: '8K',
-      likes: '485',
-      dislikes: '8',
-      commentsCount: "250",
-    ),
-    VideoModel(
-      id: 'ilX5hnH8XoI',
-      author: _testUser,
-      title: 'Flutter Instagram Stories',
-      thumbnailUrl: 'https://i.ytimg.com/vi/ilX5hnH8XoI/0.jpg',
-      videoUrl: "https://youtu.be/2XOciSjxocI",
-      duration: '10:53',
-      timestamp: DateTime(2022, 8, 7),
-      viewCount: '18K',
-      likes: '1k',
-      dislikes: '4',
-      commentsCount: "250",
-    ),
   ];
 
   @override
@@ -146,80 +182,207 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 4),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                onTapFilterContent(context);
+              },
               icon: const Icon(Ionicons.options_outline),
             ),
           )
         ],
+        bottom: PreferredSize(
+          preferredSize: Size(MediaQuery.of(context).size.width, 60),
+          child: CustomChoiceChips(
+            selectedChipIndex: _currentIndex,
+            chipsList: [
+              ChipFilter('Top', () {
+                setIndex(0);
+              }),
+              ChipFilter('ShortPosts', () {
+                setIndex(1);
+              }),
+              ChipFilter('ProVideos', () {
+                setIndex(2);
+              }),
+              ChipFilter('People', () {
+                setIndex(3);
+              }),
+              ChipFilter('Marathons', () {
+                setIndex(4);
+              }),
+              ChipFilter('Courses', () {
+                setIndex(5);
+              }),
+              ChipFilter('Hashtags', () {
+                setIndex(6);
+              }),
+            ],
+          ),
+        ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                SizedBox(
-                  height: 42,
-                  child: CustomChoiceChips(
-                    selectedChipIndex: 0,
-                    chipsList: [
-                      ChipFilter('Top', () {}),
-                      ChipFilter('Posts', () {}),
-                      ChipFilter('People', () {}),
-                      ChipFilter('Marathons', () {}),
-                      ChipFilter('Courses', () {}),
-                      ChipFilter('Hashtags', () {}),
+      body: PageView(
+        physics: const ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+        controller: _pageController,
+        onPageChanged: (newIndex) {
+          setState(() {
+            _currentIndex = newIndex;
+          });
+        },
+        children: [
+          Scaffold(
+            body: CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildListDelegate(
+                    [
+                      const SearchHashtagItem(),
+                      const SearchHashtagItem(),
                     ],
+                  ),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      final user = _testUserList[index];
+                      return SearchUserItem(
+                        userModel: user,
+                      );
+                    },
+                    childCount: _testUserList.length,
+                  ),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return const MarathonItemCard();
+                    },
+                    childCount: 2,
+                  ),
+                ),
+                SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.6,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return const ShortPostItemCard();
+                    },
+                    childCount: 2,
+                  ),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      final video = _testVideoList[index];
+                      return VideoCard(videoModel: video);
+                    },
+                    childCount: _testVideoList.length,
                   ),
                 ),
               ],
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                final user = _testUserList[index];
-                return SearchUserItem(
-                  userModel: user,
-                );
-              },
-              childCount: _testUserList.length,
+          Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: CustomScrollView(
+                slivers: [
+                  SliverGrid(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 16,
+                      childAspectRatio: 4.3 / 8,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return const ShortPostItemCard();
+                      },
+                      childCount: 15,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                final video = _testVideoList[index];
-                return VideoCard(videoModel: video);
-              },
-              childCount: _testVideoList.length,
+          Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.all(10),
+              child: CustomScrollView(
+                slivers: [
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        final video = _testVideoList[index];
+                        return VideoCard(videoModel: video);
+                      },
+                      childCount: _testVideoList.length,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.6,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return const ShortPostItemCard();
-              },
-              childCount: 3,
-            ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                const SearchHashtagItem(),
-                const SearchHashtagItem(),
+          Scaffold(
+            body: CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      final user = _testUserList[index];
+                      return SearchUserItem(
+                        userModel: user,
+                      );
+                    },
+                    childCount: _testUserList.length,
+                  ),
+                ),
               ],
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return const MarathonItemCard();
-              },
-              childCount: 3,
+          Scaffold(
+            body: CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return const MarathonItemCard();
+                    },
+                    childCount: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: CustomScrollView(
+                slivers: [
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return const CourseItemCard();
+                      },
+                      childCount: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Scaffold(
+            body: CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return const SearchHashtagItem();
+                    },
+                    childCount: 2,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

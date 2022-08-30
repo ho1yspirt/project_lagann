@@ -39,6 +39,12 @@ ThemeData kBasicTheme() => ThemeData(
         unselectedLabelStyle: TextStyle(fontSize: 14),
       ),
       // buttons
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          primary: kWhiteColor,
+          textStyle: kSubtitle2,
+        ),
+      ),
       // fab
       // card
 
@@ -50,12 +56,17 @@ ThemeData kBasicTheme() => ThemeData(
         secondarySelectedColor: kWhiteColor,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(5))),
-        elevation: 0.0,
+        elevation: 0,
         showCheckmark: false,
         labelStyle: kBody1TS,
-        secondaryLabelStyle: kBody1TS.copyWith(color: kSurfaceColor),
+        secondaryLabelStyle: kSubtitle1.copyWith(color: kSurfaceColor),
       ),
       // dialog
+      dialogTheme: DialogTheme(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        elevation: 0.0,
+        backgroundColor: kBackgroundColor,
+      ),
       // divider
       // menu
       // drawer

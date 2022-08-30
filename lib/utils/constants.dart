@@ -54,7 +54,7 @@ const TextStyle kHeadline5 = TextStyle(
   letterSpacing: 0.15,
 );
 const TextStyle kHeadline4 = TextStyle(
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w500,
   fontSize: 20,
   letterSpacing: 0.15,
 );
@@ -79,6 +79,7 @@ const Gradient kPrimaryGradient = LinearGradient(
 );
 
 // project global icons size
+const double kIconSize9 = 16;
 const double kIconSize8 = 20;
 const double kIconSize7 = 24;
 const double kIconSize6 = 28;

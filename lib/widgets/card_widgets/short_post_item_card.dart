@@ -7,18 +7,18 @@ class ShortPostItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 2 - 16,
+      width: MediaQuery.of(context).size.width / 2 - 20,
       child: Column(
         children: [
           SizedBox(
-            width: MediaQuery.of(context).size.width / 2 - 16,
-            child: GestureDetector(
+            width: MediaQuery.of(context).size.width / 2 - 20,
+            child: InkWell(
               onTap: () {},
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(10),
                     child: AspectRatio(
                       aspectRatio: 3 / 4,
                       child: Image.network(
@@ -41,8 +41,8 @@ class ShortPostItemCard extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width / 2 - 16,
-            child: GestureDetector(
+            width: MediaQuery.of(context).size.width / 2 - 20,
+            child: InkWell(
               onTap: () {},
               child: Row(
                 children: [
@@ -68,12 +68,14 @@ class ShortPostItemCard extends StatelessWidget {
                         children: [
                           Text(
                             '74K Likes',
-                            style: kCaptionsTS.copyWith(color: kGreyColor),
+                            style: kCaptionsTS.copyWith(
+                                color: kGreyColor, fontSize: 11),
                           ),
                           kSeporatorDot,
                           Text(
                             '124K Views',
-                            style: kCaptionsTS.copyWith(color: kGreyColor),
+                            style: kCaptionsTS.copyWith(
+                                color: kGreyColor, fontSize: 11),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ],
