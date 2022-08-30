@@ -50,6 +50,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "date_this_week": MessageLookupByLibrary.simpleMessage("This week"),
         "date_this_year": MessageLookupByLibrary.simpleMessage("This year"),
         "date_today": MessageLookupByLibrary.simpleMessage("Today"),
+        "comments_pop_up_item1":
+            MessageLookupByLibrary.simpleMessage("Top comments"),
+        "comments_pop_up_item2":
+            MessageLookupByLibrary.simpleMessage("New comments"),
+        "comments_pop_up_item3":
+            MessageLookupByLibrary.simpleMessage("Old comments"),
+        "comments_save_title":
+            MessageLookupByLibrary.simpleMessage("Cancel sending a comment"),
+        "commetns_title": MessageLookupByLibrary.simpleMessage("Comments"),
+        "description_dislike": MessageLookupByLibrary.simpleMessage("Dislikes"),
+        "description_like": MessageLookupByLibrary.simpleMessage("Likes"),
+        "description_title":
+            MessageLookupByLibrary.simpleMessage("Description"),
+        "description_view": MessageLookupByLibrary.simpleMessage("View"),
         "example": MessageLookupByLibrary.simpleMessage("example text"),
         "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),
         "home_screen_signed": MessageLookupByLibrary.simpleMessage("Signed"),

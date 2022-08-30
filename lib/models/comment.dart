@@ -7,7 +7,7 @@ class CommentModel {
   final String description;
   final DateTime timestamp;
   final String likes;
-  final String repliesCount;
+  final String? repliesCount;
   final String commentType;
   final VideoModel video;
 
@@ -18,7 +18,7 @@ class CommentModel {
     required this.description,
     required this.timestamp,
     required this.likes,
-    required this.repliesCount,
+    this.repliesCount,
     required this.commentType,
   });
 

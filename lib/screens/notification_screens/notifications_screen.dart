@@ -36,6 +36,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
     likes: '958',
     dislikes: '4',
     commentsCount: "250",
+    description: '',
   );
 
   final List<CommentModel> _testCommnetList = [

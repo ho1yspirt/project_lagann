@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
+import 'package:project_lagann/widgets/pro_video_widgets/settings_elements.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import '../widgets/widgets.dart';
+import '../../widgets/widgets.dart';
 
 class VideoCard extends StatefulWidget {
   final VideoModel videoModel;
@@ -21,8 +23,17 @@ class _VideoCardState extends State<VideoCard> {
         context: context,
         backgroundColor: kBackgroundColor,
         builder: (BuildContext context) {
+          SystemChrome.setPreferredOrientations(
+              [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
           return const SettingElements();
-        });
+        }).then((value) {
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]);
+    });
   }
 
   @override
@@ -65,7 +76,7 @@ class _VideoCardState extends State<VideoCard> {
               child: CircleAvatar(
                 foregroundImage:
                     NetworkImage(widget.videoModel.author.profileImageUrl),
-                radius: 25,
+                radius: 22,
               ),
             ),
             Expanded(

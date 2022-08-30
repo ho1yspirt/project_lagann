@@ -60,7 +60,7 @@ const TextStyle kHeadline4 = TextStyle(
 );
 
 // colors
-const Color kPrimaryColor = Color(0xFF8060FF);
+const Color kPrimaryColor = Color(0xFF8162FF);
 const Color kBackgroundColor = Color(0xFF242A38);
 const Color kSurfaceColor = Color(0xFF1C202B);
 const Color kSurfaceColorWithOpacity = Color(0xFF4E596F);

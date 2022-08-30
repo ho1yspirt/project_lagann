@@ -639,6 +639,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Description`
+  String get description_title {
+    return Intl.message(
+      'Description',
+      name: 'description_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Likes`
+  String get description_like {
+    return Intl.message(
+      'Likes',
+      name: 'description_like',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dislikes`
+  String get description_dislike {
+    return Intl.message(
+      'Dislikes',
+      name: 'description_dislike',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View`
+  String get description_view {
+    return Intl.message(
+      'View',
+      name: 'description_view',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comments`
+  String get commetns_title {
+    return Intl.message(
+      'Comments',
+      name: 'commetns_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel sending a comment`
+  String get comments_save_title {
+    return Intl.message(
+      'Cancel sending a comment',
+      name: 'comments_save_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top comments`
+  String get comments_pop_up_item1 {
+    return Intl.message(
+      'Top comments',
+      name: 'comments_pop_up_item1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New comments`
+  String get comments_pop_up_item2 {
+    return Intl.message(
+      'New comments',
+      name: 'comments_pop_up_item2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Old comments`
+  String get comments_pop_up_item3 {
+    return Intl.message(
+      'Old comments',
+      name: 'comments_pop_up_item3',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

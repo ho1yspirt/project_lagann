@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../generated/l10n.dart';
-import '../utils/constants.dart';
+import '../../generated/l10n.dart';
+import '../../utils/constants.dart';
 
 class SettingElements extends StatelessWidget {
   const SettingElements({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class SettingElements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      heightFactor: 0.4,
+      heightFactor: 0.45,
       child: Column(children: [
         GestureDetector(
           onTap: (() {}),
