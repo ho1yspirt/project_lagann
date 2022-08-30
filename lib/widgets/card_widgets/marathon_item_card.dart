@@ -10,6 +10,7 @@ class MarathonItemCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: InkWell(
+        borderRadius: BorderRadius.circular(10),
         onTap: () {},
         child: Row(
           children: [
@@ -40,9 +41,12 @@ class MarathonItemCard extends StatelessWidget {
                         '3D Design',
                         style: kBody2TS.copyWith(color: kPrimaryColor),
                       ),
-                      const Icon(
-                        Ionicons.trophy_outline,
-                        size: kIconSize7,
+                      const Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Icon(
+                          Ionicons.trophy_outline,
+                          size: kIconSize7,
+                        ),
                       ),
                     ],
                   ),

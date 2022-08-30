@@ -240,6 +240,46 @@ class S {
     );
   }
 
+  /// `See all`
+  String get action_see_all {
+    return Intl.message(
+      'See all',
+      name: 'action_see_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top`
+  String get action_top {
+    return Intl.message(
+      'Top',
+      name: 'action_top',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hashtags`
+  String get action_hashtags {
+    return Intl.message(
+      'Hashtags',
+      name: 'action_hashtags',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `People`
+  String get action_people {
+    return Intl.message(
+      'People',
+      name: 'action_people',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search history`
   String get search_screen_search_history {
     return Intl.message(

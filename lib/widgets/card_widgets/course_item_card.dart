@@ -16,19 +16,20 @@ class _CourseItemCardState extends State<CourseItemCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: InkWell(
+        borderRadius: BorderRadius.circular(10),
         onTap: () {},
         child: Row(
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: SizedBox(
-                height: 120,
+                height: 130,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: AspectRatio(
-                    aspectRatio: 4 / 3,
+                    aspectRatio: 5 / 4,
                     child: Image.network(
                       'https://cdn.discordapp.com/avatars/548904505471926292/ca366fbb3dcd6c81f9c1fc547679df3d.webp?size=100',
                       fit: BoxFit.cover,

@@ -4,6 +4,7 @@ import 'package:project_lagann/widgets/card_widgets/course_item_card.dart';
 import 'package:project_lagann/widgets/card_widgets/marathon_item_card.dart';
 import 'package:project_lagann/widgets/card_widgets/short_post_item_card.dart';
 import 'package:project_lagann/widgets/custom_dropdown_button.dart';
+import 'package:project_lagann/widgets/custom_sliver_box_link.dart';
 import 'package:project_lagann/widgets/search_widgets/search_filter_dialog.dart';
 import '../../generated/l10n.dart';
 import '../../models/user.dart';
@@ -194,25 +195,25 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           child: CustomChoiceChips(
             selectedChipIndex: _currentIndex,
             chipsList: [
-              ChipFilter('Top', () {
+              ChipFilter(S.of(context).action_top, () {
                 setIndex(0);
               }),
               ChipFilter('ShortPosts', () {
                 setIndex(1);
               }),
-              ChipFilter('ProVideos', () {
+              ChipFilter(S.of(context).navbar_pro_video, () {
                 setIndex(2);
               }),
-              ChipFilter('People', () {
+              ChipFilter(S.of(context).action_people, () {
                 setIndex(3);
               }),
-              ChipFilter('Marathons', () {
+              ChipFilter(S.of(context).navbar_marathons, () {
                 setIndex(4);
               }),
-              ChipFilter('Courses', () {
+              ChipFilter(S.of(context).navbar_courses, () {
                 setIndex(5);
               }),
-              ChipFilter('Hashtags', () {
+              ChipFilter(S.of(context).action_hashtags, () {
                 setIndex(6);
               }),
             ],
@@ -231,14 +232,24 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           Scaffold(
             body: CustomScrollView(
               slivers: [
+                SliverToBoxAdapter(
+                    child: CustomSliverBoxLink(
+                        title: S.of(context).action_hashtags,
+                        navigateTo: (context) {
+                          setIndex(6);
+                          print(0);
+                        })),
                 SliverList(
-                  delegate: SliverChildListDelegate(
-                    [
-                      const SearchHashtagItem(),
-                      const SearchHashtagItem(),
-                    ],
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return const SearchHashtagItem();
+                    },
+                    childCount: 2,
                   ),
                 ),
+                SliverToBoxAdapter(
+                    child: CustomSliverBoxLink(
+                        title: S.of(context).action_people, navigateTo: () {})),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
@@ -250,6 +261,10 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     childCount: _testUserList.length,
                   ),
                 ),
+                SliverToBoxAdapter(
+                    child: CustomSliverBoxLink(
+                        title: S.of(context).navbar_marathons,
+                        navigateTo: () {})),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -258,10 +273,28 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     childCount: 2,
                   ),
                 ),
+                SliverToBoxAdapter(
+                    child: CustomSliverBoxLink(
+                        title: S.of(context).navbar_courses,
+                        navigateTo: () {})),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return const CourseItemCard();
+                    },
+                    childCount: 2,
+                  ),
+                ),
+                SliverToBoxAdapter(
+                    child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: CustomSliverBoxLink(
+                      title: 'ShortPosts', navigateTo: () {}),
+                )),
                 SliverGrid(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.6,
+                    childAspectRatio: 5 / 8,
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -270,6 +303,12 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                     childCount: 2,
                   ),
                 ),
+                SliverToBoxAdapter(
+                    child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: CustomSliverBoxLink(
+                      title: S.of(context).navbar_pro_video, navigateTo: () {}),
+                )),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
@@ -356,7 +395,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
           ),
           Scaffold(
             body: Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.only(top: 2),
               child: CustomScrollView(
                 slivers: [
                   SliverList(
