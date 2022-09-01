@@ -44,7 +44,7 @@ class _CustomChoiceChipsState extends State<CustomChoiceChips> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
       child: SizedBox(
         height: 40,
         child: ListView(

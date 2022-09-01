@@ -3,7 +3,7 @@ import './constants.dart';
 
 ThemeData kBasicTheme() => ThemeData(
       // colors
-      // brightness: Brightness.dark,
+
       // primarySwatch: Colors.deepPurple,
       // primaryColor: kPrimaryColor,
       // backgroundColor: kBackgroundColor,
