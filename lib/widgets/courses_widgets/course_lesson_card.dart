@@ -15,7 +15,7 @@ class CourseLessonCard extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) => Dialog(
-        child: Container(
+        child: SizedBox(
           height: 230,
           width: 400,
           child: Padding(
