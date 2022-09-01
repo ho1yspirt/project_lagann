@@ -27,7 +27,7 @@ class SettingElements extends StatelessWidget {
                 ),
                 child: Icon(
                   Ionicons.arrow_redo_outline,
-                  color: Color(0xFFF2F2F2),
+                  color: kWhiteColor,
                   size: 32,
                 ),
               ),
@@ -53,7 +53,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.trash_outline,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),
@@ -78,7 +78,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.ban,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),
@@ -106,7 +106,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.flag_outline,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),
@@ -131,7 +131,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.bookmark_outline,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),

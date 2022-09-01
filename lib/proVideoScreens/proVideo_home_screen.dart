@@ -1,12 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
-import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
-import 'package:uni_links/uni_links.dart';
 
 import '../generated/l10n.dart';
 import '../widgets/widgets.dart';
@@ -68,7 +64,7 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
       thumbnailUrl:
           "https://thumbs.dreamstime.com/b/d-mural-wallpaper-beautiful-view-landscape-background-old-arches-tree-sun-water-birds-flowers-transparent-curtains-166191190.jpg",
       videoUrl:
-          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          "https://d3kdj4aqjpwh2c.cloudfront.net/video/208203d3-d0b5-4a57-bb59-c4be8226f3c5.mp4",
       duration: "20",
       timestamp: DateTime(2021, 7, 15),
       viewCount: "8K",
