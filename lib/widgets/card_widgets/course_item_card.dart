@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/utils/constants.dart';
-
 import '../../generated/l10n.dart';
+import '../../screens/courses_screens/course_item_screen.dart';
 
 class CourseItemCard extends StatefulWidget {
   final bool isPurchased;
@@ -21,7 +21,15 @@ class _CourseItemCardState extends State<CourseItemCard> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => CourseItemScreen(
+                isPurchased: widget.isPurchased,
+              ),
+            ),
+          );
+        },
         child: Row(
           children: [
             Padding(
@@ -113,7 +121,7 @@ class _CourseItemCardState extends State<CourseItemCard> {
                       : Text(
                           '59\$',
                           style: kHeadline5.copyWith(color: kPrimaryColor),
-                        )
+                        ),
                 ],
               ),
             ),

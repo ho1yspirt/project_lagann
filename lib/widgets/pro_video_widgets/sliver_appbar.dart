@@ -7,7 +7,8 @@ import '../../utils/constants.dart';
 class SlivAppBar extends StatelessWidget {
   final String title;
   final Widget? customLeading;
-  const SlivAppBar({Key? key, required this.title, this.customLeading})
+  final PreferredSizeWidget? bottom;
+  const SlivAppBar({Key? key, this.title = '', this.customLeading, this.bottom})
       : super(key: key);
 
   @override
@@ -21,6 +22,7 @@ class SlivAppBar extends StatelessWidget {
         title,
         style: kHeadline4.copyWith(color: kWhiteColor),
       ),
+      bottom: bottom,
       actions: <Widget>[
         IconButton(
           onPressed: () => {

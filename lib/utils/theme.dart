@@ -45,6 +45,16 @@ ThemeData kBasicTheme() => ThemeData(
           textStyle: kSubtitle2,
         ),
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          elevation: 8,
+          primary: kPrimaryColor,
+          onPrimary: kWhiteColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
       // fab
       // card
 
