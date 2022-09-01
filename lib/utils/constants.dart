@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:project_lagann/proVideoScreens/proVideo_home_screen.dart';
 import 'package:project_lagann/screens/home_screens/home_screen.dart';
+import 'package:project_lagann/screens/marathon_screens/home_screen.dart';
 
 // pages
 const pages = [
   HomeScreen(),
   ProVideoHomeScreen(),
   Text('Courses'),
-  Text('Categories'),
+  MarathonHomeScreen(),
   Text('Profile'),
 ];
 

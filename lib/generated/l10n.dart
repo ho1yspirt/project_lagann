@@ -729,6 +729,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Marathons`
+  String get marathon_app_bar_title {
+    return Intl.message(
+      'Marathons',
+      name: 'marathon_app_bar_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Participation`
+  String get marathon_chapter_title1 {
+    return Intl.message(
+      'Participation',
+      name: 'marathon_chapter_title1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signed`
+  String get marathon_chapter_title2 {
+    return Intl.message(
+      'Signed',
+      name: 'marathon_chapter_title2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Marathons`
+  String get marathon_chapter_title3 {
+    return Intl.message(
+      'Marathons',
+      name: 'marathon_chapter_title3',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
