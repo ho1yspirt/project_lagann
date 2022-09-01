@@ -729,6 +729,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Purchased`
+  String get courses_screen_purchased {
+    return Intl.message(
+      'Purchased',
+      name: 'courses_screen_purchased',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

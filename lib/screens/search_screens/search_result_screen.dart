@@ -578,7 +578,9 @@ class _SearchResultScreenState extends State<SearchResultScreen>
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-                      return const CourseItemCard();
+                      return const CourseItemCard(
+                        isPurchased: true,
+                      );
                     },
                     childCount: 2,
                   ),
@@ -707,7 +709,9 @@ class _SearchResultScreenState extends State<SearchResultScreen>
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                        return const CourseItemCard();
+                        return const CourseItemCard(
+                          isPurchased: false,
+                        );
                       },
                       childCount: 15,
                     ),

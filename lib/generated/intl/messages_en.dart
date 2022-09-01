@@ -53,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "count_subscribers":
             MessageLookupByLibrary.simpleMessage("Subscribers"),
         "count_to": MessageLookupByLibrary.simpleMessage("To"),
+        "courses_screen_purchased":
+            MessageLookupByLibrary.simpleMessage("Purchased"),
         "date_anytime": MessageLookupByLibrary.simpleMessage("Anytime"),
         "date_last_hour": MessageLookupByLibrary.simpleMessage("Last hour"),
         "date_this_month": MessageLookupByLibrary.simpleMessage("This month"),
