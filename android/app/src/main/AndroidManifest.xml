@@ -2,7 +2,7 @@
     package="com.example.project_lagann">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="project_lagann"
+        android:label="Skirrum"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import './constants.dart';
 
-// TODO: create project theme (DESIGNERS MUST DIE)
-
 ThemeData kBasicTheme() => ThemeData(
       // colors
       // brightness: Brightness.dark,
@@ -29,7 +27,6 @@ ThemeData kBasicTheme() => ThemeData(
         elevation: 0,
       ),
       // backdrop
-
       // banner
 
       // bottom nvabar
@@ -42,8 +39,15 @@ ThemeData kBasicTheme() => ThemeData(
         unselectedLabelStyle: TextStyle(fontSize: 14),
       ),
       // buttons
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          primary: kWhiteColor,
+          textStyle: kSubtitle2,
+        ),
+      ),
       // fab
       // card
+
       // chips
       chipTheme: ChipThemeData(
         backgroundColor: kSurfaceColorWithOpacity,
@@ -52,12 +56,17 @@ ThemeData kBasicTheme() => ThemeData(
         secondarySelectedColor: kWhiteColor,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(5))),
-        elevation: 0.0,
+        elevation: 0,
         showCheckmark: false,
         labelStyle: kBody1TS,
-        secondaryLabelStyle: kBody1TS.copyWith(color: kSurfaceColor),
+        secondaryLabelStyle: kSubtitle1.copyWith(color: kSurfaceColor),
       ),
       // dialog
+      dialogTheme: DialogTheme(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        elevation: 0.0,
+        backgroundColor: kBackgroundColor,
+      ),
       // divider
       // menu
       // drawer
@@ -67,10 +76,19 @@ ThemeData kBasicTheme() => ThemeData(
       // slider
       // snackbar
       // tab
+
       // text field
-      inputDecorationTheme: const InputDecorationTheme(
-        labelStyle: TextStyle(color: kWhiteColor),
-        // enabledBorder: InputBorder(borderSide: BorderSide.none),
+      inputDecorationTheme: InputDecorationTheme(
+        isDense: true,
+        contentPadding: const EdgeInsets.fromLTRB(8, 8, 0, 10),
+        labelStyle: kSubtitle1.copyWith(color: kWhiteColor),
+        hintStyle: kSubtitle1.copyWith(color: kGreyColor),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide.none,
+        ),
+        filled: true,
+        fillColor: kSurfaceColorWithOpacity,
       ),
       // tooltip
     );
