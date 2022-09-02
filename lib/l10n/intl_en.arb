@@ -70,5 +70,8 @@
     "marathon_app_bar_title": "Marathons",
     "marathon_chapter_title1": "Participation",
     "marathon_chapter_title2": "Signed",
-    "marathon_chapter_title3": "Marathons"
+    "marathon_chapter_title3": "Marathons",
+    "marathon_detailed_item1": "Contestant",
+    "marathon_detailed_item2": "Category",
+    "marathon_detailed_item3": "Stages"
 }
