@@ -164,7 +164,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
     bool isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
     return Stack(
-      alignment: Alignment.bottomCenter,
+      alignment: AlignmentDirectional.bottomCenter,
       children: [
         AnimatedOpacity(
           opacity: _isVisibleAll ? 1.0 : 0.0,
@@ -355,7 +355,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
               ),
               if (isLandscape)
                 Positioned(
-                  top: 363,
+                  bottom: 0,
                   left: 47,
                   width: MediaQuery.of(context).size.width,
                   child: VideoFeedback(widget.videoModel),
