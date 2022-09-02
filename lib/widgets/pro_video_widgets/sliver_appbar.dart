@@ -6,23 +6,29 @@ import '../../utils/constants.dart';
 
 class SlivAppBar extends StatelessWidget {
   final String title;
-  const SlivAppBar({Key? key, required this.title}) : super(key: key);
+  final bool? isNeedGoBack;
+  const SlivAppBar({Key? key, required this.title, this.isNeedGoBack})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       floating: true,
-      leadingWidth: 120,
+      centerTitle: false,
+      toolbarHeight: 48,
+      titleSpacing: isNeedGoBack ?? false ? -10 : -39,
       backgroundColor: kBackgroundColor,
+      title: Text(
+        title,
+        style: kSliverAppBarTS,
+      ),
       leading: SizedBox(
-        width: MediaQuery.of(context).size.width / 2,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10, top: 18),
-          child: Text(
-            title,
-            style: kSliverAppBarTS,
-          ),
-        ),
+        child: isNeedGoBack ?? false
+            ? InkWell(
+                onTap: () => Navigator.of(context).pop(),
+                child: const Icon(Ionicons.arrow_back),
+              )
+            : null,
       ),
       actions: <Widget>[
         IconButton(
