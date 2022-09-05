@@ -295,10 +295,10 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                             (context, int index) {
                               return CourseLessonCard(
                                 isPurchased: widget.isPurchased,
-                                lessonIndex: index,
+                                lessonIndex: index + 1,
                               );
                             },
-                            childCount: 51,
+                            childCount: 50,
                           ),
                         ),
                       ],
@@ -313,9 +313,7 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                                 S.of(context).home_screen_all,
                                 () {},
                               ),
-                              ChipFilter('5', () {
-                                setState(() {});
-                              }, icon: starIcon),
+                              ChipFilter('5', () {}, icon: starIcon),
                               ChipFilter('4', () {}, icon: starIcon),
                               ChipFilter('3', () {}, icon: starIcon),
                               ChipFilter('2', () {}, icon: starIcon),
