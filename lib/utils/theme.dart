@@ -55,6 +55,10 @@ ThemeData kBasicTheme() => ThemeData(
           ),
         ),
       ),
+      popupMenuTheme: PopupMenuThemeData(
+        color: kSurfaceColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
       // fab
       // card
 

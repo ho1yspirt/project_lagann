@@ -290,6 +290,16 @@ class S {
     );
   }
 
+  /// `Help and feedback`
+  String get action_help_and_feedback {
+    return Intl.message(
+      'Help and feedback',
+      name: 'action_help_and_feedback',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search history`
   String get search_screen_search_history {
     return Intl.message(

@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "action_clear_all": MessageLookupByLibrary.simpleMessage("Clear all"),
         "action_comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "action_hashtags": MessageLookupByLibrary.simpleMessage("Hashtags"),
+        "action_help_and_feedback":
+            MessageLookupByLibrary.simpleMessage("Help and feedback"),
         "action_likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "action_notinterested":
             MessageLookupByLibrary.simpleMessage("Not interested"),

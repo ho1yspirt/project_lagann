@@ -13,7 +13,8 @@ Random random = new Random();
 
 class CourseItemScreen extends StatefulWidget {
   final bool isPurchased;
-  const CourseItemScreen({Key? key, required this.isPurchased})
+  bool isSaved;
+  CourseItemScreen({Key? key, required this.isPurchased, required this.isSaved})
       : super(key: key);
 
   @override
@@ -49,13 +50,90 @@ class _CourseItemScreenState extends State<CourseItemScreen>
               size: kIconSize7,
             ),
           ),
-          IconButton(
-            onPressed: () {},
+          PopupMenuButton(
             icon: const Icon(
               Ionicons.ellipsis_vertical_outline,
               size: kIconSize7,
             ),
-          ),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                onTap: () {
+                  setState(() {
+                    widget.isSaved = !widget.isSaved;
+                  });
+                },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Icon(
+                        widget.isSaved
+                            ? Ionicons.bookmark
+                            : Ionicons.bookmark_outline,
+                        size: kIconSize5,
+                        color: widget.isSaved ? kPrimaryColor : kWhiteColor,
+                      ),
+                    ),
+                    Text(
+                      S.of(context).action_save,
+                      style: kSubtitle1.copyWith(color: kWhiteColor),
+                    )
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                child: Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(
+                        Ionicons.share_outline,
+                        size: kIconSize5,
+                      ),
+                    ),
+                    Text(
+                      S.of(context).action_share,
+                      style: kSubtitle1.copyWith(color: kWhiteColor),
+                    )
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                child: Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(
+                        Ionicons.help_outline,
+                        size: kIconSize5,
+                      ),
+                    ),
+                    Text(
+                      S.of(context).action_help_and_feedback,
+                      style: kSubtitle1.copyWith(color: kWhiteColor),
+                    )
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                child: Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(
+                        Ionicons.flag_outline,
+                        size: kIconSize5,
+                      ),
+                    ),
+                    Text(
+                      S.of(context).action_report,
+                      style: kSubtitle1.copyWith(color: kWhiteColor),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          )
         ],
       ),
       body: Padding(
