@@ -10,7 +10,9 @@ class CommentItem extends StatefulWidget {
   final CommentModel commentModel;
   final List<CommentModel> replyList;
   final ScrollController scrollController;
-  const CommentItem(this.commentModel, this.replyList, this.scrollController,
+  final int index;
+  const CommentItem(
+      this.commentModel, this.replyList, this.scrollController, this.index,
       {Key? key})
       : super(key: key);
 
@@ -21,6 +23,29 @@ class CommentItem extends StatefulWidget {
 class _CommentItemState extends State<CommentItem> {
   bool _show = false;
   bool _isLike = false;
+  int _currentOffset = 0;
+  late int _countRepl;
+
+  @override
+  void initState() {
+    super.initState();
+    _countRepl = int.parse(widget.commentModel.repliesCount!);
+  }
+
+  void setOffsetReplyes() {
+    int currentCount = int.parse(widget.commentModel.repliesCount!);
+    if (currentCount >= _currentOffset + 4) {
+      setState(() {
+        _currentOffset += 4;
+        _countRepl -= 4;
+      });
+    } else {
+      setState(() {
+        _countRepl -= _countRepl;
+        _currentOffset = currentCount;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +67,8 @@ class _CommentItemState extends State<CommentItem> {
                   children: [
                     CircleAvatar(
                       foregroundImage: NetworkImage(
-                          widget.commentModel.author.profileImageUrl),
+                        widget.commentModel.author.profileImageUrl,
+                      ),
                       radius: 22,
                     ),
                     Padding(
@@ -126,7 +152,7 @@ class _CommentItemState extends State<CommentItem> {
                 // controller: widget.scrollController,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: widget.replyList.length,
+                itemCount: _currentOffset,
                 itemBuilder: (context, index) {
                   var reply = widget.replyList[index];
                   return ReplyCommentItem(reply);
@@ -147,9 +173,10 @@ class _CommentItemState extends State<CommentItem> {
                     setState(() {
                       _show = true;
                     });
+                    setOffsetReplyes();
                   },
                   child: Text(
-                    "Reply (${widget.commentModel.repliesCount})",
+                    "Reply ($_countRepl)",
                     style: kSubtitle2.copyWith(color: kPrimaryColor),
                   ),
                 ),
@@ -161,6 +188,14 @@ class _CommentItemState extends State<CommentItem> {
                           onPressed: () {
                             setState(() {
                               _show = false;
+                              widget.scrollController.animateTo(
+                                double.parse(widget.commentModel.id) * 80,
+                                duration: const Duration(milliseconds: 600),
+                                curve: Curves.fastLinearToSlowEaseIn,
+                              );
+                              _currentOffset = 0;
+                              _countRepl =
+                                  int.parse(widget.commentModel.repliesCount!);
                             });
                           },
                           child: Text(

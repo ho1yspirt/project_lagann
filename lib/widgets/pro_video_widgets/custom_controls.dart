@@ -16,7 +16,7 @@ class CustomConstrols extends StatefulWidget {
   final VideoPlayerController? videoPlayerController;
   final Function enterFullScreen;
   final Function exitFullScreen;
-  VideoModel videoModel;
+  final VideoModel videoModel;
   bool isPlay;
   CustomConstrols(
       this.enterFullScreen, this.exitFullScreen, this.videoModel, this.isPlay,
@@ -36,21 +36,22 @@ class _CustomConstrolsState extends State<CustomConstrols>
   final Duration _skipDuration = const Duration(milliseconds: 400);
   late AnimationController animationController;
   late Animation<double> animation;
+
   @override
   void initState() {
     super.initState();
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1))
-          ..forward(from: 1);
+          ..forward(from: 0.3);
     animation =
         CurvedAnimation(parent: animationController, curve: Curves.easeIn);
   }
 
   @override
-  void dispose() async {
-    super.dispose();
+  void dispose() {
     animationController.dispose();
-    await Wakelock.disable();
+    Wakelock.disable();
+    super.dispose();
   }
 
   void onTapSettingsInPortraitMode() {
@@ -209,9 +210,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
                       ),
                     ),
                   ],
-                )
-              else
-                const SizedBox(),
+                ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

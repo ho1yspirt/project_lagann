@@ -87,26 +87,26 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
   final List<CommentModel> _testCommnetList = [
     CommentModel(
-        id: '1',
+        id: '0',
         author: _testUser,
         video: _testVideo,
         description:
             'В жизни больше твои видео не посмотрю, чмо пузатое. Даже фулла нет. Еще и курсы платные, 12/10, ',
         timestamp: DateTime(2021, 3, 20),
         likes: '69',
-        repliesCount: '2',
+        repliesCount: '10',
         commentType: 'Commented'),
     CommentModel(
-        id: '2',
+        id: '1',
         author: _testUser,
         video: _testVideo,
         description: 'ШЕДЕВР!!!',
         timestamp: DateTime(2022, 3, 20),
         likes: '-1',
         repliesCount: '0',
-        commentType: 'Replied'),
+        commentType: 'Commented'),
     CommentModel(
-        id: '3',
+        id: '2',
         author: _testUser,
         video: _testVideo,
         description:
@@ -114,27 +114,27 @@ class _CommentsScreenState extends State<CommentsScreen> {
         timestamp: DateTime(2022, 3, 20),
         likes: '123',
         repliesCount: '0',
-        commentType: 'Replied'),
+        commentType: 'Commented'),
     CommentModel(
-        id: '4',
+        id: '3',
         author: _testUser,
         video: _testVideo,
         description: 'ШЕДЕВР!!!',
         timestamp: DateTime(2022, 3, 20),
         likes: '1',
         repliesCount: '0',
-        commentType: 'Replied'),
+        commentType: 'Commented'),
     CommentModel(
-        id: '5',
+        id: '4',
         author: _testUser,
         video: _testVideo,
         description: 'ШЕДЕВР!!!',
         timestamp: DateTime(2022, 3, 20),
         likes: '65',
-        repliesCount: '0',
-        commentType: 'Replied'),
+        repliesCount: '10',
+        commentType: 'Commented'),
     CommentModel(
-        id: '6',
+        id: '5',
         author: _testUser,
         video: _testVideo,
         description: 'ШЕДЕВР!!!',
@@ -172,6 +172,54 @@ class _CommentsScreenState extends State<CommentsScreen> {
         commentType: 'Replied'),
     CommentModel(
         id: '6',
+        author: _testUser,
+        video: _testVideo,
+        description: 'ШЕДЕВР!!!',
+        timestamp: DateTime(2022, 3, 20),
+        likes: '5000',
+        commentType: 'Replied'),
+    CommentModel(
+        id: '7',
+        author: _testUser,
+        video: _testVideo,
+        description: 'ШЕДЕВР!!!',
+        timestamp: DateTime(2022, 3, 20),
+        likes: '5000',
+        commentType: 'Replied'),
+    CommentModel(
+        id: '7',
+        author: _testUser,
+        video: _testVideo,
+        description: 'ШЕДЕВР!!!',
+        timestamp: DateTime(2022, 3, 20),
+        likes: '5000',
+        commentType: 'Replied'),
+    CommentModel(
+        id: '7',
+        author: _testUser,
+        video: _testVideo,
+        description: 'ШЕДЕВР!!!',
+        timestamp: DateTime(2022, 3, 20),
+        likes: '5000',
+        commentType: 'Replied'),
+    CommentModel(
+        id: '7',
+        author: _testUser,
+        video: _testVideo,
+        description: 'ШЕДЕВР!!!',
+        timestamp: DateTime(2022, 3, 20),
+        likes: '5000',
+        commentType: 'Replied'),
+    CommentModel(
+        id: '7',
+        author: _testUser,
+        video: _testVideo,
+        description: 'ШЕДЕВР!!!',
+        timestamp: DateTime(2022, 3, 20),
+        likes: '5000',
+        commentType: 'Replied'),
+    CommentModel(
+        id: '7',
         author: _testUser,
         video: _testVideo,
         description: 'ШЕДЕВР!!!',
@@ -236,7 +284,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   itemBuilder: (context, index) {
                     var comment = _testCommnetList[index];
                     return CommentItem(
-                        comment, _testReply, widget.scrollController);
+                        comment, _testReply, widget.scrollController, index);
                   },
                 ),
               ),

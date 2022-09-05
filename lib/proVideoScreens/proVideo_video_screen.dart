@@ -33,7 +33,7 @@ class _VideoScreenState extends State<VideoScreen> {
   void dispose() {
     super.dispose();
     _videoPlayerController.dispose();
-    _chewieController!.dispose();
+    _chewieController?.dispose();
     SystemChrome.setEnabledSystemUIMode(
       SystemUiMode.manual,
       overlays: SystemUiOverlay.values,
