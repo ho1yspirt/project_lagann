@@ -6,24 +6,23 @@ import '../../utils/constants.dart';
 
 class SlivAppBar extends StatelessWidget {
   final String title;
-  const SlivAppBar({Key? key, required this.title}) : super(key: key);
+  final Widget? customLeading;
+  final PreferredSizeWidget? bottom;
+  const SlivAppBar({Key? key, this.title = '', this.customLeading, this.bottom})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      elevation: 8,
       floating: true,
-      leadingWidth: 120,
       backgroundColor: kBackgroundColor,
-      leading: SizedBox(
-        width: MediaQuery.of(context).size.width / 2,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10, top: 18),
-          child: Text(
-            title,
-            style: kSliverAppBarTS,
-          ),
-        ),
+      leading: customLeading,
+      title: Text(
+        title,
+        style: kHeadline4.copyWith(color: kWhiteColor),
       ),
+      bottom: bottom,
       actions: <Widget>[
         IconButton(
           onPressed: () => {

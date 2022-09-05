@@ -3,7 +3,7 @@ import './constants.dart';
 
 ThemeData kBasicTheme() => ThemeData(
       // colors
-      // brightness: Brightness.dark,
+
       // primarySwatch: Colors.deepPurple,
       // primaryColor: kPrimaryColor,
       // backgroundColor: kBackgroundColor,
@@ -43,6 +43,16 @@ ThemeData kBasicTheme() => ThemeData(
         style: TextButton.styleFrom(
           primary: kWhiteColor,
           textStyle: kSubtitle2,
+        ),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          elevation: 8,
+          primary: kPrimaryColor,
+          onPrimary: kWhiteColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
       ),
       // fab

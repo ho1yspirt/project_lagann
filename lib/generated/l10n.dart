@@ -280,6 +280,16 @@ class S {
     );
   }
 
+  /// `About`
+  String get action_about {
+    return Intl.message(
+      'About',
+      name: 'action_about',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search history`
   String get search_screen_search_history {
     return Intl.message(
@@ -725,6 +735,96 @@ class S {
     return Intl.message(
       'Old comments',
       name: 'comments_pop_up_item3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purchased`
+  String get courses_screen_purchased {
+    return Intl.message(
+      'Purchased',
+      name: 'courses_screen_purchased',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course`
+  String get courses_screen_course {
+    return Intl.message(
+      'Course',
+      name: 'courses_screen_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Created by`
+  String get course_screen_created_by {
+    return Intl.message(
+      'Created by',
+      name: 'course_screen_created_by',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Students`
+  String get course_screen_students {
+    return Intl.message(
+      'Students',
+      name: 'course_screen_students',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lessons`
+  String get course_screen_lessons {
+    return Intl.message(
+      'Lessons',
+      name: 'course_screen_lessons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About course`
+  String get course_screen_about_course {
+    return Intl.message(
+      'About course',
+      name: 'course_screen_about_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enroll course`
+  String get course_screen_enroll_course {
+    return Intl.message(
+      'Enroll course',
+      name: 'course_screen_enroll_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start your training right now`
+  String get course_screen_enroll_dialog_title {
+    return Intl.message(
+      'Start your training right now',
+      name: 'course_screen_enroll_dialog_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get full and unlimited access to the course lessons and general chat`
+  String get course_screen_enroll_dialog_subtitle {
+    return Intl.message(
+      'Get full and unlimited access to the course lessons and general chat',
+      name: 'course_screen_enroll_dialog_subtitle',
       desc: '',
       args: [],
     );

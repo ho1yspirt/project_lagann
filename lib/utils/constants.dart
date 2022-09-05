@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/proVideoScreens/proVideo_home_screen.dart';
+import 'package:project_lagann/screens/courses_screens/courses_screen.dart';
 import 'package:project_lagann/screens/home_screens/home_screen.dart';
 
 // pages
 const pages = [
   HomeScreen(),
   ProVideoHomeScreen(),
-  Text('Courses'),
+  CoursesScreen(),
   Text('Categories'),
   Text('Profile'),
 ];
@@ -175,4 +177,10 @@ Container kHashtagCircle = Container(
     '#',
     style: kHeadline4,
   )),
+);
+
+Widget starIcon = const Icon(
+  Ionicons.star,
+  size: kIconSize9,
+  color: kPrimaryColor,
 );

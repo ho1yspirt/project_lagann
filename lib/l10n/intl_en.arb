@@ -22,6 +22,7 @@
     "action_top":"Top",
     "action_hashtags":"Hashtags",
     "action_people":"People",
+    "action_about":"About",
     "search_screen_search_history":"Search history",
     "setteings_message_dont_recom": "Don’t recommend this user's video",
     "home_screen_signed":"Signed",
@@ -66,5 +67,14 @@
     "comments_save_title": "Cancel sending a comment",
     "comments_pop_up_item1": "Top comments",
     "comments_pop_up_item2": "New comments",
-    "comments_pop_up_item3": "Old comments"
+    "comments_pop_up_item3": "Old comments",
+    "courses_screen_purchased":"Purchased",
+    "courses_screen_course":"Course",
+    "course_screen_created_by":"Created by",
+    "course_screen_students":"Students",
+    "course_screen_lessons":"Lessons",
+    "course_screen_about_course":"About course",
+    "course_screen_enroll_course":"Enroll course",
+    "course_screen_enroll_dialog_title":"Start your training right now",
+    "course_screen_enroll_dialog_subtitle":"Get full and unlimited access to the course lessons and general chat"
 }
