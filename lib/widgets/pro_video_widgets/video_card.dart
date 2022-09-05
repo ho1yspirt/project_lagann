@@ -25,7 +25,7 @@ class _VideoCardState extends State<VideoCard> {
         builder: (BuildContext context) {
           SystemChrome.setPreferredOrientations(
               [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-          return const SettingElements();
+          return SettingElements(widget.videoModel.videoUrl);
         }).then((value) {
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
