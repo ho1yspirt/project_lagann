@@ -13,7 +13,7 @@ class CourseItemCard extends StatefulWidget {
 }
 
 class _CourseItemCardState extends State<CourseItemCard> {
-  bool _isSaved = false;
+  bool isSaved = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,7 @@ class _CourseItemCardState extends State<CourseItemCard> {
             MaterialPageRoute(
               builder: (context) => CourseItemScreen(
                 isPurchased: widget.isPurchased,
+                isSaved: isSaved,
               ),
             ),
           );
@@ -62,12 +63,12 @@ class _CourseItemCardState extends State<CourseItemCard> {
                       InkWell(
                         onTap: () {
                           setState(() {
-                            _isSaved = !_isSaved;
+                            isSaved = !isSaved;
                           });
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(4),
-                          child: _isSaved
+                          child: isSaved
                               ? const Icon(
                                   Ionicons.bookmark,
                                   size: kIconSize7,

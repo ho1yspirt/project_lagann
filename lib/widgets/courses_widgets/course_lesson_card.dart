@@ -93,7 +93,7 @@ class CourseLessonCard extends StatelessWidget {
       ),
       trailing: IconButton(
         onPressed: () {
-          if (isPurchased == false || lessonIndex != 0 || lessonIndex != 1) {
+          if (isPurchased == false) {
             onTapLockedLesson(context);
           }
         },
