@@ -62,7 +62,7 @@ const TextStyle kHeadline4 = TextStyle(
 );
 
 // colors
-const Color kPrimaryColor = Color(0xFF8162FF);
+const Color kPrimaryColor = Color(0xFF8060FF);
 const Color kBackgroundColor = Color(0xFF242A38);
 const Color kSurfaceColor = Color(0xFF1C202B);
 const Color kSurfaceColorWithOpacity = Color(0xFF4E596F);
@@ -75,8 +75,8 @@ const Gradient kPrimaryGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
   colors: [
-    Color(0xFF4518F4),
-    Color(0xFF8162FF),
+    Color(0xFF3300FE),
+    Color(0xFF8060FF),
   ],
 );
 
