@@ -7,6 +7,7 @@ class ChipFilter {
   ChipFilter(this.label, this.onSelected, {this.icon});
 }
 
+// ignore: must_be_immutable
 class CustomChoiceChips extends StatefulWidget {
   late int selectedChipIndex;
   final List<ChipFilter> chipsList;

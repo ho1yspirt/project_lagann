@@ -13,8 +13,7 @@ class ShortPostItemCard extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width / 2 - 20,
             child: InkWell(
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(10)),
+              borderRadius: BorderRadius.circular(10),
               onTap: () {},
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,8 +44,7 @@ class ShortPostItemCard extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width / 2 - 20,
             child: InkWell(
-              borderRadius:
-                  const BorderRadius.vertical(bottom: Radius.circular(10)),
+              borderRadius: BorderRadius.circular(10),
               onTap: () {},
               child: Row(
                 children: [

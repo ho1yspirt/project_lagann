@@ -30,13 +30,16 @@ class _CoursesAllScreenState extends State<CoursesAllScreen> {
               ),
             ),
             SliverToBoxAdapter(
-              child: CustomChoiceChips(selectedChipIndex: 0, chipsList: [
-                ChipFilter('provide list', () {}),
-                ChipFilter('list', () {}),
-                ChipFilter('provide', () {}),
-                ChipFilter('list', () {}),
-                ChipFilter('provide', () {}),
-              ]),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: CustomChoiceChips(selectedChipIndex: 0, chipsList: [
+                  ChipFilter('provide list', () {}),
+                  ChipFilter('list', () {}),
+                  ChipFilter('provide', () {}),
+                  ChipFilter('list', () {}),
+                  ChipFilter('provide', () {}),
+                ]),
+              ),
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(

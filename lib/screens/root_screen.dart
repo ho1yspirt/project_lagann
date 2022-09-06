@@ -19,6 +19,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light
               .copyWith(statusBarColor: kBackgroundColor),

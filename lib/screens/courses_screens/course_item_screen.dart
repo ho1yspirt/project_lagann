@@ -6,11 +6,12 @@ import 'package:project_lagann/widgets/custom_choice_chips.dart';
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 import '../../widgets/custom_tabbar_indicator.dart';
-
+import 'package:flutter/services.dart';
 import 'dart:math';
 
-Random random = new Random();
+Random random = Random();
 
+// ignore: must_be_immutable
 class CourseItemScreen extends StatefulWidget {
   final bool isPurchased;
   bool isSaved;
@@ -24,11 +25,25 @@ class CourseItemScreen extends StatefulWidget {
 class _CourseItemScreenState extends State<CourseItemScreen>
     with TickerProviderStateMixin {
   late TabController _tabController;
-
   @override
   void initState() {
     super.initState();
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     _tabController = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
   }
 
   @override
@@ -427,10 +442,7 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                         height: 50,
                         child: Center(
                           child: Text(
-                            S
-                                .of(context)
-                                .course_screen_enroll_course
-                                .toUpperCase(),
+                            '${S.of(context).course_screen_enroll_course.toUpperCase()} - \$59',
                             style: kButtonTS.copyWith(color: kWhiteColor),
                           ),
                         ),

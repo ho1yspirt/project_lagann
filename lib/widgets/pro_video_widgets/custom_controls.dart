@@ -12,6 +12,7 @@ import 'package:wakelock/wakelock.dart';
 
 import '../../utils/constants.dart';
 
+// ignore: must_be_immutable
 class CustomConstrols extends StatefulWidget {
   final VideoPlayerController? videoPlayerController;
   final Function enterFullScreen;
