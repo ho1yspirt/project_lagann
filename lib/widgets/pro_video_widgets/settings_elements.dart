@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:ionicons/ionicons.dart';
 
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 
 class SettingElements extends StatelessWidget {
-  const SettingElements({Key? key}) : super(key: key);
+  final String url;
+  const SettingElements(this.url, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,9 @@ class SettingElements extends StatelessWidget {
       heightFactor: 0.45,
       child: Column(children: [
         GestureDetector(
-          onTap: (() {}),
+          onTap: () {
+            FlutterShare.share(title: "Hello", linkUrl: url);
+          },
           child: Row(
             children: <Widget>[
               const Padding(
@@ -23,7 +27,7 @@ class SettingElements extends StatelessWidget {
                 ),
                 child: Icon(
                   Ionicons.arrow_redo_outline,
-                  color: Color(0xFFF2F2F2),
+                  color: kWhiteColor,
                   size: 32,
                 ),
               ),
@@ -49,7 +53,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.trash_outline,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),
@@ -74,7 +78,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.ban,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),
@@ -83,9 +87,12 @@ class SettingElements extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 24),
-              child: Text(
-                S.of(context).setteings_message_dont_recom,
-                style: kChapterDefaultTS,
+              child: Flexible(
+                flex: 2,
+                child: Text(
+                  S.of(context).setteings_message_dont_recom,
+                  style: kChapterDefaultTS,
+                ),
               ),
             ),
           ],
@@ -99,7 +106,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.flag_outline,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),
@@ -124,7 +131,7 @@ class SettingElements extends StatelessWidget {
               ),
               child: Icon(
                 Ionicons.bookmark_outline,
-                color: Color(0xFFF2F2F2),
+                color: kWhiteColor,
                 size: 32,
               ),
             ),

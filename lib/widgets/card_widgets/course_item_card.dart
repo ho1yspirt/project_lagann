@@ -1,31 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/utils/constants.dart';
-
 import '../../generated/l10n.dart';
+import '../../screens/courses_screens/course_item_screen.dart';
 
 class CourseItemCard extends StatefulWidget {
-  const CourseItemCard({Key? key}) : super(key: key);
+  final bool isPurchased;
+  const CourseItemCard({Key? key, required this.isPurchased}) : super(key: key);
 
   @override
   State<CourseItemCard> createState() => _CourseItemCardState();
 }
 
 class _CourseItemCardState extends State<CourseItemCard> {
-  bool _isSaved = false;
+  bool isSaved = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => CourseItemScreen(
+                isPurchased: widget.isPurchased,
+                isSaved: isSaved,
+              ),
+            ),
+          );
+        },
         child: Row(
           children: [
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: SizedBox(
-                height: 130,
+                width: 160,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: AspectRatio(
@@ -52,12 +63,12 @@ class _CourseItemCardState extends State<CourseItemCard> {
                       InkWell(
                         onTap: () {
                           setState(() {
-                            _isSaved = !_isSaved;
+                            isSaved = !isSaved;
                           });
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(4),
-                          child: _isSaved
+                          child: isSaved
                               ? const Icon(
                                   Ionicons.bookmark,
                                   size: kIconSize7,
@@ -71,23 +82,20 @@ class _CourseItemCardState extends State<CourseItemCard> {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 4),
-                    child: Text(
-                      '3D way of the samurai, and basics of 3D',
-                      style: kSubtitle1.copyWith(color: kWhiteColor),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
+                  Text(
+                    '3D way of the samurai, and basics of 3D',
+                    style: kSubtitle1.copyWith(color: kWhiteColor),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                   Row(
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(right: 4),
+                        padding: EdgeInsets.only(right: 4, bottom: 2),
                         child: Icon(
                           Ionicons.star,
                           color: kPrimaryColor,
-                          size: kIconSize8,
+                          size: kIconSize9,
                         ),
                       ),
                       Text('4.8', style: kBody2TS.copyWith(color: kGreyColor)),
@@ -95,16 +103,26 @@ class _CourseItemCardState extends State<CourseItemCard> {
                       Text('12K ${S.of(context).action_reviews}',
                           style: kBody2TS.copyWith(color: kGreyColor)),
                       kSeporatorDot,
-                      Text('2017', style: kBody2TS.copyWith(color: kGreyColor)),
+                      Expanded(
+                          child: Text(
+                        '2017',
+                        style: kBody2TS.copyWith(
+                          color: kGreyColor,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      )),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: Text(
-                      '59\$',
-                      style: kHeadline5.copyWith(color: kPrimaryColor),
-                    ),
-                  )
+                  widget.isPurchased
+                      ? Text(
+                          '12/32',
+                          style: kHeadline5.copyWith(color: kPrimaryColor),
+                        )
+                      : Text(
+                          '59\$',
+                          style: kHeadline5.copyWith(color: kPrimaryColor),
+                        ),
                 ],
               ),
             ),

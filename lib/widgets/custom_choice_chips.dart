@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class ChipFilter {
   String label;
   Function onSelected;
-  ChipFilter(this.label, this.onSelected);
+  Widget? icon;
+  ChipFilter(this.label, this.onSelected, {this.icon});
 }
 
+// ignore: must_be_immutable
 class CustomChoiceChips extends StatefulWidget {
   late int selectedChipIndex;
   final List<ChipFilter> chipsList;
@@ -26,13 +28,20 @@ class _CustomChoiceChipsState extends State<CustomChoiceChips> {
       Widget item = Padding(
         padding: const EdgeInsets.only(right: 12),
         child: ChoiceChip(
-          label: Text(widget.chipsList[i].label),
+          label: Row(
+            children: [
+              Text(widget.chipsList[i].label),
+              widget.chipsList[i].icon ?? const SizedBox.shrink(),
+            ],
+          ),
           selected: widget.selectedChipIndex == i,
           onSelected: (value) {
             widget.chipsList[i].onSelected();
-            setState(() {
-              widget.selectedChipIndex = i;
-            });
+            setState(
+              () {
+                widget.selectedChipIndex = i;
+              },
+            );
           },
         ),
       );
@@ -44,7 +53,7 @@ class _CustomChoiceChipsState extends State<CustomChoiceChips> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: SizedBox(
         height: 40,
         child: ListView(

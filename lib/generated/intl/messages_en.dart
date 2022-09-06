@@ -22,11 +22,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "action_about": MessageLookupByLibrary.simpleMessage("About"),
         "action_apply": MessageLookupByLibrary.simpleMessage("Apply"),
         "action_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "action_clear_all": MessageLookupByLibrary.simpleMessage("Clear all"),
         "action_comments": MessageLookupByLibrary.simpleMessage("Comments"),
         "action_hashtags": MessageLookupByLibrary.simpleMessage("Hashtags"),
+        "action_help_and_feedback":
+            MessageLookupByLibrary.simpleMessage("Help and feedback"),
         "action_likes": MessageLookupByLibrary.simpleMessage("Likes"),
         "action_notinterested":
             MessageLookupByLibrary.simpleMessage("Not interested"),
@@ -53,6 +56,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "count_subscribers":
             MessageLookupByLibrary.simpleMessage("Subscribers"),
         "count_to": MessageLookupByLibrary.simpleMessage("To"),
+        "course_screen_about_course":
+            MessageLookupByLibrary.simpleMessage("About course"),
+        "course_screen_created_by":
+            MessageLookupByLibrary.simpleMessage("Created by"),
+        "course_screen_enroll_course":
+            MessageLookupByLibrary.simpleMessage("Enroll course"),
+        "course_screen_enroll_dialog_subtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Get full and unlimited access to the course lessons and general chat"),
+        "course_screen_enroll_dialog_title":
+            MessageLookupByLibrary.simpleMessage(
+                "Start your training right now"),
+        "course_screen_lessons":
+            MessageLookupByLibrary.simpleMessage("Lessons"),
+        "course_screen_students":
+            MessageLookupByLibrary.simpleMessage("Students"),
+        "courses_screen_course": MessageLookupByLibrary.simpleMessage("Course"),
+        "courses_screen_purchased":
+            MessageLookupByLibrary.simpleMessage("Purchased"),
         "date_anytime": MessageLookupByLibrary.simpleMessage("Anytime"),
         "date_last_hour": MessageLookupByLibrary.simpleMessage("Last hour"),
         "date_this_month": MessageLookupByLibrary.simpleMessage("This month"),

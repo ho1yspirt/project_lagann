@@ -19,9 +19,10 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light
-              .copyWith(statusBarColor: Theme.of(context).primaryColor),
+              .copyWith(statusBarColor: kBackgroundColor),
           child: SafeArea(child: pages[_currentBottomNavBarIndex])),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 10,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/proVideoScreens/proVideo_home_screen.dart';
+import 'package:project_lagann/screens/courses_screens/courses_screen.dart';
 import 'package:project_lagann/screens/home_screens/home_screen.dart';
 import 'package:project_lagann/screens/marathon_screens/home_screen.dart';
 
@@ -61,7 +63,7 @@ const TextStyle kHeadline4 = TextStyle(
 );
 
 // colors
-const Color kPrimaryColor = Color(0xFF8162FF);
+const Color kPrimaryColor = Color(0xFF8060FF);
 const Color kBackgroundColor = Color(0xFF242A38);
 const Color kSurfaceColor = Color(0xFF1C202B);
 const Color kSurfaceColorWithOpacity = Color(0xFF4E596F);
@@ -74,8 +76,8 @@ const Gradient kPrimaryGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
   colors: [
-    Color(0xFF4518F4),
-    Color(0xFF8162FF),
+    Color(0xFF3300FE),
+    Color(0xFF8060FF),
   ],
 );
 
@@ -176,4 +178,10 @@ Container kHashtagCircle = Container(
     '#',
     style: kHeadline4,
   )),
+);
+
+Widget starIcon = const Icon(
+  Ionicons.star,
+  size: kIconSize9,
+  color: kPrimaryColor,
 );

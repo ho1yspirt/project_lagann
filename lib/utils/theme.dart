@@ -3,7 +3,7 @@ import './constants.dart';
 
 ThemeData kBasicTheme() => ThemeData(
       // colors
-      // brightness: Brightness.dark,
+
       // primarySwatch: Colors.deepPurple,
       // primaryColor: kPrimaryColor,
       // backgroundColor: kBackgroundColor,
@@ -45,6 +45,20 @@ ThemeData kBasicTheme() => ThemeData(
           textStyle: kSubtitle2,
         ),
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          elevation: 8,
+          primary: kPrimaryColor,
+          onPrimary: kWhiteColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+      popupMenuTheme: PopupMenuThemeData(
+        color: kSurfaceColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
       // fab
       // card
 
@@ -65,7 +79,7 @@ ThemeData kBasicTheme() => ThemeData(
       dialogTheme: DialogTheme(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 0.0,
-        backgroundColor: kBackgroundColor,
+        backgroundColor: kSurfaceColor,
       ),
       // divider
       // menu

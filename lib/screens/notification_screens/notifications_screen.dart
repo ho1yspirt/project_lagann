@@ -74,14 +74,17 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         title: Text(S.of(context).navbar_notifications),
         bottom: PreferredSize(
           preferredSize: Size(MediaQuery.of(context).size.width, 55),
-          child: CustomChoiceChips(
-            selectedChipIndex: 0,
-            chipsList: [
-              ChipFilter('All', () {}),
-              ChipFilter('Comments', () {}),
-              ChipFilter('Likes', () {}),
-              ChipFilter('Courses', () {}),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: CustomChoiceChips(
+              selectedChipIndex: 0,
+              chipsList: [
+                ChipFilter('All', () {}),
+                ChipFilter('Comments', () {}),
+                ChipFilter('Likes', () {}),
+                ChipFilter('Courses', () {}),
+              ],
+            ),
           ),
         ),
       ),

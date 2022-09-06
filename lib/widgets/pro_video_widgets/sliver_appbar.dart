@@ -13,6 +13,7 @@ class SlivAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      elevation: 8,
       floating: true,
       centerTitle: false,
       toolbarHeight: 48,
@@ -30,6 +31,7 @@ class SlivAppBar extends StatelessWidget {
               )
             : null,
       ),
+      bottom: bottom,
       actions: <Widget>[
         IconButton(
           onPressed: () => {

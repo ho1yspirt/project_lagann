@@ -280,6 +280,26 @@ class S {
     );
   }
 
+  /// `About`
+  String get action_about {
+    return Intl.message(
+      'About',
+      name: 'action_about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help and feedback`
+  String get action_help_and_feedback {
+    return Intl.message(
+      'Help and feedback',
+      name: 'action_help_and_feedback',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search history`
   String get search_screen_search_history {
     return Intl.message(
@@ -730,85 +750,141 @@ class S {
     );
   }
 
+
   /// `Marathons`
   String get marathon_app_bar_title {
     return Intl.message(
       'Marathons',
       name: 'marathon_app_bar_title',
+
+  /// `Purchased`
+  String get courses_screen_purchased {
+    return Intl.message(
+      'Purchased',
+      name: 'courses_screen_purchased',
       desc: '',
       args: [],
     );
   }
+
 
   /// `Participation`
   String get marathon_chapter_title1 {
     return Intl.message(
       'Participation',
       name: 'marathon_chapter_title1',
+
+  /// `Course`
+  String get courses_screen_course {
+    return Intl.message(
+      'Course',
+      name: 'courses_screen_course',
       desc: '',
       args: [],
     );
   }
+
 
   /// `Signed`
   String get marathon_chapter_title2 {
     return Intl.message(
       'Signed',
       name: 'marathon_chapter_title2',
+
+  /// `Created by`
+  String get course_screen_created_by {
+    return Intl.message(
+      'Created by',
+      name: 'course_screen_created_by',
       desc: '',
       args: [],
     );
   }
+
 
   /// `Marathons`
   String get marathon_chapter_title3 {
     return Intl.message(
       'Marathons',
       name: 'marathon_chapter_title3',
+
+  /// `Students`
+  String get course_screen_students {
+    return Intl.message(
+      'Students',
+      name: 'course_screen_students',
       desc: '',
       args: [],
     );
   }
+
 
   /// `Contestant`
   String get marathon_detailed_item1 {
     return Intl.message(
       'Contestant',
       name: 'marathon_detailed_item1',
+
+  /// `Lessons`
+  String get course_screen_lessons {
+    return Intl.message(
+      'Lessons',
+      name: 'course_screen_lessons',
       desc: '',
       args: [],
     );
   }
+
 
   /// `Category`
   String get marathon_detailed_item2 {
     return Intl.message(
       'Category',
       name: 'marathon_detailed_item2',
+  /// `About course`
+  String get course_screen_about_course {
+    return Intl.message(
+      'About course',
+      name: 'course_screen_about_course',
       desc: '',
       args: [],
     );
   }
+
 
   /// `Stages`
   String get marathon_detailed_item3 {
     return Intl.message(
       'Stages',
       name: 'marathon_detailed_item3',
+
+  /// `Enroll course`
+  String get course_screen_enroll_course {
+    return Intl.message(
+      'Enroll course',
+      name: 'course_screen_enroll_course',
       desc: '',
       args: [],
     );
   }
+
 
   /// `About`
   String get marathon_tab_bar_about {
     return Intl.message(
       'About',
       name: 'marathon_tab_bar_about',
+
+  /// `Start your training right now`
+  String get course_screen_enroll_dialog_title {
+    return Intl.message(
+      'Start your training right now',
+      name: 'course_screen_enroll_dialog_title',
       desc: '',
       args: [],
     );
   }
+
 
   /// `Video`
   String get marathon_tab_bar_video {
@@ -825,6 +901,12 @@ class S {
     return Intl.message(
       'Statistics',
       name: 'marathon_tab_bar_statistics',
+
+  /// `Get full and unlimited access to the course lessons and general chat`
+  String get course_screen_enroll_dialog_subtitle {
+    return Intl.message(
+      'Get full and unlimited access to the course lessons and general chat',
+      name: 'course_screen_enroll_dialog_subtitle',
       desc: '',
       args: [],
     );
