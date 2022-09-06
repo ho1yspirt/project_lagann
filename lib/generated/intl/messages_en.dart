@@ -81,6 +81,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Category"),
         "marathon_detailed_item3":
             MessageLookupByLibrary.simpleMessage("Stages"),
+        "marathon_tab_bar_about": MessageLookupByLibrary.simpleMessage("About"),
+        "marathon_tab_bar_statistics":
+            MessageLookupByLibrary.simpleMessage("Statistics"),
+        "marathon_tab_bar_video": MessageLookupByLibrary.simpleMessage("Video"),
         "navbar_courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "navbar_home": MessageLookupByLibrary.simpleMessage("Home"),
         "navbar_marathons": MessageLookupByLibrary.simpleMessage("Marathons"),

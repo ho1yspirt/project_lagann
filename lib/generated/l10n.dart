@@ -799,6 +799,36 @@ class S {
       args: [],
     );
   }
+
+  /// `About`
+  String get marathon_tab_bar_about {
+    return Intl.message(
+      'About',
+      name: 'marathon_tab_bar_about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video`
+  String get marathon_tab_bar_video {
+    return Intl.message(
+      'Video',
+      name: 'marathon_tab_bar_video',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Statistics`
+  String get marathon_tab_bar_statistics {
+    return Intl.message(
+      'Statistics',
+      name: 'marathon_tab_bar_statistics',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

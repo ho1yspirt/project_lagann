@@ -73,5 +73,8 @@
     "marathon_chapter_title3": "Marathons",
     "marathon_detailed_item1": "Contestant",
     "marathon_detailed_item2": "Category",
-    "marathon_detailed_item3": "Stages"
+    "marathon_detailed_item3": "Stages",
+    "marathon_tab_bar_about": "About",
+    "marathon_tab_bar_video": "Video",
+    "marathon_tab_bar_statistics": "Statistics"
 }
