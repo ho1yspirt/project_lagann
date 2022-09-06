@@ -41,8 +41,6 @@ class _ProVideoHomeScreenState extends State<ProVideoHomeScreen> {
   void dispose() {
     super.dispose();
     SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);

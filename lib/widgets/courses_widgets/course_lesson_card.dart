@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/screens/home_screens/home_screen.dart';
 
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
@@ -44,10 +45,7 @@ class CourseLessonCard extends StatelessWidget {
                       height: 50,
                       child: Center(
                         child: Text(
-                          S
-                              .of(context)
-                              .course_screen_enroll_course
-                              .toUpperCase(),
+                          '${S.of(context).course_screen_enroll_course.toUpperCase()} - \$59',
                           style: kButtonTS.copyWith(color: kWhiteColor),
                         ),
                       ),
@@ -97,7 +95,7 @@ class CourseLessonCard extends StatelessWidget {
             onTapLockedLesson(context);
           }
         },
-        icon: lessonIndex == 0 || lessonIndex == 1 || isPurchased == true
+        icon: lessonIndex == 1 || lessonIndex == 2 || isPurchased == true
             ? const Icon(
                 Ionicons.play_circle,
                 color: kPrimaryColor,

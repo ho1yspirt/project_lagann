@@ -79,7 +79,7 @@ ThemeData kBasicTheme() => ThemeData(
       dialogTheme: DialogTheme(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 0.0,
-        backgroundColor: kBackgroundColor,
+        backgroundColor: kSurfaceColor,
       ),
       // divider
       // menu

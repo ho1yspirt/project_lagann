@@ -6,6 +6,7 @@ import 'package:project_lagann/screens/search_screens/search_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
 import '../../generated/l10n.dart';
 import 'home_followed_screen.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,6 +15,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
   int _currentIndex = 1;
 
   final PageController _pageController = PageController(initialPage: 1);
@@ -59,51 +79,43 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ]),
-        otherWidget: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+        otherWidget: Center(
+          child: SizedBox(
+            width: 200,
+            child: Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.center,
               children: [
-                SizedBox(
-                  width: 200,
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    alignment: Alignment.center,
-                    children: [
-                      kSeporatorLine,
-                      Positioned(
-                        left: 28,
-                        child: GestureDetector(
-                          child: Text(
-                            S.of(context).home_screen_signed,
-                            style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
-                          ),
-                          onTap: () {
-                            _onFollowedPress();
-                            setIndex(0);
-                          },
-                        ),
-                      ),
-                      Positioned(
-                        right: 64,
-                        child: GestureDetector(
-                          child: Text(
-                            S.of(context).home_screen_all,
-                            style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
-                          ),
-                          onTap: () {
-                            _onALlPress();
-                            setIndex(1);
-                          },
-                        ),
-                      ),
-                    ],
+                kSeporatorLine,
+                Positioned(
+                  left: 28,
+                  child: GestureDetector(
+                    child: Text(
+                      S.of(context).home_screen_signed,
+                      style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
+                    ),
+                    onTap: () {
+                      _onFollowedPress();
+                      setIndex(0);
+                    },
+                  ),
+                ),
+                Positioned(
+                  right: 64,
+                  child: GestureDetector(
+                    child: Text(
+                      S.of(context).home_screen_all,
+                      style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
+                    ),
+                    onTap: () {
+                      _onALlPress();
+                      setIndex(1);
+                    },
                   ),
                 ),
               ],
             ),
-          ],
+          ),
         ),
         height: AppBar().preferredSize.height,
       ),
