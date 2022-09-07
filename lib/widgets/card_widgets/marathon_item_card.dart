@@ -17,7 +17,8 @@ class MarathonItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-      child: GestureDetector(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(

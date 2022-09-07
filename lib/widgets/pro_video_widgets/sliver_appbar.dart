@@ -31,7 +31,6 @@ class SlivAppBar extends StatelessWidget {
               )
             : null,
       ),
-      bottom: bottom,
       actions: <Widget>[
         IconButton(
           onPressed: () => {

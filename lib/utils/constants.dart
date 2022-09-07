@@ -9,8 +9,8 @@ import 'package:project_lagann/screens/marathon_screens/home_screen.dart';
 const pages = [
   HomeScreen(),
   ProVideoHomeScreen(),
-  Text('Courses'),
   MarathonHomeScreen(),
+  CoursesScreen(),
   Text('Profile'),
 ];
 

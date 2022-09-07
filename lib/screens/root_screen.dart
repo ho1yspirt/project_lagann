@@ -52,18 +52,18 @@ class _RootScreenState extends State<RootScreen> {
               label: S.of(context).navbar_pro_video),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
-                  icon: Ionicons.book,
-                  size: kIconSize6,
-                  gradient: kPrimaryGradient),
-              icon: const Icon(Ionicons.book_outline, size: kIconSize6),
-              label: S.of(context).navbar_courses),
-          BottomNavigationBarItem(
-              activeIcon: const GradientIcon(
                   icon: Ionicons.trophy,
                   size: kIconSize6,
                   gradient: kPrimaryGradient),
               icon: const Icon(Ionicons.trophy_outline, size: kIconSize6),
               label: S.of(context).navbar_marathons),
+          BottomNavigationBarItem(
+              activeIcon: const GradientIcon(
+                  icon: Ionicons.book,
+                  size: kIconSize6,
+                  gradient: kPrimaryGradient),
+              icon: const Icon(Ionicons.book_outline, size: kIconSize6),
+              label: S.of(context).navbar_courses),
           BottomNavigationBarItem(
               activeIcon: const GradientIcon(
                   icon: Ionicons.person_circle,
