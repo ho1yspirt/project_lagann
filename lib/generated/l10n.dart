@@ -750,6 +750,13 @@ class S {
     );
   }
 
+
+  /// `Marathons`
+  String get marathon_app_bar_title {
+    return Intl.message(
+      'Marathons',
+      name: 'marathon_app_bar_title',
+
   /// `Purchased`
   String get courses_screen_purchased {
     return Intl.message(
@@ -759,6 +766,13 @@ class S {
       args: [],
     );
   }
+
+
+  /// `Participation`
+  String get marathon_chapter_title1 {
+    return Intl.message(
+      'Participation',
+      name: 'marathon_chapter_title1',
 
   /// `Course`
   String get courses_screen_course {
@@ -770,6 +784,13 @@ class S {
     );
   }
 
+
+  /// `Signed`
+  String get marathon_chapter_title2 {
+    return Intl.message(
+      'Signed',
+      name: 'marathon_chapter_title2',
+
   /// `Created by`
   String get course_screen_created_by {
     return Intl.message(
@@ -779,6 +800,13 @@ class S {
       args: [],
     );
   }
+
+
+  /// `Marathons`
+  String get marathon_chapter_title3 {
+    return Intl.message(
+      'Marathons',
+      name: 'marathon_chapter_title3',
 
   /// `Students`
   String get course_screen_students {
@@ -790,6 +818,13 @@ class S {
     );
   }
 
+
+  /// `Contestant`
+  String get marathon_detailed_item1 {
+    return Intl.message(
+      'Contestant',
+      name: 'marathon_detailed_item1',
+
   /// `Lessons`
   String get course_screen_lessons {
     return Intl.message(
@@ -800,6 +835,12 @@ class S {
     );
   }
 
+
+  /// `Category`
+  String get marathon_detailed_item2 {
+    return Intl.message(
+      'Category',
+      name: 'marathon_detailed_item2',
   /// `About course`
   String get course_screen_about_course {
     return Intl.message(
@@ -809,6 +850,13 @@ class S {
       args: [],
     );
   }
+
+
+  /// `Stages`
+  String get marathon_detailed_item3 {
+    return Intl.message(
+      'Stages',
+      name: 'marathon_detailed_item3',
 
   /// `Enroll course`
   String get course_screen_enroll_course {
@@ -820,6 +868,13 @@ class S {
     );
   }
 
+
+  /// `About`
+  String get marathon_tab_bar_about {
+    return Intl.message(
+      'About',
+      name: 'marathon_tab_bar_about',
+
   /// `Start your training right now`
   String get course_screen_enroll_dialog_title {
     return Intl.message(
@@ -829,6 +884,23 @@ class S {
       args: [],
     );
   }
+
+
+  /// `Video`
+  String get marathon_tab_bar_video {
+    return Intl.message(
+      'Video',
+      name: 'marathon_tab_bar_video',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Statistics`
+  String get marathon_tab_bar_statistics {
+    return Intl.message(
+      'Statistics',
+      name: 'marathon_tab_bar_statistics',
 
   /// `Get full and unlimited access to the course lessons and general chat`
   String get course_screen_enroll_dialog_subtitle {

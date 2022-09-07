@@ -6,9 +6,8 @@ import '../../utils/constants.dart';
 
 class SlivAppBar extends StatelessWidget {
   final String title;
-  final Widget? customLeading;
-  final PreferredSizeWidget? bottom;
-  const SlivAppBar({Key? key, this.title = '', this.customLeading, this.bottom})
+  final bool? isNeedGoBack;
+  const SlivAppBar({Key? key, required this.title, this.isNeedGoBack})
       : super(key: key);
 
   @override
@@ -16,11 +15,21 @@ class SlivAppBar extends StatelessWidget {
     return SliverAppBar(
       elevation: 8,
       floating: true,
+      centerTitle: false,
+      toolbarHeight: 48,
+      titleSpacing: isNeedGoBack ?? false ? -10 : -39,
       backgroundColor: kBackgroundColor,
-      leading: customLeading,
       title: Text(
         title,
-        style: kHeadline4.copyWith(color: kWhiteColor),
+        style: kSliverAppBarTS,
+      ),
+      leading: SizedBox(
+        child: isNeedGoBack ?? false
+            ? InkWell(
+                onTap: () => Navigator.of(context).pop(),
+                child: const Icon(Ionicons.arrow_back),
+              )
+            : null,
       ),
       bottom: bottom,
       actions: <Widget>[

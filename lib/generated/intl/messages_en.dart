@@ -89,6 +89,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "example": MessageLookupByLibrary.simpleMessage("example text"),
         "home_screen_all": MessageLookupByLibrary.simpleMessage("All"),
         "home_screen_signed": MessageLookupByLibrary.simpleMessage("Signed"),
+        "marathon_app_bar_title":
+            MessageLookupByLibrary.simpleMessage("Marathons"),
+        "marathon_chapter_title1":
+            MessageLookupByLibrary.simpleMessage("Participation"),
+        "marathon_chapter_title2":
+            MessageLookupByLibrary.simpleMessage("Signed"),
+        "marathon_chapter_title3":
+            MessageLookupByLibrary.simpleMessage("Marathons"),
+        "marathon_detailed_item1":
+            MessageLookupByLibrary.simpleMessage("Contestant"),
+        "marathon_detailed_item2":
+            MessageLookupByLibrary.simpleMessage("Category"),
+        "marathon_detailed_item3":
+            MessageLookupByLibrary.simpleMessage("Stages"),
+        "marathon_tab_bar_about": MessageLookupByLibrary.simpleMessage("About"),
+        "marathon_tab_bar_statistics":
+            MessageLookupByLibrary.simpleMessage("Statistics"),
+        "marathon_tab_bar_video": MessageLookupByLibrary.simpleMessage("Video"),
         "navbar_courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "navbar_home": MessageLookupByLibrary.simpleMessage("Home"),
         "navbar_marathons": MessageLookupByLibrary.simpleMessage("Marathons"),
