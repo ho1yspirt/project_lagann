@@ -285,7 +285,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                     itemBuilder: (context, index) {
                       var comment = _testCommnetList[index];
                       return CommentItem(
-                          comment, _testReply, widget.scrollController, 1);
+                          comment, _testReply, widget.scrollController, index);
                     },
                   ),
                 ),
