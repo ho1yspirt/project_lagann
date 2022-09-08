@@ -5,12 +5,13 @@ import '../../utils/theme.dart';
 class CustomHomeButton extends StatefulWidget {
   final Icon icon;
   final GradientIcon activatedIcon;
-  final String title;
+  final String? title;
   final bool isChangeble;
+
   const CustomHomeButton({
     Key? key,
     required this.icon,
-    required this.title,
+    this.title,
     required this.isChangeble,
     required this.activatedIcon,
   }) : super(key: key);
@@ -34,7 +35,7 @@ class _CustomHomeButtonState extends State<CustomHomeButton> {
             icon: widget.isChangeble
                 ? (_isActivated ? widget.activatedIcon : widget.icon)
                 : widget.icon),
-        Text(widget.title, style: kCaptionsTS),
+        if (widget.title != null) Text(widget.title!, style: kCaptionsTS),
         const SizedBox(height: 8),
       ],
     );

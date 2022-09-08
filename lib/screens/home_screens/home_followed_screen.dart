@@ -19,7 +19,7 @@ class _HomeFollowedScreenState extends State<HomeFollowedScreen> {
             controller: PageController(initialPage: 0, viewportFraction: 1),
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
-              return const HomePostItem();
+              return const HomePostItem(false);
             },
           ),
         ],

@@ -108,28 +108,40 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Flexible(
-                flex: 2,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16),
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Container(
+                  constraints: const BoxConstraints(
+                    maxWidth: 344,
+                    maxHeight: 46,
+                    minHeight: 24,
+                  ),
                   child: Text(
                     widget.videoModel.title,
                     style: kVideoTitleTS,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                 ),
               ),
-              IconButton(
-                  padding: const EdgeInsets.all(0),
-                  onPressed: () {
+              Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: InkWell(
+                  onTap: () {
                     onTapShowDescription();
                     SystemChrome.setPreferredOrientations([
                       DeviceOrientation.portraitUp,
                       DeviceOrientation.portraitDown
                     ]);
                   },
-                  icon: const Icon(Ionicons.chevron_down))
+                  child: const Icon(Ionicons.chevron_down),
+                ),
+              )
             ],
           ),
+        ),
+        const SizedBox(
+          height: 8,
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,22 +1,77 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/utils/theme.dart';
+import 'package:video_player/video_player.dart';
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 import 'custom_home_button.dart';
 
 class HomePostItem extends StatefulWidget {
-  const HomePostItem({Key? key}) : super(key: key);
+  final bool isMarathon;
+  const HomePostItem(this.isMarathon, {Key? key}) : super(key: key);
 
   @override
   State<HomePostItem> createState() => _HomePostItemState();
 }
 
 class _HomePostItemState extends State<HomePostItem> {
+  late VideoPlayerController _videoPlayerController;
+  ChewieController? _chewieController;
+
+  @override
+  void initState() {
+    super.initState();
+    initVideoPlayer();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _videoPlayerController.dispose();
+    _chewieController?.dispose();
+  }
+
+  void enterFullScr() {
+    _chewieController!.enterFullScreen();
+  }
+
+  void exitFullScr() {
+    _chewieController!.exitFullScreen();
+  }
+
+  void initVideoPlayer() async {
+    _videoPlayerController = VideoPlayerController.network(
+        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
+    await _videoPlayerController.initialize();
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      autoPlay: false,
+      autoInitialize: true,
+      allowedScreenSleep: false,
+      allowFullScreen: false,
+      allowMuting: false,
+      showControls: true,
+      aspectRatio: MediaQuery.of(context).size.width /
+          MediaQuery.of(context).size.height,
+      // customControls: CustomConstrols(
+      //   enterFullScr,
+      //   exitFullScr,
+      //   videoPlayerController: _videoPlayerController,
+      //   widget.videoModel,
+      //   isPlay = _videoPlayerController.value.isPlaying,
+      // ),
+    );
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        _videoPlayerController.value.isInitialized
+            ? Chewie(controller: _chewieController!)
+            : const SizedBox(),
         Container(
           margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
           child: Column(
@@ -88,6 +143,16 @@ class _HomePostItemState extends State<HomePostItem> {
                         children: [
                           Column(
                             children: [
+                              if (widget.isMarathon)
+                                const CustomHomeButton(
+                                  isChangeble: true,
+                                  icon: Icon(Ionicons.star_outline),
+                                  activatedIcon: GradientIcon(
+                                    icon: Ionicons.star,
+                                    size: kIconSize5,
+                                    gradient: kPrimaryGradient,
+                                  ),
+                                ),
                               const CustomHomeButton(
                                   isChangeble: true,
                                   icon: Icon(Ionicons.heart_outline),

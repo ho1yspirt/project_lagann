@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../widgets/home_widgets/home_post_item.dart';
 
-class HomeAllScreen extends StatefulWidget {
-  const HomeAllScreen({Key? key}) : super(key: key);
+class MarathonVideoScreen extends StatefulWidget {
+  const MarathonVideoScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeAllScreen> createState() => _HomeAllScreenState();
+  State<MarathonVideoScreen> createState() => _MarathonVideoScreenState();
 }
 
-class _HomeAllScreenState extends State<HomeAllScreen> {
+class _MarathonVideoScreenState extends State<MarathonVideoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           PageView.builder(
@@ -19,7 +20,7 @@ class _HomeAllScreenState extends State<HomeAllScreen> {
             controller: PageController(initialPage: 0, viewportFraction: 1),
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
-              return const HomePostItem(false);
+              return const HomePostItem(true);
             },
           ),
         ],
