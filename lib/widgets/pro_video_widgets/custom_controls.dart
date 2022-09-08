@@ -3,6 +3,7 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:phone_state/phone_state.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/widgets/pro_video_widgets/video_progress_indicator.dart';
 import 'package:project_lagann/widgets/pro_video_widgets/video_settings.dart';
@@ -165,222 +166,235 @@ class _CustomConstrolsState extends State<CustomConstrols>
   Widget build(BuildContext context) {
     bool isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
-    return Stack(
-      alignment: AlignmentDirectional.bottomCenter,
-      children: [
-        AnimatedOpacity(
-          opacity: _isVisibleAll ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 500),
-          child: Stack(
+    return StreamBuilder<PhoneStateStatus?>(
+        initialData: PhoneStateStatus.NOTHING,
+        stream: PhoneState.phoneStateStream,
+        builder: (context, AsyncSnapshot<PhoneStateStatus?> status) {
+          if (status.data!.index == 3) {
+            onTapPause();
+          } else if (status.data!.index == 1) {
+            onTapPause();
+          }
+          return Stack(
+            alignment: AlignmentDirectional.bottomCenter,
             children: [
-              SizedBox(
-                width: double.infinity,
-                height: double.infinity,
-                child: GestureDetector(
-                  onTap: () => setVisible(),
-                ),
-              ),
-              if (MediaQuery.of(context).orientation == Orientation.landscape)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              AnimatedOpacity(
+                opacity: _isVisibleAll ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 500),
+                child: Stack(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 12, left: 50),
-                      child: Row(
+                    SizedBox(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: GestureDetector(
+                        onTap: () => setVisible(),
+                      ),
+                    ),
+                    if (MediaQuery.of(context).orientation ==
+                        Orientation.landscape)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(Ionicons.chevron_down),
-                          const SizedBox(
-                            width: 20,
+                          Padding(
+                            padding: const EdgeInsets.only(top: 12, left: 50),
+                            child: Row(
+                              children: [
+                                const Icon(Ionicons.chevron_down),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  widget.videoModel.title,
+                                  style: kVideoTitleTS,
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                const Icon(Ionicons.chevron_forward)
+                              ],
+                            ),
                           ),
-                          Text(
-                            widget.videoModel.title,
-                            style: kVideoTitleTS,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 95),
+                            child: Text(
+                              widget.videoModel.author.username,
+                              style: kSubtitle2.copyWith(color: kWhiteColor),
+                            ),
                           ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          const Icon(Ionicons.chevron_forward)
                         ],
                       ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: GestureDetector(
+                            onDoubleTap: () {
+                              rewind10Seconds();
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: _isVisibleLeft
+                              ? IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Ionicons.play_skip_back,
+                                    size: 34,
+                                  ),
+                                )
+                              : Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        Padding(
+                                          padding: EdgeInsets.only(top: 15),
+                                          child: Icon(
+                                            Ionicons.play_back,
+                                            size: 34,
+                                          ),
+                                        ),
+                                        Text(
+                                          "10 sec",
+                                          style: kTenSecondsTS,
+                                        ),
+                                      ]),
+                                ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: GestureDetector(
+                            onTap: () => onTapPause(),
+                            child: FadeTransition(
+                              opacity: animation,
+                              child: widget.isPlay
+                                  ? const Icon(
+                                      Ionicons.play,
+                                      size: 34,
+                                    )
+                                  : const Icon(
+                                      Ionicons.pause,
+                                      size: 34,
+                                    ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: _isVisibleRight
+                              ? IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Ionicons.play_skip_forward,
+                                    size: 34,
+                                  ),
+                                )
+                              : Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        Padding(
+                                          padding: EdgeInsets.only(top: 15),
+                                          child: Icon(
+                                            Ionicons.play_forward,
+                                            size: 34,
+                                          ),
+                                        ),
+                                        Text(
+                                          "10 sec",
+                                          style: kTenSecondsTS,
+                                        ),
+                                      ]),
+                                ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: GestureDetector(
+                            onDoubleTap: forward10Seconds,
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 95),
-                      child: Text(
-                        widget.videoModel.author.username,
-                        style: kSubtitle2.copyWith(color: kWhiteColor),
+                    Positioned(
+                      top: 5,
+                      right: isLandscape ? 30 : 8.5,
+                      child: IconButton(
+                        onPressed: () => onTapSettingsInFullScreen(context),
+                        icon: const Icon(Ionicons.settings_outline),
                       ),
                     ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Ionicons.chevron_down),
+                    ),
+                    Positioned(
+                      left: isLandscape ? 60 : 10,
+                      bottom: isLandscape ? 54 : 10,
+                      child: ValueListenableBuilder(
+                        valueListenable: widget.videoPlayerController!,
+                        builder: (context, VideoPlayerValue value, child) {
+                          var currentTimeFormat = formatTime(value.position);
+                          var totalTimeFormat = formatTime(value.duration);
+                          return Text("$currentTimeFormat / $totalTimeFormat");
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      right: isLandscape ? 39 : 12.5,
+                      bottom: isLandscape ? 12 : 14,
+                      child: GestureDetector(
+                        onTap: () {
+                          if (MediaQuery.of(context).orientation ==
+                              Orientation.portrait) {
+                            // AutoOrientation.landscapeAutoMode();
+                            widget.enterFullScreen();
+                          } else if (MediaQuery.of(context).orientation ==
+                              Orientation.landscape) {
+                            AutoOrientation.portraitAutoMode();
+                            widget.exitFullScreen();
+                          }
+                          Wakelock.enable();
+                        },
+                        child: Icon(
+                          Ionicons.expand,
+                          size: isLandscape ? kIconSize7 : kIconSize8,
+                        ),
+                      ),
+                    ),
+                    if (isLandscape)
+                      Positioned(
+                        bottom: 0,
+                        left: 47,
+                        width: MediaQuery.of(context).size.width,
+                        child: VideoFeedback(widget.videoModel),
+                      ),
                   ],
                 ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: GestureDetector(
-                      onDoubleTap: () {
-                        rewind10Seconds();
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: _isVisibleLeft
-                        ? IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Ionicons.play_skip_back,
-                              size: 34,
-                            ),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Padding(
-                                    padding: EdgeInsets.only(top: 15),
-                                    child: Icon(
-                                      Ionicons.play_back,
-                                      size: 34,
-                                    ),
-                                  ),
-                                  Text(
-                                    "10 sec",
-                                    style: kTenSecondsTS,
-                                  ),
-                                ]),
-                          ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: GestureDetector(
-                      onTap: () => onTapPause(),
-                      child: FadeTransition(
-                        opacity: animation,
-                        child: widget.isPlay
-                            ? const Icon(
-                                Ionicons.play,
-                                size: 34,
-                              )
-                            : const Icon(
-                                Ionicons.pause,
-                                size: 34,
-                              ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: _isVisibleRight
-                        ? IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Ionicons.play_skip_forward,
-                              size: 34,
-                            ),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Padding(
-                                    padding: EdgeInsets.only(top: 15),
-                                    child: Icon(
-                                      Ionicons.play_forward,
-                                      size: 34,
-                                    ),
-                                  ),
-                                  Text(
-                                    "10 sec",
-                                    style: kTenSecondsTS,
-                                  ),
-                                ]),
-                          ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: GestureDetector(
-                      onDoubleTap: forward10Seconds,
-                    ),
-                  ),
-                ],
               ),
               Positioned(
-                top: 5,
-                right: isLandscape ? 30 : 8.5,
-                child: IconButton(
-                  onPressed: () => onTapSettingsInFullScreen(context),
-                  icon: const Icon(Ionicons.settings_outline),
-                ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Ionicons.chevron_down),
-              ),
-              Positioned(
-                left: isLandscape ? 60 : 10,
-                bottom: isLandscape ? 54 : 10,
-                child: ValueListenableBuilder(
-                  valueListenable: widget.videoPlayerController!,
-                  builder: (context, VideoPlayerValue value, child) {
-                    var currentTimeFormat = formatTime(value.position);
-                    var totalTimeFormat = formatTime(value.duration);
-                    return Text("$currentTimeFormat / $totalTimeFormat");
-                  },
-                ),
-              ),
-              Positioned(
-                right: isLandscape ? 39 : 12.5,
-                bottom: isLandscape ? 12 : 14,
-                child: GestureDetector(
-                  onTap: () {
-                    if (MediaQuery.of(context).orientation ==
-                        Orientation.portrait) {
-                      // AutoOrientation.landscapeAutoMode();
-                      widget.enterFullScreen();
-                    } else if (MediaQuery.of(context).orientation ==
-                        Orientation.landscape) {
-                      AutoOrientation.portraitAutoMode();
-                      widget.exitFullScreen();
-                    }
-                    Wakelock.enable();
-                  },
-                  child: Icon(
-                    Ionicons.expand,
-                    size: isLandscape ? kIconSize7 : kIconSize8,
+                height: isLandscape ? 90 : 5,
+                left: isLandscape ? 60 : 0,
+                right: isLandscape ? 36 : 0,
+                child: VideoProgressBar(
+                  widget.videoPlayerController!,
+                  barHeight: 5,
+                  handleHeight: 6,
+                  drawShadow: true,
+                  colors: ChewieProgressColors(
+                    playedColor: kPrimaryColor,
+                    bufferedColor: kWhiteColor,
+                    backgroundColor: const Color(0xFFF2F2F2).withOpacity(0.8),
+                    handleColor: kPrimaryColor,
                   ),
                 ),
               ),
-              if (isLandscape)
-                Positioned(
-                  bottom: 0,
-                  left: 47,
-                  width: MediaQuery.of(context).size.width,
-                  child: VideoFeedback(widget.videoModel),
-                ),
             ],
-          ),
-        ),
-        Positioned(
-          height: isLandscape ? 90 : 5,
-          left: isLandscape ? 60 : 0,
-          right: isLandscape ? 36 : 0,
-          child: VideoProgressBar(
-            widget.videoPlayerController!,
-            barHeight: 5,
-            handleHeight: 6,
-            drawShadow: true,
-            colors: ChewieProgressColors(
-              playedColor: kPrimaryColor,
-              bufferedColor: kWhiteColor,
-              backgroundColor: const Color(0xFFF2F2F2).withOpacity(0.8),
-              handleColor: kPrimaryColor,
-            ),
-          ),
-        ),
-      ],
-    );
+          );
+        });
   }
 }
