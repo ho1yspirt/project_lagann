@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 54,
+                      width: 64,
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
                         child: Text(
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: kSeporatorLine,
                     ),
                     Container(
-                      width: 54,
+                      width: 64,
                       alignment: Alignment.centerLeft,
                       child: GestureDetector(
                         child: Text(
