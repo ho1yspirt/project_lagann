@@ -28,9 +28,9 @@ class SettingElements extends StatelessWidget {
                     left: 18,
                   ),
                   child: Icon(
-                    Ionicons.arrow_redo_outline,
+                    Ionicons.share_outline,
                     color: kWhiteColor,
-                    size: 32,
+                    size: kIconSize5,
                   ),
                 ),
                 const SizedBox(
@@ -56,7 +56,7 @@ class SettingElements extends StatelessWidget {
                 child: Icon(
                   Ionicons.trash_outline,
                   color: kWhiteColor,
-                  size: 32,
+                  size: kIconSize5,
                 ),
               ),
               const SizedBox(
@@ -79,9 +79,9 @@ class SettingElements extends StatelessWidget {
                   left: 18,
                 ),
                 child: Icon(
-                  Ionicons.ban,
+                  Ionicons.ban_outline,
                   color: kWhiteColor,
-                  size: 32,
+                  size: kIconSize5,
                 ),
               ),
               const SizedBox(
@@ -110,7 +110,7 @@ class SettingElements extends StatelessWidget {
                 child: Icon(
                   Ionicons.flag_outline,
                   color: kWhiteColor,
-                  size: 32,
+                  size: kIconSize5,
                 ),
               ),
               const SizedBox(
@@ -137,7 +137,7 @@ class SettingElements extends StatelessWidget {
                   child: Icon(
                     Ionicons.bookmark_outline,
                     color: kWhiteColor,
-                    size: 32,
+                    size: kIconSize5,
                   ),
                 ),
                 const SizedBox(

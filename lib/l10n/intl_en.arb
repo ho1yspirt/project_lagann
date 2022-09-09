@@ -24,6 +24,8 @@
     "action_people":"People",
     "action_about":"About",
     "action_help_and_feedback":"Help and feedback",
+    "action_deleted_from_history":"deleted from history",
+    "action_deleted_all_history":"History is cleared",
     "search_screen_search_history":"Search history",
     "setteings_message_dont_recom": "Don’t recommend this user's video",
     "home_screen_signed": "Signed",

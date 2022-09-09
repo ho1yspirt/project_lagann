@@ -300,6 +300,26 @@ class S {
     );
   }
 
+  /// `deleted from history`
+  String get action_deleted_from_history {
+    return Intl.message(
+      'deleted from history',
+      name: 'action_deleted_from_history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History is cleared`
+  String get action_deleted_all_history {
+    return Intl.message(
+      'History is cleared',
+      name: 'action_deleted_all_history',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search history`
   String get search_screen_search_history {
     return Intl.message(

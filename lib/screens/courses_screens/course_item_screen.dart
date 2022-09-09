@@ -333,7 +333,7 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                 ];
               },
               body: Padding(
-                padding: const EdgeInsets.only(top: 52, bottom: 30),
+                padding: const EdgeInsets.only(top: 52),
                 child: TabBarView(
                   controller: _tabController,
                   children: [

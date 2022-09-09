@@ -17,46 +17,51 @@ class _CoursesAllScreenState extends State<CoursesAllScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.only(bottom: 30),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              title: Text(
-                S.of(context).navbar_courses,
-                style: kHeadline5.copyWith(color: kWhiteColor),
-              ),
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.of(context).maybePop();
-                },
-                icon: const Icon(Ionicons.arrow_back_outline),
-              ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            title: Text(
+              S.of(context).navbar_courses,
+              style: kHeadline4.copyWith(color: kWhiteColor),
             ),
-            SliverToBoxAdapter(
+            leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).maybePop();
+              },
+              icon: const Icon(Ionicons.arrow_back_outline),
+            ),
+            bottom: PreferredSize(
+              preferredSize: Size(MediaQuery.of(context).size.width, 55),
               child: Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: CustomChoiceChips(selectedChipIndex: 0, chipsList: [
-                  ChipFilter('provide list', () {}),
-                  ChipFilter('list', () {}),
-                  ChipFilter('provide', () {}),
-                  ChipFilter('list', () {}),
-                  ChipFilter('provide', () {}),
-                ]),
+                child: CustomChoiceChips(
+                  selectedChipIndex: 0,
+                  chipsList: [
+                    ChipFilter('provide list', () {}),
+                    ChipFilter('list', () {}),
+                    ChipFilter('provide', () {}),
+                    ChipFilter('list', () {}),
+                    ChipFilter('provide', () {}),
+                  ],
+                ),
               ),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return const CourseItemCard(
-                    isPurchased: false,
-                  );
-                },
-                childCount: 15,
-              ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return const CourseItemCard(
+                  isPurchased: false,
+                );
+              },
+              childCount: 15,
             ),
-          ],
-        ),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 20),
+          ),
+        ],
       ),
     );
   }

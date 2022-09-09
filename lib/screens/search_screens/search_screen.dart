@@ -14,6 +14,40 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _textController = TextEditingController();
 
+  final items = List<String>.generate(20, (i) => 'Item ${i + 1}');
+
+  void deleteFromHistory(index, item) {
+    setState(
+      () {
+        items.removeAt(index);
+      },
+    );
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          '$item ${S.of(context).action_deleted_from_history}',
+          style: kBody2TS.copyWith(color: kWhiteColor),
+        ),
+      ),
+    );
+  }
+
+  void deleteAllHistory() {
+    setState(
+      () {
+        items.clear();
+      },
+    );
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          S.of(context).action_deleted_all_history,
+          style: kBody2TS.copyWith(color: kWhiteColor),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +119,10 @@ class _SearchScreenState extends State<SearchScreen> {
                     style: kSubtitle1.copyWith(color: kWhiteColor),
                   ),
                   InkWell(
-                    onTap: () {},
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () {
+                      deleteAllHistory();
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(8),
                       child: Text(
@@ -106,22 +143,30 @@ class _SearchScreenState extends State<SearchScreen> {
           ListView.builder(
         // itemCount: 0,
         itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            onTap: (() {}),
+          final item = items[index];
+          return Dismissible(
+            key: Key(item),
+            onDismissed: (direction) {
+              deleteFromHistory(index, item);
+            },
             child: ListTile(
               onTap: () {},
               leading: const Icon(Ionicons.timer_outline),
               title: Text(
-                'фулл без смс и регистрации',
+                item,
                 style: kBody1TS.copyWith(color: kWhiteColor),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Ionicons.close_outline)),
+                  onPressed: () {
+                    deleteFromHistory(index, item);
+                  },
+                  icon: const Icon(Ionicons.close_outline)),
             ),
           );
         },
+        itemCount: items.length,
       ),
     );
   }
