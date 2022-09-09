@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:project_lagann/controllers/feedback_controller.dart';
+import 'package:project_lagann/controllers/short_video_controller.dart';
 import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
@@ -85,6 +86,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => CommentsController()),
         ChangeNotifierProvider(create: (context) => VideoController()),
         ChangeNotifierProvider(create: (context) => FeedbakcController()),
+        ChangeNotifierProvider(create: (context) => ShortVideoController()),
       ],
       child: MaterialApp(
         // themes
