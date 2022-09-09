@@ -51,8 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: CustomHomeAppBar(
         appBar: AppBar(
             centerTitle: true,
-            elevation: 0.0,
-            backgroundColor: Colors.white.withOpacity(0.0),
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            bottomOpacity: 0,
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,

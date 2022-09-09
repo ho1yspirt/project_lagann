@@ -3,7 +3,6 @@ import 'package:ionicons/ionicons.dart';
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 import '../../widgets/card_widgets/course_item_card.dart';
-import '../../widgets/pro_video_widgets/sliver_appbar.dart';
 
 class CoursesPurchasedScreen extends StatefulWidget {
   const CoursesPurchasedScreen({Key? key}) : super(key: key);
@@ -16,6 +15,7 @@ class _CoursesPurchasedScreenState extends State<CoursesPurchasedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.only(bottom: 30),
         child: CustomScrollView(

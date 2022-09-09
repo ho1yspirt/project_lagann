@@ -398,6 +398,7 @@ Valhalla calling me""",
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: CustomScrollView(
         slivers: <Widget>[
           SlivAppBar(
