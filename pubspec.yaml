@@ -53,6 +53,7 @@ dependencies:
   flutter_launcher_icons: ^0.10.0
   rename: ^2.0.1
   flutter_sticky_header: ^0.6.4
+  phone_state: ^1.0.2
 
 
 dev_dependencies:

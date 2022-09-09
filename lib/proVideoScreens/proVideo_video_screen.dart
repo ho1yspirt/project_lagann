@@ -99,7 +99,10 @@ class _VideoScreenState extends State<VideoScreen> {
             Expanded(
               flex: 2,
               child: _videoPlayerController.value.isInitialized
-                  ? VideoPlayerItem(_videoPlayerController, _chewieController!)
+                  ? Padding(
+                      padding: const EdgeInsets.only(bottom: 19),
+                      child: VideoPlayerItem(
+                          _videoPlayerController, _chewieController!))
                   : const Center(
                       child: CircularProgressIndicator(),
                     ),
