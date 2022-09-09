@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_lagann/controllers/feedback_controller.dart';
 import 'package:project_lagann/models/user.dart';
 import 'package:project_lagann/models/video.dart';
@@ -80,6 +81,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.dark,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: Colors.transparent,
+      systemStatusBarContrastEnforced: false,
+    ));
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CommentsController()),
