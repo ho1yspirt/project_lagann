@@ -112,7 +112,7 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
                 padding: const EdgeInsets.only(left: 16),
                 child: Container(
                   constraints: const BoxConstraints(
-                    maxWidth: 344,
+                    maxWidth: 310,
                     maxHeight: 46,
                     minHeight: 24,
                   ),
