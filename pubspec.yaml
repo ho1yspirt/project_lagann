@@ -54,6 +54,7 @@ dependencies:
   rename: ^2.0.1
   flutter_sticky_header: ^0.6.4
   phone_state: ^1.0.2
+  flutter_displaymode: ^0.4.0
 
 
 dev_dependencies:
