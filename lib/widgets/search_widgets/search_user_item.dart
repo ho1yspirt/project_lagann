@@ -19,8 +19,6 @@ class SearchUserItem extends StatelessWidget {
           child: ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth: MediaQuery.of(context).size.width - 32,
-              maxHeight: 56,
-              minHeight: 48,
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,

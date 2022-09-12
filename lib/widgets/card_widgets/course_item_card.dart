@@ -33,23 +33,28 @@ class _CourseItemCardState extends State<CourseItemCard> {
           );
         },
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           child: ConstrainedBox(
             constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width - 32,
-                maxHeight: 125),
+              maxWidth: MediaQuery.of(context).size.width - 32,
+              // maxHeight: 130
+            ),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: SizedBox(
-                    width: 160,
-                    height: 113,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
-                        'https://cdn.discordapp.com/avatars/548904505471926292/ca366fbb3dcd6c81f9c1fc547679df3d.webp?size=100',
-                        fit: BoxFit.cover,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: SizedBox(
+                      // width: 160,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: AspectRatio(
+                          aspectRatio: 320 / 226,
+                          child: Image.network(
+                            'https://cdn.discordapp.com/avatars/548904505471926292/ca366fbb3dcd6c81f9c1fc547679df3d.webp?size=100',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
