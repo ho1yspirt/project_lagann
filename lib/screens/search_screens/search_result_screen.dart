@@ -15,6 +15,7 @@ import '../../widgets/custom_tabbar_indicator.dart';
 import '../../widgets/search_widgets/search_hashtag_item.dart';
 import '../../widgets/search_widgets/search_user_item.dart';
 import '../../widgets/pro_video_widgets/video_card.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchResultScreen extends StatefulWidget {
   const SearchResultScreen({Key? key}) : super(key: key);
@@ -406,6 +407,7 @@ class _SearchResultScreenState extends State<SearchResultScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 1,
         shadowColor: kSurfaceColor,
@@ -519,6 +521,7 @@ class _SearchResultScreenState extends State<SearchResultScreen>
         controller: _tabController,
         children: [
           Scaffold(
+            resizeToAvoidBottomInset: false,
             body: CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
@@ -538,12 +541,13 @@ class _SearchResultScreenState extends State<SearchResultScreen>
                   ),
                 ),
                 SliverToBoxAdapter(
-                    child: CustomSliverBoxLink(
-                  title: S.of(context).action_people,
-                  navigateTo: () {
-                    _tabController.animateTo(3);
-                  },
-                )),
+                  child: CustomSliverBoxLink(
+                    title: S.of(context).action_people,
+                    navigateTo: () {
+                      _tabController.animateTo(3);
+                    },
+                  ),
+                ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
@@ -556,11 +560,13 @@ class _SearchResultScreenState extends State<SearchResultScreen>
                   ),
                 ),
                 SliverToBoxAdapter(
-                    child: CustomSliverBoxLink(
-                        title: S.of(context).navbar_marathons,
-                        navigateTo: () {
-                          _tabController.animateTo(4);
-                        })),
+                  child: CustomSliverBoxLink(
+                    title: S.of(context).navbar_marathons,
+                    navigateTo: () {
+                      _tabController.animateTo(4);
+                    },
+                  ),
+                ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -570,11 +576,13 @@ class _SearchResultScreenState extends State<SearchResultScreen>
                   ),
                 ),
                 SliverToBoxAdapter(
-                    child: CustomSliverBoxLink(
-                        title: S.of(context).navbar_courses,
-                        navigateTo: () {
-                          _tabController.animateTo(5);
-                        })),
+                  child: CustomSliverBoxLink(
+                    title: S.of(context).navbar_courses,
+                    navigateTo: () {
+                      _tabController.animateTo(5);
+                    },
+                  ),
+                ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
@@ -586,35 +594,11 @@ class _SearchResultScreenState extends State<SearchResultScreen>
                   ),
                 ),
                 SliverToBoxAdapter(
-                    child: Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
                   child: CustomSliverBoxLink(
-                      title: 'ShortPosts',
-                      navigateTo: () {
-                        _tabController.animateTo(1);
-                      }),
-                )),
-                SliverGrid(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 5 / 8,
-                  ),
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return const ShortPostItemCard();
+                    title: S.of(context).navbar_pro_video,
+                    navigateTo: () {
+                      _tabController.animateTo(2);
                     },
-                    childCount: 2,
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: CustomSliverBoxLink(
-                      title: S.of(context).navbar_pro_video,
-                      navigateTo: () {
-                        _tabController.animateTo(2);
-                      },
-                    ),
                   ),
                 ),
                 SliverList(
@@ -626,35 +610,53 @@ class _SearchResultScreenState extends State<SearchResultScreen>
                     childCount: _testVideoList.length,
                   ),
                 ),
+                SliverToBoxAdapter(
+                  child: CustomSliverBoxLink(
+                    title: 'ShortPosts',
+                    navigateTo: () {
+                      _tabController.animateTo(1);
+                    },
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    child: AlignedGridView.count(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 0,
+                      crossAxisSpacing: 0,
+                      itemBuilder: (context, index) {
+                        return const ShortPostItemCard();
+                      },
+                      itemCount: 2,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
           Scaffold(
+            resizeToAvoidBottomInset: false,
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: CustomScrollView(
-                slivers: [
-                  SliverGrid(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 16,
-                      childAspectRatio: 4.3 / 8,
-                    ),
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        return const ShortPostItemCard();
-                      },
-                      childCount: 15,
-                    ),
-                  ),
-                ],
+              padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+              child: AlignedGridView.count(
+                shrinkWrap: true,
+                crossAxisCount: 2,
+                mainAxisSpacing: 0,
+                crossAxisSpacing: 0,
+                itemBuilder: (context, index) {
+                  return const ShortPostItemCard();
+                },
+                itemCount: 15,
               ),
             ),
           ),
           Scaffold(
+            resizeToAvoidBottomInset: false,
             body: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(top: 8),
               child: CustomScrollView(
                 slivers: [
                   SliverList(
@@ -671,39 +673,48 @@ class _SearchResultScreenState extends State<SearchResultScreen>
             ),
           ),
           Scaffold(
-            body: CustomScrollView(
-              slivers: [
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final user = _testUserList[index];
-                      return SearchUserItem(
-                        userModel: user,
-                      );
-                    },
-                    childCount: _testUserList.length,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Scaffold(
-            body: CustomScrollView(
-              slivers: [
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return const MarathonItemCard();
-                    },
-                    childCount: 15,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Scaffold(
+            resizeToAvoidBottomInset: false,
             body: Padding(
-              padding: const EdgeInsets.only(top: 2),
+              padding: const EdgeInsets.only(top: 4),
+              child: CustomScrollView(
+                slivers: [
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        final user = _testUserList[index];
+                        return SearchUserItem(
+                          userModel: user,
+                        );
+                      },
+                      childCount: _testUserList.length,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: CustomScrollView(
+                slivers: [
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return const MarathonItemCard();
+                      },
+                      childCount: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: Padding(
+              padding: const EdgeInsets.only(top: 8),
               child: CustomScrollView(
                 slivers: [
                   SliverList(
@@ -721,17 +732,21 @@ class _SearchResultScreenState extends State<SearchResultScreen>
             ),
           ),
           Scaffold(
-            body: CustomScrollView(
-              slivers: [
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return const SearchHashtagItem();
-                    },
-                    childCount: 2,
+            resizeToAvoidBottomInset: false,
+            body: Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: CustomScrollView(
+                slivers: [
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return const SearchHashtagItem();
+                      },
+                      childCount: 15,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

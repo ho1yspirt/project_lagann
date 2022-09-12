@@ -5,6 +5,7 @@ import 'package:project_lagann/widgets/card_widgets/marathon_item_card.dart';
 
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
+import '../../widgets/custom_sliver_box_link.dart';
 import '../../widgets/widgets.dart';
 
 class MarathonHomeScreen extends StatefulWidget {
@@ -116,7 +117,8 @@ class _MarathonHomeScreenState extends State<MarathonHomeScreen> {
 
   Widget _buildItem(List<MarathonModel> marathonItems) {
     return SizedBox(
-      height: 316,
+      //TODO: change sizedbox to adaptive widget
+      height: 325,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
@@ -144,34 +146,18 @@ class _MarathonHomeScreenState extends State<MarathonHomeScreen> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: 16, bottom: 14, right: 16, top: 6),
-                  child: Row(
-                    children: [
-                      Text(
-                        S.of(context).marathon_chapter_title1,
-                        style: kHeadline5.copyWith(color: kWhiteColor),
-                      ),
-                      const Spacer(),
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => SeeAllScreen(
-                                _listParticipation,
-                                S.of(context).marathon_chapter_title1,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "See all",
-                          style: kHeadline6.copyWith(color: kPrimaryColor),
+                CustomSliverBoxLink(
+                  navigateTo: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SeeAllScreen(
+                          _listParticipation,
+                          S.of(context).marathon_chapter_title1,
                         ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
+                  title: S.of(context).marathon_chapter_title1,
                 ),
                 _buildItem(_listParticipation),
               ],
@@ -181,34 +167,18 @@ class _MarathonHomeScreenState extends State<MarathonHomeScreen> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                  child: Row(
-                    children: [
-                      Text(
-                        S.of(context).marathon_chapter_title2,
-                        style: kHeadline5.copyWith(color: kWhiteColor),
-                      ),
-                      const Spacer(),
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => SeeAllScreen(
-                                _listSigned,
-                                S.of(context).marathon_chapter_title2,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "See all",
-                          style: kHeadline6.copyWith(color: kPrimaryColor),
+                CustomSliverBoxLink(
+                  navigateTo: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SeeAllScreen(
+                          _listSigned,
+                          S.of(context).marathon_chapter_title2,
                         ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
+                  title: S.of(context).marathon_chapter_title2,
                 ),
                 _buildItem(_listSigned),
               ],
@@ -218,34 +188,18 @@ class _MarathonHomeScreenState extends State<MarathonHomeScreen> {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                  child: Row(
-                    children: [
-                      Text(
-                        S.of(context).marathon_chapter_title3,
-                        style: kHeadline5.copyWith(color: kWhiteColor),
-                      ),
-                      const Spacer(),
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => SeeAllScreen(
-                                _listMarathons,
-                                S.of(context).marathon_chapter_title3,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "See all",
-                          style: kHeadline6.copyWith(color: kPrimaryColor),
+                CustomSliverBoxLink(
+                  navigateTo: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SeeAllScreen(
+                          _listMarathons,
+                          S.of(context).marathon_chapter_title3,
                         ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
+                  title: S.of(context).marathon_chapter_title3,
                 ),
                 _buildItem(_listMarathons),
               ],

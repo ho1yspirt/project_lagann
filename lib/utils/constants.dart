@@ -14,6 +14,8 @@ const pages = [
   Text('Profile'),
 ];
 
+// paddings
+
 // text style
 const TextStyle kCaptionsTS = TextStyle(
   fontWeight: FontWeight.w400,

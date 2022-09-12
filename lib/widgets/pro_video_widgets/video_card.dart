@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/models/video.dart';
 import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
@@ -38,92 +39,98 @@ class _VideoCardState extends State<VideoCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => VideoScreen(
-                  videoModel: widget.videoModel,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => VideoScreen(
+                videoModel: widget.videoModel,
+              ),
+            ),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          child: Column(
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  widget.videoModel.thumbnailUrl,
+                  height: 206,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
                 ),
               ),
-            );
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: Image.network(
-                widget.videoModel.thumbnailUrl,
-                height: 206,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        right: 8,
+                      ),
+                      child: CircleAvatar(
+                        foregroundImage: NetworkImage(
+                            widget.videoModel.author.profileImageUrl),
+                        radius: 22,
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  widget.videoModel.title,
+                                  style: kVideoTitleTS,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              IconButton(
+                                constraints:
+                                    const BoxConstraints(maxHeight: 24),
+                                iconSize: kIconSize8,
+                                padding: const EdgeInsets.all(4),
+                                onPressed: () {
+                                  onPressThreeDots();
+                                },
+                                icon: const Icon(
+                                  Ionicons.ellipsis_vertical_outline,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Flexible(
+                            child: Text(
+                              "${widget.videoModel.author.username} • ${widget.videoModel.viewCount} • ${timeago.format(
+                                widget.videoModel.timestamp,
+                                allowFromNow: true,
+                              )}",
+                              style: kVideoInfoTS,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
         ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 6,
-                right: 8,
-                top: 8,
-                bottom: 16,
-              ),
-              child: CircleAvatar(
-                foregroundImage:
-                    NetworkImage(widget.videoModel.author.profileImageUrl),
-                radius: 22,
-              ),
-            ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 9),
-                      child: Text(
-                        widget.videoModel.title,
-                        style: kVideoTitleTS,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 12),
-                      child: Text(
-                        "${widget.videoModel.author.username} • ${widget.videoModel.viewCount} • ${timeago.format(
-                          widget.videoModel.timestamp,
-                          allowFromNow: true,
-                        )}",
-                        style: kVideoInfoTS,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                onPressThreeDots();
-              },
-              icon: const Icon(
-                Icons.more_vert,
-                size: 26,
-              ),
-            ),
-          ],
-        )
-      ],
+      ),
     );
   }
 }

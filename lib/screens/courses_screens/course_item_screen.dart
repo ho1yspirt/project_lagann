@@ -152,8 +152,7 @@ class _CourseItemScreenState extends State<CourseItemScreen>
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+      body: SafeArea(
         child: Stack(
           children: [
             NestedScrollView(
@@ -177,7 +176,8 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 16, horizontal: 16),
                           child: Column(
                             children: [
                               Row(
@@ -333,41 +333,50 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                 ];
               },
               body: Padding(
-                padding: const EdgeInsets.only(top: 52, bottom: 30),
+                padding: const EdgeInsets.only(top: 52),
                 child: TabBarView(
                   controller: _tabController,
                   children: [
                     CustomScrollView(
                       slivers: [
                         SliverToBoxAdapter(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 16, horizontal: 2),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      S.of(context).course_screen_about_course,
-                                      style: kHeadline5.copyWith(
-                                          color: kWhiteColor),
-                                    ),
-                                    Text(
-                                      '3D DESIGN',
-                                      style: kBody2TS.copyWith(
-                                          color: kPrimaryColor),
-                                    ),
-                                  ],
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 16, horizontal: 2),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        S
+                                            .of(context)
+                                            .course_screen_about_course,
+                                        style: kHeadline5.copyWith(
+                                            color: kWhiteColor),
+                                      ),
+                                      Text(
+                                        '3D DESIGN',
+                                        style: kBody2TS.copyWith(
+                                            color: kPrimaryColor),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                  overflow: TextOverflow.fade,
-                                  style: kBody2TS.copyWith(color: kWhiteColor),
-                                  'Mus, a nunc ridiculus, sagittis sem quam praesent, class, class dictumst facilisis fames quisque orci platea placerat mollis nibh. Neque rhoncus per. Dis dictumst nec sodales justo sociis dictum. Facilisis vivamus suscipit. Fringilla imperdiet elementum montes phasellus placerat nonummy lectus nullam eu rhoncus imperdiet tristique nunc eget eu fusce, dapibus vitae. Curabitur hac montes orci inceptos est consectetuer. Fames. Condimentum lectus nascetur nascetur hendrerit nonummy morbi inceptos lacinia nunc Convallis taciti, eu aenean faucibus mattis malesuada ligula vulputate. Pretium in tincidunt Cras cras velit torquent convallis nisi. Ipsum lorem duis scelerisque urna est laoreet. Semper adipiscing euismod et at dictumst\n\nMus, a nunc ridiculus, sagittis sem quam praesent, class, class dictumst facilisis fames quisque orci platea placerat mollis nibh. Neque rhoncus per. Dis dictumst nec sodales justo sociis dictum. Facilisis vivamus suscipit. Fringilla imperdiet elementum montes phasellus placerat nonummy lectus nullam eu rhoncus imperdiet tristique nunc eget eu fusce, dapibus vitae. Curabitur hac montes orci inceptos est consectetuer. Fames. Condimentum lectus nascetur nascetur hendrerit nonummy morbi inceptos lacinia nunc Convallis taciti, eu aenean faucibus mattis malesuada ligula vulputate. Pretium in tincidunt Cras cras velit torquent convallis nisi. Ipsum lorem duis scelerisque urna est laoreet. Semper adipiscing euismod et at dictumst \n\nMus, a nunc ridiculus, sagittis sem quam praesent, class, class dictumst facilisis fames quisque orci platea placerat mollis nibh. Neque rhoncus per. Dis dictumst nec sodales justo sociis dictum. Facilisis vivamus suscipit. Fringilla imperdiet elementum montes phasellus placerat nonummy lectus nullam eu rhoncus imperdiet tristique nunc eget eu fusce, dapibus vitae. Curabitur hac montes orci inceptos est consectetuer. Fames. Condimentum lectus nascetur nascetur hendrerit nonummy morbi inceptos lacinia nunc Convallis taciti, eu aenean faucibus mattis malesuada ligula vulputate. Pretium in tincidunt Cras cras velit torquent convallis nisi. Ipsum lorem duis scelerisque urna est laoreet. Semper adipiscing euismod et at dictumst'),
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: Text(
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          kBody2TS.copyWith(color: kWhiteColor),
+                                      'Mus, a nunc ridiculus, sagittis sem quam praesent, class, class dictumst facilisis fames quisque orci platea placerat mollis nibh. Neque rhoncus per. Dis dictumst nec sodales justo sociis dictum. Facilisis vivamus suscipit. Fringilla imperdiet elementum montes phasellus placerat nonummy lectus nullam eu rhoncus imperdiet tristique nunc eget eu fusce, dapibus vitae. Curabitur hac montes orci inceptos est consectetuer. Fames. Condimentum lectus nascetur nascetur hendrerit nonummy morbi inceptos lacinia nunc Convallis taciti, eu aenean faucibus mattis malesuada ligula vulputate. Pretium in tincidunt Cras cras velit torquent convallis nisi. Ipsum lorem duis scelerisque urna est laoreet. Semper adipiscing euismod et at dictumst\n\nMus, a nunc ridiculus, sagittis sem quam praesent, class, class dictumst facilisis fames quisque orci platea placerat mollis nibh. Neque rhoncus per. Dis dictumst nec sodales justo sociis dictum. Facilisis vivamus suscipit. Fringilla imperdiet elementum montes phasellus placerat nonummy lectus nullam eu rhoncus imperdiet tristique nunc eget eu fusce, dapibus vitae. Curabitur hac montes orci inceptos est consectetuer. Fames. Condimentum lectus nascetur nascetur hendrerit nonummy morbi inceptos lacinia nunc Convallis taciti, eu aenean faucibus mattis malesuada ligula vulputate. Pretium in tincidunt Cras cras velit torquent convallis nisi. Ipsum lorem duis scelerisque urna est laoreet. Semper adipiscing euismod et at dictumst \n\nMus, a nunc ridiculus, sagittis sem quam praesent, class, class dictumst facilisis fames quisque orci platea placerat mollis nibh. Neque rhoncus per. Dis dictumst nec sodales justo sociis dictum. Facilisis vivamus suscipit. Fringilla imperdiet elementum montes phasellus placerat nonummy lectus nullam eu rhoncus imperdiet tristique nunc eget eu fusce, dapibus vitae. Curabitur hac montes orci inceptos est consectetuer. Fames. Condimentum lectus nascetur nascetur hendrerit nonummy morbi inceptos lacinia nunc Convallis taciti, eu aenean faucibus mattis malesuada ligula vulputate. Pretium in tincidunt Cras cras velit torquent convallis nisi. Ipsum lorem duis scelerisque urna est laoreet. Semper adipiscing euismod et at dictumst'),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -377,7 +386,7 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                         SliverToBoxAdapter(
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                                vertical: 16, horizontal: 2),
+                                vertical: 16, horizontal: 16),
                             child: Text(
                               S.of(context).course_screen_lessons,
                               style: kHeadline5.copyWith(color: kWhiteColor),
@@ -400,19 +409,22 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                     CustomScrollView(
                       slivers: [
                         SliverToBoxAdapter(
-                          child: CustomChoiceChips(
-                            selectedChipIndex: 0,
-                            chipsList: [
-                              ChipFilter(
-                                S.of(context).home_screen_all,
-                                () {},
-                              ),
-                              ChipFilter('5', () {}, icon: starIcon),
-                              ChipFilter('4', () {}, icon: starIcon),
-                              ChipFilter('3', () {}, icon: starIcon),
-                              ChipFilter('2', () {}, icon: starIcon),
-                              ChipFilter('1', () {}, icon: starIcon),
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: CustomChoiceChips(
+                              selectedChipIndex: 0,
+                              chipsList: [
+                                ChipFilter(
+                                  S.of(context).home_screen_all,
+                                  () {},
+                                ),
+                                ChipFilter('5', () {}, icon: starIcon),
+                                ChipFilter('4', () {}, icon: starIcon),
+                                ChipFilter('3', () {}, icon: starIcon),
+                                ChipFilter('2', () {}, icon: starIcon),
+                                ChipFilter('1', () {}, icon: starIcon),
+                              ],
+                            ),
                           ),
                         ),
                         SliverList(
@@ -435,16 +447,18 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                 ? const SizedBox.shrink()
                 : Align(
                     alignment: Alignment.bottomCenter,
-                    heightFactor: 15.5,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width - 32,
-                        height: 50,
-                        child: Center(
-                          child: Text(
-                            '${S.of(context).course_screen_enroll_course.toUpperCase()} - \$59',
-                            style: kButtonTS.copyWith(color: kWhiteColor),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width - 32,
+                          height: 50,
+                          child: Center(
+                            child: Text(
+                              '${S.of(context).course_screen_enroll_course.toUpperCase()} - \$59',
+                              style: kButtonTS.copyWith(color: kWhiteColor),
+                            ),
                           ),
                         ),
                       ),

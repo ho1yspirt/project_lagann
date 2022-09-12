@@ -16,34 +16,35 @@ class _CoursesPurchasedScreenState extends State<CoursesPurchasedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.only(bottom: 30),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              title: Text(
-                S.of(context).courses_screen_purchased,
-                style: kHeadline5.copyWith(color: kWhiteColor),
-              ),
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.of(context).maybePop();
-                },
-                icon: const Icon(Ionicons.arrow_back_outline),
-              ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            title: Text(
+              S.of(context).courses_screen_purchased,
+              style: kHeadline4.copyWith(color: kWhiteColor),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return const CourseItemCard(
-                    isPurchased: true,
-                  );
-                },
-                childCount: 15,
-              ),
+            leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).maybePop();
+              },
+              icon: const Icon(Ionicons.arrow_back_outline),
             ),
-          ],
-        ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return const CourseItemCard(
+                  isPurchased: true,
+                );
+              },
+              childCount: 15,
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 20),
+          ),
+        ],
       ),
     );
   }

@@ -408,7 +408,7 @@ Valhalla calling me""",
             delegate: SliverChildListDelegate([
               Container(
                 height: 42,
-                margin: const EdgeInsets.only(bottom: 15),
+                margin: const EdgeInsets.only(bottom: 8),
                 alignment: Alignment.center,
                 child: ListView(
                   scrollDirection: Axis.horizontal,

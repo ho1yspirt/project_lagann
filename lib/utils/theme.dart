@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import './constants.dart';
 
 ThemeData kBasicTheme() => ThemeData(
+      // effects
+      splashFactory: InkSparkle.splashFactory,
       // colors
 
       // primarySwatch: Colors.deepPurple,
@@ -41,12 +43,14 @@ ThemeData kBasicTheme() => ThemeData(
       // buttons
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
+          splashFactory: InkSparkle.splashFactory,
           primary: kWhiteColor,
           textStyle: kSubtitle2,
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          splashFactory: InkSparkle.splashFactory,
           elevation: 8,
           primary: kPrimaryColor,
           onPrimary: kWhiteColor,
@@ -89,6 +93,8 @@ ThemeData kBasicTheme() => ThemeData(
       // sheet
       // slider
       // snackbar
+      snackBarTheme: const SnackBarThemeData(
+          backgroundColor: kSurfaceColor, actionTextColor: kWhiteColor),
       // tab
 
       // text field
