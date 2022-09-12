@@ -134,6 +134,7 @@ class _MarathonHomeScreenState extends State<MarathonHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: CustomScrollView(
         slivers: [
           SlivAppBar(

@@ -51,8 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: CustomHomeAppBar(
         appBar: AppBar(
             centerTitle: true,
-            elevation: 0.0,
-            backgroundColor: Colors.white.withOpacity(0.0),
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            bottomOpacity: 0,
             actions: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -87,32 +88,42 @@ class _HomeScreenState extends State<HomeScreen> {
               clipBehavior: Clip.none,
               alignment: Alignment.center,
               children: [
-                kSeporatorLine,
-                Positioned(
-                  left: 28,
-                  child: GestureDetector(
-                    child: Text(
-                      S.of(context).home_screen_signed,
-                      style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 64,
+                      alignment: Alignment.centerRight,
+                      child: GestureDetector(
+                        child: Text(
+                          S.of(context).home_screen_signed,
+                          style: _currentIndex == 0 ? kSubtitle1 : kBody1TS,
+                        ),
+                        onTap: () {
+                          _onFollowedPress();
+                          setIndex(0);
+                        },
+                      ),
                     ),
-                    onTap: () {
-                      _onFollowedPress();
-                      setIndex(0);
-                    },
-                  ),
-                ),
-                Positioned(
-                  right: 64,
-                  child: GestureDetector(
-                    child: Text(
-                      S.of(context).home_screen_all,
-                      style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      child: kSeporatorLine,
                     ),
-                    onTap: () {
-                      _onALlPress();
-                      setIndex(1);
-                    },
-                  ),
+                    Container(
+                      width: 64,
+                      alignment: Alignment.centerLeft,
+                      child: GestureDetector(
+                        child: Text(
+                          S.of(context).home_screen_all,
+                          style: _currentIndex == 1 ? kSubtitle1 : kBody1TS,
+                        ),
+                        onTap: () {
+                          _onALlPress();
+                          setIndex(1);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

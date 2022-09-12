@@ -1,17 +1,12 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_lagann/controllers/feedback_controller.dart';
 import 'package:project_lagann/controllers/short_video_controller.dart';
-import 'package:project_lagann/models/user.dart';
-import 'package:project_lagann/models/video.dart';
-import 'package:project_lagann/proVideoScreens/proVideo_video_screen.dart';
 import 'package:project_lagann/screens/root_screen.dart';
 import 'package:project_lagann/utils/theme.dart';
 // localization
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:uni_links/uni_links.dart';
 import 'controllers/comments_controller.dart';
 import 'controllers/video_controller.dart';
 import 'generated/l10n.dart';
@@ -81,6 +76,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.dark,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: Colors.transparent,
+      systemStatusBarContrastEnforced: false,
+    ));
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CommentsController()),

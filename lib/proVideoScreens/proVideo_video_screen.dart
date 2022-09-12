@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project_lagann/utils/constants.dart';
-import 'package:uni_links/uni_links.dart';
 import 'package:video_player/video_player.dart';
 import '../widgets/widgets.dart';
 
@@ -99,7 +96,10 @@ class _VideoScreenState extends State<VideoScreen> {
             Expanded(
               flex: 2,
               child: _videoPlayerController.value.isInitialized
-                  ? VideoPlayerItem(_videoPlayerController, _chewieController!)
+                  ? Padding(
+                      padding: const EdgeInsets.only(bottom: 19),
+                      child: VideoPlayerItem(
+                          _videoPlayerController, _chewieController!))
                   : const Center(
                       child: CircularProgressIndicator(),
                     ),

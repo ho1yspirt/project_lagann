@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
 // localization
 import 'package:project_lagann/utils/constants.dart';
@@ -20,10 +19,7 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle.light
-              .copyWith(statusBarColor: kBackgroundColor),
-          child: SafeArea(child: pages[_currentBottomNavBarIndex])),
+      body: SafeArea(child: pages[_currentBottomNavBarIndex]),
       bottomNavigationBar: BottomNavigationBar(
         selectedFontSize: 10,
         unselectedFontSize: 10,

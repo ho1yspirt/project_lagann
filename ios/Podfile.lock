@@ -4,6 +4,11 @@ PODS:
   - Flutter (1.0.0)
   - flutter_share (0.0.1):
     - Flutter
+<<<<<<< HEAD
+=======
+  - phone_state (1.0.2):
+    - Flutter
+>>>>>>> master
   - uni_links (0.0.1):
     - Flutter
   - video_player_avfoundation (0.0.1):
@@ -15,6 +20,10 @@ DEPENDENCIES:
   - auto_orientation (from `.symlinks/plugins/auto_orientation/ios`)
   - Flutter (from `Flutter`)
   - flutter_share (from `.symlinks/plugins/flutter_share/ios`)
+<<<<<<< HEAD
+=======
+  - phone_state (from `.symlinks/plugins/phone_state/ios`)
+>>>>>>> master
   - uni_links (from `.symlinks/plugins/uni_links/ios`)
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
   - wakelock (from `.symlinks/plugins/wakelock/ios`)
@@ -26,6 +35,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_share:
     :path: ".symlinks/plugins/flutter_share/ios"
+  phone_state:
+    :path: ".symlinks/plugins/phone_state/ios"
   uni_links:
     :path: ".symlinks/plugins/uni_links/ios"
   video_player_avfoundation:
@@ -37,6 +48,7 @@ SPEC CHECKSUMS:
   auto_orientation: 2941c44ebe5c3d41016001597ab03e81a92a26ce
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_share: 4be0208963c60b537e6255ed2ce1faae61cd9ac2
+  phone_state: a32989709fb2a95f342877a7966402df058a9519
   uni_links: d97da20c7701486ba192624d99bffaaffcfc298a
   video_player_avfoundation: e489aac24ef5cf7af82702979ed16f2a5ef84cff
   wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f

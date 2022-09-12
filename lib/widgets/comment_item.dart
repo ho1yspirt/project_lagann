@@ -170,6 +170,7 @@ class _CommentItemState extends State<CommentItem> {
               children: [
                 TextButton(
                   onPressed: () {
+                    if (_countRepl == 0) return;
                     setState(() {
                       _show = true;
                     });
