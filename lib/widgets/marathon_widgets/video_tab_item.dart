@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/screens/marathon_screens/marathon_video_screen.dart';
 
 import '../../utils/constants.dart';
 
@@ -52,10 +53,17 @@ class _VideoItemState extends State<VideoTabItem> {
                 ),
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  return Container(
-                    width: 122,
-                    height: 148,
-                    color: kGreyColor,
+                  return InkWell(
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const MarathonVideoScreen(),
+                      ),
+                    ),
+                    child: Container(
+                      width: 122,
+                      height: 148,
+                      color: kGreyColor,
+                    ),
                   );
                 },
               ),

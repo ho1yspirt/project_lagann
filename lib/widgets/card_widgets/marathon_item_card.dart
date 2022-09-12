@@ -62,9 +62,6 @@ class MarathonItemCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
                       Text(
                         marathonModel?.name ?? "3D way of the samurai",
                         style: kSubtitle1.copyWith(color: kWhiteColor),

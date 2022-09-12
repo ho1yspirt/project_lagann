@@ -42,9 +42,17 @@ class _MarathonDetailedScreenState extends State<MarathonDetailedScreen>
         titleSpacing: -10,
         toolbarHeight: 48,
         elevation: 0.0,
+        automaticallyImplyLeading: false,
         title: const Text(
           "Marathon",
           style: kSliverAppBarTS,
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: InkWell(
+            onTap: () => Navigator.of(context).pop(),
+            child: const Icon(Ionicons.arrow_back),
+          ),
         ),
         backgroundColor: Colors.white.withOpacity(0.0),
         actions: [
@@ -164,17 +172,23 @@ class _MarathonDetailedScreenState extends State<MarathonDetailedScreen>
                                       ),
                                     ),
                                   ),
+                                  const SizedBox(
+                                    width: 16,
+                                  ),
                                 ],
                               ),
                             ),
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(
                                   width: 288,
                                   child: Text(
                                     widget.marathonModel.description,
-                                    style:
-                                        kHeadline4.copyWith(color: kWhiteColor),
+                                    style: kHeadline4.copyWith(
+                                      color: kWhiteColor,
+                                    ),
+                                    maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
@@ -184,6 +198,9 @@ class _MarathonDetailedScreenState extends State<MarathonDetailedScreen>
                                   style: kBody2TS.copyWith(color: kGreyColor),
                                 ),
                               ],
+                            ),
+                            const SizedBox(
+                              height: 8,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -205,7 +222,7 @@ class _MarathonDetailedScreenState extends State<MarathonDetailedScreen>
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 12),
+                      padding: const EdgeInsets.only(top: 12, bottom: 16),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 2,
@@ -226,7 +243,7 @@ class _MarathonDetailedScreenState extends State<MarathonDetailedScreen>
                   toolbarHeight: 0,
                   pinned: true,
                   bottom: PreferredSize(
-                    preferredSize: const Size(100, 36),
+                    preferredSize: const Size(110, 36),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,

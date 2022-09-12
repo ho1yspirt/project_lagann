@@ -9,177 +9,207 @@ class TabBarStatistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        CustomScrollView(slivers: [
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16, right: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: 33,
-                            alignment: Alignment.center,
-                            child: Text(
-                              "#",
-                              style: kSubtitle2.copyWith(color: kGreyColor),
+    return SafeArea(
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          CustomScrollView(slivers: [
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16, right: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 33,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "#",
+                                style: kSubtitle2.copyWith(color: kGreyColor),
+                              ),
                             ),
-                          ),
-                          Container(
-                            width: 211,
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Participant",
-                              style: kSubtitle2.copyWith(color: kGreyColor),
+                            Container(
+                              width: 211,
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Participant",
+                                style: kSubtitle2.copyWith(color: kGreyColor),
+                              ),
                             ),
-                          ),
-                          Container(
-                            width: 47,
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              "Rating",
-                              style: kSubtitle2.copyWith(color: kGreyColor),
+                            Container(
+                              width: 47,
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                "Rating",
+                                style: kSubtitle2.copyWith(color: kGreyColor),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 10, left: 16, right: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: 33,
-                            alignment: Alignment.center,
-                            child: const Icon(
-                              Ionicons.trophy,
-                              color: kPrimaryColor,
-                              size: kIconSize7,
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 10, left: 16, right: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 33,
+                              alignment: Alignment.center,
+                              child: const Icon(
+                                Ionicons.trophy,
+                                color: kPrimaryColor,
+                                size: kIconSize7,
+                              ),
                             ),
-                          ),
-                          Row(
-                            children: [
-                              const CircleAvatar(
-                                radius: 18,
-                                foregroundImage: NetworkImage(
-                                  "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              Container(
-                                width: 167,
-                                alignment: Alignment.centerLeft,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "TOpchikTopchik",
-                                      style: kSubtitle1.copyWith(
-                                          color: kWhiteColor),
-                                    ),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                      "Netlandia",
-                                      style: kSubtitle2.copyWith(
-                                          color: kGreyColor),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            width: 44,
-                            alignment: Alignment.centerRight,
-                            child: Row(
+                            Row(
                               children: [
-                                const Icon(
-                                  Ionicons.star,
-                                  color: kPrimaryColor,
-                                  size: kIconSize9,
+                                const CircleAvatar(
+                                  radius: 18,
+                                  foregroundImage: NetworkImage(
+                                    "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+                                  ),
                                 ),
                                 const SizedBox(
-                                  width: 4,
+                                  width: 8,
                                 ),
-                                Text(
-                                  "4.8",
-                                  style: kSubtitle2.copyWith(color: kGreyColor),
+                                Container(
+                                  width: 167,
+                                  alignment: Alignment.centerLeft,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "TOpchikTopchik",
+                                        style: kSubtitle1.copyWith(
+                                            color: kWhiteColor),
+                                      ),
+                                      const SizedBox(
+                                        height: 4,
+                                      ),
+                                      Text(
+                                        "Netlandia",
+                                        style: kSubtitle2.copyWith(
+                                            color: kGreyColor),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
-                          ),
-                        ],
+                            Container(
+                              width: 44,
+                              alignment: Alignment.centerRight,
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Ionicons.star,
+                                    color: kPrimaryColor,
+                                    size: kIconSize9,
+                                  ),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  Text(
+                                    "4.8",
+                                    style:
+                                        kSubtitle2.copyWith(color: kGreyColor),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 15,
-                        itemBuilder: (context, index) {
-                          return StatisticsTabItem(index: index);
-                        }),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ]),
-        Container(
-          height: 55,
-          color: kSurfaceColor,
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            width: 375,
-            height: 44,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 33,
-                  alignment: Alignment.center,
-                  child: Text(
-                    "13",
-                    style: kHeadline4.copyWith(color: kPrimaryColor),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 75),
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 15,
+                            itemBuilder: (context, index) {
+                              return StatisticsTabItem(index: index);
+                            }),
+                      ),
+                    ],
                   ),
-                ),
-                Row(
+                ],
+              ),
+            ),
+          ]),
+          Container(
+            color: kSurfaceColor,
+            height: 65,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: SizedBox(
+                width: 375,
+                height: 44,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const CircleAvatar(
-                      radius: 18,
-                      foregroundImage: NetworkImage(
-                        "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+                    Container(
+                      width: 33,
+                      alignment: Alignment.center,
+                      child: Text(
+                        ("13"),
+                        style: kHeadline4.copyWith(color: kPrimaryColor),
                       ),
                     ),
-                    const SizedBox(
-                      width: 8,
+                    Row(
+                      children: [
+                        const CircleAvatar(
+                          radius: 18,
+                          foregroundImage: NetworkImage(
+                            "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Container(
+                          width: 167,
+                          height: 44,
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "MaratTop",
+                                style: kSubtitle1.copyWith(color: kWhiteColor),
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                "Netlandia",
+                                style: kSubtitle2.copyWith(color: kGreyColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                     Container(
-                      width: 167,
-                      alignment: Alignment.centerLeft,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      width: 44,
+                      alignment: Alignment.centerRight,
+                      child: Row(
                         children: [
-                          Text(
-                            "MaratTop",
-                            style: kSubtitle1.copyWith(color: kWhiteColor),
+                          const Icon(
+                            Ionicons.star,
+                            color: kPrimaryColor,
+                            size: kIconSize9,
                           ),
                           const SizedBox(
-                            height: 4,
+                            width: 4,
                           ),
                           Text(
-                            "Netlandia",
+                            "4.8",
                             style: kSubtitle2.copyWith(color: kGreyColor),
                           ),
                         ],
@@ -187,31 +217,11 @@ class TabBarStatistics extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  width: 44,
-                  alignment: Alignment.centerRight,
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Ionicons.star,
-                        color: kPrimaryColor,
-                        size: kIconSize9,
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Text(
-                        "4.8",
-                        style: kSubtitle2.copyWith(color: kGreyColor),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
