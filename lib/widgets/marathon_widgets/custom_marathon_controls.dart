@@ -16,8 +16,12 @@ import '../pro_video_widgets/video_progress_indicator.dart';
 
 class CustomMarathonControls extends StatefulWidget {
   final VideoPlayerController videoPlayerController;
+  AnimationController animationController;
+  Animation<double> animation;
   final Function? pop;
-  const CustomMarathonControls(this.videoPlayerController, {Key? key, this.pop})
+  CustomMarathonControls(
+      this.videoPlayerController, this.animationController, this.animation,
+      {Key? key, this.pop})
       : super(key: key);
 
   @override
@@ -32,21 +36,17 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
   bool _isHeartAnimating = false;
   final Duration _skipDuration = const Duration(milliseconds: 400);
 
-  late AnimationController animationController;
-  late Animation<double> animation;
-
-  void onTapPause() {
+  void onTapPause() async {
     setState(() {
       _isPause = !_isPause;
     });
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1))
-          ..forward(from: 0.3);
-    animation = CurvedAnimation(
-        parent: animationController, curve: Curves.easeInOutCirc);
+
+    widget.animation = CurvedAnimation(
+        parent: widget.animationController, curve: Curves.easeInOutCirc);
     _isPause
         ? widget.videoPlayerController.pause()
         : widget.videoPlayerController.play();
+    await widget.animationController.forward(from: 0.3);
   }
 
   Future<void> goToPossition(
@@ -79,22 +79,6 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
     setState(() {
       _isVisibleLeft = true;
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1))
-          ..forward(from: 0.3);
-    animation =
-        CurvedAnimation(parent: animationController, curve: Curves.easeIn);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    animationController.dispose();
   }
 
   String formatTime(Duration value) {
@@ -166,6 +150,21 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
             child: Stack(
               alignment: Alignment.center,
               children: [
+                Opacity(
+                  opacity: _isHeartAnimating ? 1 : 0,
+                  child: LikeAnimationWidget(
+                    isAnimated: _isHeartAnimating,
+                    onEnd: () => setState(() {
+                      _isHeartAnimating = false;
+                    }),
+                    duration: const Duration(milliseconds: 600),
+                    child: const GradientIcon(
+                      icon: Ionicons.heart,
+                      size: kIconSize2,
+                      gradient: kPrimaryGradient,
+                    ),
+                  ),
+                ),
                 SizedBox(
                   width: 305,
                   height: MediaQuery.of(context).size.height - 100,
@@ -174,7 +173,7 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
                       onTapPause();
                     },
                     onDoubleTap: () {
-                      context.read<ShortVideoController>().setLike();
+                      context.read<ShortVideoController>().setLikeOnDoubleTap();
                       setState(() {
                         _isHeartAnimating = true;
                       });
@@ -209,21 +208,6 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
                       ),
                     ),
                   ],
-                ),
-                Opacity(
-                  opacity: _isHeartAnimating ? 1 : 0,
-                  child: LikeAnimationWidget(
-                    isAnimated: _isHeartAnimating,
-                    onEnd: () => setState(() {
-                      _isHeartAnimating = false;
-                    }),
-                    duration: const Duration(milliseconds: 600),
-                    child: const GradientIcon(
-                      icon: Ionicons.heart,
-                      size: kIconSize2,
-                      gradient: kPrimaryGradient,
-                    ),
-                  ),
                 ),
                 Container(
                   width: double.infinity,
@@ -265,7 +249,7 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
                         child: InkWell(
                           onTap: () => onTapPause(),
                           child: FadeTransition(
-                            opacity: animation,
+                            opacity: widget.animation,
                             child: _isPause
                                 ? const Icon(
                                     Ionicons.play,

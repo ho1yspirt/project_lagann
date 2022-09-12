@@ -13,13 +13,21 @@ import 'custom_home_button.dart';
 class HomePostItem extends StatefulWidget {
   final bool isMarathon;
   final Function? pop;
-  const HomePostItem(this.isMarathon, {Key? key, this.pop}) : super(key: key);
+  final AnimationController animationController;
+  final Animation<double> animation;
+  const HomePostItem(this.isMarathon,
+      {Key? key,
+      this.pop,
+      required this.animationController,
+      required this.animation})
+      : super(key: key);
 
   @override
   State<HomePostItem> createState() => _HomePostItemState();
 }
 
-class _HomePostItemState extends State<HomePostItem> {
+class _HomePostItemState extends State<HomePostItem>
+    with TickerProviderStateMixin {
   late VideoPlayerController _videoPlayerController;
   ChewieController? _chewieController;
 
@@ -61,6 +69,8 @@ class _HomePostItemState extends State<HomePostItem> {
       customControls: CustomMarathonControls(
         _videoPlayerController,
         pop: widget.pop,
+        widget.animationController,
+        widget.animation,
       ),
     );
     setState(() {});
@@ -73,7 +83,9 @@ class _HomePostItemState extends State<HomePostItem> {
       children: [
         _videoPlayerController.value.isInitialized
             ? Chewie(controller: _chewieController!)
-            : const SizedBox(),
+            : const Center(
+                child: CircularProgressIndicator(),
+              ),
         AnimatedOpacity(
           duration: const Duration(milliseconds: 400),
           opacity: isVisible ? 0 : 1,
@@ -134,8 +146,9 @@ class _HomePostItemState extends State<HomePostItem> {
                               ),
                               SizedBox(height: 4),
                               Text(
-                                  style: kBody2TS,
-                                  'captions captions captions captions captions captions captions captions captions'),
+                                style: kBody2TS,
+                                'captions captions captions captions captions captions captions captions captions',
+                              ),
                             ],
                           ),
                         ),

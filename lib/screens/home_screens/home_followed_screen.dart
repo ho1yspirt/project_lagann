@@ -8,7 +8,26 @@ class HomeFollowedScreen extends StatefulWidget {
   State<HomeFollowedScreen> createState() => _HomeFollowedScreenState();
 }
 
-class _HomeFollowedScreenState extends State<HomeFollowedScreen> {
+class _HomeFollowedScreenState extends State<HomeFollowedScreen>
+    with TickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<double> animation;
+  @override
+  void initState() {
+    super.initState();
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1))
+          ..forward(from: 0.3);
+    animation =
+        CurvedAnimation(parent: animationController, curve: Curves.easeIn);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +39,11 @@ class _HomeFollowedScreenState extends State<HomeFollowedScreen> {
             controller: PageController(initialPage: 0, viewportFraction: 1),
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
-              return const HomePostItem(false);
+              return HomePostItem(
+                false,
+                animationController: animationController,
+                animation: animation,
+              );
             },
           ),
         ],

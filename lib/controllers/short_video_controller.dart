@@ -12,6 +12,11 @@ class ShortVideoController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setLikeOnDoubleTap() {
+    _isLiked = true;
+    notifyListeners();
+  }
+
   void setTimeBarVisible(bool visible) {
     _isTimeBarVisible = visible;
     notifyListeners();

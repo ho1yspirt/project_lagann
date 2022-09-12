@@ -9,8 +9,22 @@ class MarathonVideoScreen extends StatefulWidget {
   State<MarathonVideoScreen> createState() => _MarathonVideoScreenState();
 }
 
-class _MarathonVideoScreenState extends State<MarathonVideoScreen> {
+class _MarathonVideoScreenState extends State<MarathonVideoScreen>
+    with TickerProviderStateMixin {
   late PageController _pageController;
+
+  late AnimationController animationController;
+  late Animation<double> animation;
+  @override
+  void initState() {
+    super.initState();
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1))
+          ..forward(from: 0.3);
+    animation =
+        CurvedAnimation(parent: animationController, curve: Curves.easeIn);
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -19,6 +33,7 @@ class _MarathonVideoScreenState extends State<MarathonVideoScreen> {
       overlays: SystemUiOverlay.values,
     );
     _pageController.dispose();
+    animationController.dispose();
   }
 
   @override
@@ -45,6 +60,8 @@ class _MarathonVideoScreenState extends State<MarathonVideoScreen> {
               return HomePostItem(
                 true,
                 pop: pop,
+                animationController: animationController,
+                animation: animation,
               );
             },
           ),
