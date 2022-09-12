@@ -19,6 +19,7 @@ class SlivAppBar extends StatelessWidget {
       toolbarHeight: 48,
       titleSpacing: isNeedGoBack ?? false ? -10 : -39,
       backgroundColor: kBackgroundColor,
+      automaticallyImplyLeading: false,
       title: Text(
         title,
         style: kSliverAppBarTS,

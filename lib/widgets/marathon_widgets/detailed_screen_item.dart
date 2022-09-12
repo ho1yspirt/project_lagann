@@ -23,7 +23,7 @@ class DetailedScreenItem extends StatelessWidget {
             width: 117,
             decoration: BoxDecoration(
               color: kSurfaceColor,
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
