@@ -45,7 +45,6 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
       minHeight: 0.692,
       initHeight: 0.692,
       maxHeight: 0.692,
-      anchors: [0, 0.685],
       bottomSheetColor: kBackgroundColor,
       builder: (
         BuildContext context,
@@ -102,43 +101,40 @@ class _UnderVideoWidgetsState extends State<UnderVideoWidgets> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Container(
-                  constraints: const BoxConstraints(
-                    maxWidth: 310,
-                    maxHeight: 46,
-                    minHeight: 24,
-                  ),
-                  child: Text(
-                    widget.videoModel.title,
-                    style: kVideoTitleTS,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Container(
+                constraints: const BoxConstraints(
+                  maxWidth: 310,
+                  maxHeight: 46,
+                  minHeight: 24,
+                ),
+                child: Text(
+                  widget.videoModel.title,
+                  style: kVideoTitleTS,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 16),
-                child: InkWell(
-                  onTap: () {
-                    onTapShowDescription();
-                    SystemChrome.setPreferredOrientations([
-                      DeviceOrientation.portraitUp,
-                      DeviceOrientation.portraitDown
-                    ]);
-                  },
-                  child: const Icon(Ionicons.chevron_down),
-                ),
-              )
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: InkWell(
+                onTap: () {
+                  onTapShowDescription();
+                  SystemChrome.setPreferredOrientations([
+                    DeviceOrientation.portraitUp,
+                    DeviceOrientation.portraitDown
+                  ]);
+                },
+                child: const Icon(Ionicons.chevron_down),
+              ),
+            )
+          ],
         ),
         const SizedBox(
           height: 8,

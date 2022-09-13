@@ -6,20 +6,18 @@ import 'package:project_lagann/utils/theme.dart';
 import 'package:project_lagann/widgets/marathon_widgets/custom_marathon_controls.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
+
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 import 'custom_home_button.dart';
 
 class HomePostItem extends StatefulWidget {
   final bool isMarathon;
-  final Function? pop;
+
   final AnimationController animationController;
   final Animation<double> animation;
   const HomePostItem(this.isMarathon,
-      {Key? key,
-      this.pop,
-      required this.animationController,
-      required this.animation})
+      {Key? key, required this.animationController, required this.animation})
       : super(key: key);
 
   @override
@@ -54,7 +52,8 @@ class _HomePostItemState extends State<HomePostItem>
 
   void initVideoPlayer() async {
     _videoPlayerController = VideoPlayerController.network(
-        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4");
+      "https://d3kdj4aqjpwh2c.cloudfront.net/video/%D0%AF%D0%BF%D0%BE%D0%BD%D1%81%D0%BA%D0%B8%D0%B5+%D1%82%D1%83%D0%B0%D0%BB%D0%B5%D1%82%D1%8B!+%F0%9F%9A%BD+%23shorts.mp4",
+    );
     await _videoPlayerController.initialize();
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
@@ -64,11 +63,8 @@ class _HomePostItemState extends State<HomePostItem>
       allowFullScreen: false,
       allowMuting: false,
       showControls: true,
-      aspectRatio: MediaQuery.of(context).size.width /
-          MediaQuery.of(context).size.height,
       customControls: CustomMarathonControls(
         _videoPlayerController,
-        pop: widget.pop,
         widget.animationController,
         widget.animation,
       ),

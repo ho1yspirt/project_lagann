@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ionicons/ionicons.dart';
 import '../../widgets/home_widgets/home_post_item.dart';
+import '../notification_screens/notifications_screen.dart';
+import '../search_screens/search_screen.dart';
 
 class MarathonVideoScreen extends StatefulWidget {
   const MarathonVideoScreen({Key? key}) : super(key: key);
@@ -43,11 +46,6 @@ class _MarathonVideoScreenState extends State<MarathonVideoScreen>
       SystemUiMode.manual,
       overlays: [SystemUiOverlay.top],
     );
-
-    void pop() {
-      Navigator.of(context).pop();
-    }
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -59,11 +57,46 @@ class _MarathonVideoScreenState extends State<MarathonVideoScreen>
             itemBuilder: (context, index) {
               return HomePostItem(
                 true,
-                pop: pop,
                 animationController: animationController,
                 animation: animation,
               );
             },
+          ),
+          // AppBar
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 16, right: 16),
+            child: SafeArea(
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: const Icon(Ionicons.arrow_back),
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchScreen(),
+                      ),
+                    ),
+                    child: const Icon(Ionicons.search),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationsScreen(),
+                      ),
+                    ),
+                    child: const Icon(Ionicons.notifications),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

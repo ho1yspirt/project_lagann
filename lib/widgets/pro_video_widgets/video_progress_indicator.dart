@@ -108,7 +108,8 @@ class _VideoProgressBarState extends State<VideoProgressBar> {
         }
         _seekToRelativePosition(details.globalPosition);
       },
-      child: Center(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5),
         child: Container(
           height: 10,
           width: MediaQuery.of(context).size.width,

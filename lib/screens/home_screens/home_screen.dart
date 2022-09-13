@@ -4,6 +4,7 @@ import 'package:project_lagann/screens/home_screens/home_all_screen.dart';
 import 'package:project_lagann/screens/notification_screens/notifications_screen.dart';
 import 'package:project_lagann/screens/search_screens/search_screen.dart';
 import 'package:project_lagann/utils/constants.dart';
+import 'package:project_lagann/widgets/custom_shorts_appbar.dart';
 import '../../generated/l10n.dart';
 import 'home_followed_screen.dart';
 import 'package:flutter/services.dart';
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomHomeAppBar(
+      appBar: CustomShortsAppBar(
         appBar: AppBar(
           centerTitle: true,
           elevation: 0,
@@ -157,26 +158,4 @@ class _HomeScreenState extends State<HomeScreen> {
     _pageController.animateToPage(1,
         duration: const Duration(milliseconds: 500), curve: Curves.decelerate);
   }
-}
-
-class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final double height;
-  final AppBar appBar;
-  final Widget otherWidget;
-  const CustomHomeAppBar(
-      {Key? key,
-      required this.appBar,
-      required this.otherWidget,
-      required this.height})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [appBar, otherWidget],
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(height);
 }

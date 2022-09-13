@@ -408,7 +408,8 @@ class _CustomConstrolsState extends State<CustomConstrols>
                                     var totalTimeFormat =
                                         formatTime(value.duration);
                                     return Text(
-                                        "$currentTimeFormat / $totalTimeFormat");
+                                      "$currentTimeFormat / $totalTimeFormat",
+                                    );
                                   },
                                 ),
                                 VideoProgressBar(
@@ -437,7 +438,7 @@ class _CustomConstrolsState extends State<CustomConstrols>
                 ),
                 if (!isLandscape)
                   Positioned(
-                    height: 0,
+                    height: 10,
                     child: VideoProgressBar(
                       widget.videoPlayerController!,
                       barHeight: 5,
