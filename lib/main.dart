@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
@@ -30,7 +31,9 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     // initUniLinks();
-    setOptimalDisplayMode();
+    if (Platform.isAndroid) {
+      setOptimalDisplayMode();
+    }
   }
 
   @override

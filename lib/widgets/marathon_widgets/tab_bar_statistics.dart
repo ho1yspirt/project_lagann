@@ -176,6 +176,7 @@ class TabBarStatistics extends StatelessWidget {
                           width: 167,
                           alignment: Alignment.centerLeft,
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(

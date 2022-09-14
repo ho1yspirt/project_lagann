@@ -88,7 +88,8 @@ class _VideoCardState extends State<VideoCard> {
                         children: <Widget>[
                           Row(
                             children: [
-                              Flexible(
+                              SizedBox(
+                                width: 280,
                                 child: Text(
                                   widget.videoModel.title,
                                   style: kVideoTitleTS,
@@ -96,6 +97,7 @@ class _VideoCardState extends State<VideoCard> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
+                              const Spacer(),
                               IconButton(
                                 constraints:
                                     const BoxConstraints(maxHeight: 24),

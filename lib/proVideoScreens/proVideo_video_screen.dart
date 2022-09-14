@@ -93,13 +93,17 @@ class _VideoScreenState extends State<VideoScreen> {
         bottom: false,
         child: Column(
           children: [
-            Expanded(
-              flex: 2,
+            SizedBox(
+              height: 230,
+              width: MediaQuery.of(context).size.width,
               child: _videoPlayerController.value.isInitialized
                   ? Padding(
-                      padding: const EdgeInsets.only(bottom: 19),
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: VideoPlayerItem(
-                          _videoPlayerController, _chewieController!))
+                        _videoPlayerController,
+                        _chewieController!,
+                      ),
+                    )
                   : const Center(
                       child: CircularProgressIndicator(),
                     ),

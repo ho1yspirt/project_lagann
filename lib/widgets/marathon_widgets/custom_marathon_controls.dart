@@ -4,13 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/controllers/short_video_controller.dart';
-import 'package:project_lagann/screens/notification_screens/notifications_screen.dart';
 import 'package:project_lagann/utils/theme.dart';
 import 'package:project_lagann/widgets/marathon_widgets/like_animation_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../screens/search_screens/search_screen.dart';
 import '../../utils/constants.dart';
 import '../pro_video_widgets/video_progress_indicator.dart';
 
@@ -18,10 +16,10 @@ class CustomMarathonControls extends StatefulWidget {
   final VideoPlayerController videoPlayerController;
   AnimationController animationController;
   Animation<double> animation;
-  final Function? pop;
+
   CustomMarathonControls(
       this.videoPlayerController, this.animationController, this.animation,
-      {Key? key, this.pop})
+      {Key? key})
       : super(key: key);
 
   @override
@@ -110,40 +108,6 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
           : Colors.transparent,
       child: Stack(
         children: [
-          //AppBar
-          Padding(
-            padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
-            child: Row(
-              children: [
-                InkWell(
-                  onTap: () => widget.pop!(),
-                  child: const Icon(Ionicons.arrow_back),
-                ),
-                const Spacer(),
-                InkWell(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SearchScreen(),
-                    ),
-                  ),
-                  child: const Icon(Ionicons.search),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                InkWell(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const NotificationsScreen(),
-                    ),
-                  ),
-                  child: const Icon(Ionicons.notifications),
-                ),
-              ],
-            ),
-          ),
           SizedBox(
             width: double.infinity,
             height: double.infinity,
