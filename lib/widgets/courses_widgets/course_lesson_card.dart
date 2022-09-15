@@ -1,14 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:project_lagann/models/video.dart';
+import 'package:project_lagann/screens/courses_screens/course_video_screen.dart';
 import '../../generated/l10n.dart';
 import '../../utils/constants.dart';
 
 class CourseLessonCard extends StatelessWidget {
   final bool isPurchased;
   final int lessonIndex;
+  final VideoModel videoModel;
   const CourseLessonCard(
-      {Key? key, required this.isPurchased, required this.lessonIndex})
+      {Key? key,
+      required this.isPurchased,
+      required this.lessonIndex,
+      required this.videoModel})
       : super(key: key);
+
+  void onTapLesson(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => CourseVideoSCreen(
+          videoModel: videoModel,
+          isPurchased: isPurchased,
+        ),
+      ),
+    );
+  }
 
   void onTapLockedLesson(BuildContext context) {
     showDialog(
@@ -63,6 +80,8 @@ class CourseLessonCard extends StatelessWidget {
         onTap: () {
           if (isPurchased == false && lessonIndex != 1 && lessonIndex != 2) {
             onTapLockedLesson(context);
+          } else {
+            onTapLesson(context);
           }
         },
         child: Padding(
@@ -118,6 +137,8 @@ class CourseLessonCard extends StatelessWidget {
                         lessonIndex != 1 &&
                         lessonIndex != 2) {
                       onTapLockedLesson(context);
+                    } else {
+                      onTapLesson(context);
                     }
                   },
                   icon: lessonIndex == 1 ||
@@ -140,51 +161,5 @@ class CourseLessonCard extends StatelessWidget {
         ),
       ),
     );
-    // ListTile(
-    //   onTap: () {},
-    //   contentPadding: const EdgeInsets.only(left: 6),
-    //   title: Text(
-    //     'Some text for lesson 3D course duper puper good',
-    //     style: kHeadline5.copyWith(color: kWhiteColor),
-    //     overflow: TextOverflow.ellipsis,
-    //     maxLines: 2,
-    //   ),
-    //   subtitle: Text(
-    //     '90 min',
-    //     style: kBody2TS.copyWith(color: kGreyColor),
-    //     overflow: TextOverflow.ellipsis,
-    //     maxLines: 1,
-    //   ),
-    //   leading: Container(
-    //     height: 48,
-    //     width: 48,
-    //     decoration:
-    //         const BoxDecoration(color: kSurfaceColor, shape: BoxShape.circle),
-    //     child: Center(
-    //       child: Text(
-    //         '$lessonIndex',
-    //         style: kHeadline4.copyWith(color: kPrimaryColor),
-    //       ),
-    //     ),
-    //   ),
-    //   trailing: IconButton(
-    //     onPressed: () {
-    //       if (isPurchased == false) {
-    //         onTapLockedLesson(context);
-    //       }
-    //     },
-    //     icon: lessonIndex == 1 || lessonIndex == 2 || isPurchased == true
-    //         ? const Icon(
-    //             Ionicons.play_circle,
-    //             color: kPrimaryColor,
-    //             size: kIconSize4,
-    //           )
-    //         : const Icon(
-    //             Ionicons.lock_closed,
-    //             color: kWhiteColor,
-    //             size: kIconSize4,
-    //           ),
-    //   ),
-    // );
   }
 }

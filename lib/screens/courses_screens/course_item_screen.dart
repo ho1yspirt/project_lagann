@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:project_lagann/widgets/courses_widgets/course_lesson_card.dart';
+import 'package:project_lagann/widgets/courses_widgets/course_lessons_list.dart';
 import 'package:project_lagann/widgets/courses_widgets/course_review_card.dart';
 import 'package:project_lagann/widgets/custom_choice_chips.dart';
 import '../../generated/l10n.dart';
+import '../../models/user.dart';
+import '../../models/video.dart';
 import '../../utils/constants.dart';
 import '../../widgets/custom_tabbar_indicator.dart';
 import 'package:flutter/services.dart';
@@ -393,17 +396,7 @@ class _CourseItemScreenState extends State<CourseItemScreen>
                             ),
                           ),
                         ),
-                        SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            (context, int index) {
-                              return CourseLessonCard(
-                                isPurchased: widget.isPurchased,
-                                lessonIndex: index + 1,
-                              );
-                            },
-                            childCount: 50,
-                          ),
-                        ),
+                        CourseLessonsList(isPurchased: widget.isPurchased),
                       ],
                     ),
                     CustomScrollView(
