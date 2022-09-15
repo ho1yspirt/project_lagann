@@ -142,11 +142,14 @@ class _CustomMarathonControlsState extends State<CustomMarathonControls>
                         _isHeartAnimating = true;
                       });
                     },
-                    onLongPress: () => setState(() {
-                      context
-                          .read<ShortVideoController>()
-                          .setTimeBarVisible(true);
-                    }),
+                    onLongPress: () {
+                      setState(() {
+                        context
+                            .read<ShortVideoController>()
+                            .setTimeBarVisible(true);
+                      });
+                      HapticFeedback.mediumImpact();
+                    },
                     onLongPressEnd: (_) => setState(() {
                       context
                           .read<ShortVideoController>()
